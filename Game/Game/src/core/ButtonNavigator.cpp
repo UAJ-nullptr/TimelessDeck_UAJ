@@ -1,5 +1,5 @@
 #include "ButtonNavigator.h"
-#include <experimental/map>
+//#include <experimental/map>
 
 // Constructora
 ButtonNavigator::ButtonNavigator() : gmCtrl_(gmCtrl()), unlockedMovement_(true) {}
@@ -135,12 +135,25 @@ void ButtonNavigator::erase(Image* im) {
 	}
 
 
+	//for (int o = 0; o < 2; ++o) {
+	//	for (auto& m : matrix[o]) {
+	//		std::experimental::erase_if(m.second,
+	//			[im](const auto& bd) {
+	//				return bd.second.buttonIm == im;
+	//			});
+	//	}
+	//}
+
 	for (int o = 0; o < 2; ++o) {
 		for (auto& m : matrix[o]) {
-			std::experimental::erase_if(m.second,
-				[im](const auto& bd) {
-					return bd.second.buttonIm == im;
-				});
+			for (auto it = m.second.begin(); it != m.second.end(); ) {
+				if (it->second.buttonIm == im) {
+					it = m.second.erase(it); // Eliminar correctamente del map
+				}
+				else {
+					++it;
+				}
+			}
 		}
 	}
 }

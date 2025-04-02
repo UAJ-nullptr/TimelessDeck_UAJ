@@ -127,6 +127,7 @@
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)libs\SDL2-2.26.2\include;$(SolutionDir)libs\SDL2_image-2.6.2\include;$(SolutionDir)libs\SDL2_mixer-2.6.2\include;$(SolutionDir)libs\SDL2_ttf-2.20.1\include;$(SolutionDir)libs\box2d-2.4.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
