@@ -329,7 +329,7 @@
     <ClCompile Include="src\components\General Components\PopupComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
-    <ClCompile Include="TelemetryManager.cpp">
+    <ClCompile Include="TelemetryTracker.cpp">
       <Filter>Telemetría</Filter>
     </ClCompile>
   </ItemGroup>
@@ -683,7 +683,7 @@
     <ClInclude Include="src\components\General Components\PopupComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
-    <ClInclude Include="TelemetryManager.h">
+    <ClInclude Include="TelemetryTracker.h">
       <Filter>Telemetría</Filter>
     </ClInclude>
   </ItemGroup>
