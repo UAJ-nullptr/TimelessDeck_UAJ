@@ -329,6 +329,9 @@
     <ClCompile Include="src\components\General Components\PopupComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
+    <ClCompile Include="TelemetryManager.cpp">
+      <Filter>Telemetría</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -680,6 +683,9 @@
     <ClInclude Include="src\components\General Components\PopupComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
+    <ClInclude Include="TelemetryManager.h">
+      <Filter>Telemetría</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Game.ico">
@@ -806,6 +812,9 @@
     </Filter>
     <Filter Include="Archivos de Encabezado\Core">
       <UniqueIdentifier>{98992aa9-64df-4604-9431-33c2e4038671}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Telemetría">
+      <UniqueIdentifier>{b8d8c5e4-af9c-4933-94c9-63f0d3af8c4c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
