@@ -271,6 +271,7 @@
     <ClInclude Include="src\sdlutils\VirtualTimer.h" />
     <ClInclude Include="src\targetver.h" />
     <ClInclude Include="src\Telemetria\Eventos\GenericEvent.h" />
+    <ClInclude Include="src\Telemetria\Eventos\Events.h" />
     <ClInclude Include="src\Telemetria\TelemetryTracker.h" />
     <ClInclude Include="src\utils\Collisions.h" />
     <ClInclude Include="src\utils\Singleton.h" />

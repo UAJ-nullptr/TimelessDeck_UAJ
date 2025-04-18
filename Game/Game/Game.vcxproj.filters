@@ -329,9 +329,7 @@
     <ClCompile Include="src\components\General Components\PopupComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
-    <ClCompile Include="TelemetryTracker.cpp">
-      <Filter>Telemetría</Filter>
-    </ClCompile>
+    <ClCompile Include="src\Telemetria\TelemetryTracker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -683,8 +681,12 @@
     <ClInclude Include="src\components\General Components\PopupComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
-    <ClInclude Include="TelemetryTracker.h">
-      <Filter>Telemetría</Filter>
+    <ClInclude Include="src\Telemetria\TelemetryTracker.h" />
+    <ClInclude Include="src\Telemetria\Eventos\GenericEvent.h">
+      <Filter>Telemetría\Eventos</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Telemetria\Eventos\Events.h">
+      <Filter>Telemetría\Eventos</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -815,6 +817,9 @@
     </Filter>
     <Filter Include="Telemetría">
       <UniqueIdentifier>{b8d8c5e4-af9c-4933-94c9-63f0d3af8c4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Telemetría\Eventos">
+      <UniqueIdentifier>{0851ed1c-9d5a-4a94-a794-cc4fa56c8a5c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
