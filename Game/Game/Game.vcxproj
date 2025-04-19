@@ -272,6 +272,8 @@
     <ClInclude Include="src\targetver.h" />
     <ClInclude Include="src\Telemetria\Eventos\GenericEvent.h" />
     <ClInclude Include="src\Telemetria\Eventos\Events.h" />
+    <ClInclude Include="src\Telemetria\Persistencia\IPersistence.h" />
+    <ClInclude Include="src\Telemetria\Serialización\ISerializer.h" />
     <ClInclude Include="src\Telemetria\TelemetryTracker.h" />
     <ClInclude Include="src\utils\Collisions.h" />
     <ClInclude Include="src\utils\Singleton.h" />
@@ -386,6 +388,8 @@
     <ClCompile Include="src\sdlutils\SDLUtils.cpp" />
     <ClCompile Include="src\sdlutils\SoundEffect.cpp" />
     <ClCompile Include="src\sdlutils\Texture.cpp" />
+    <ClCompile Include="src\Telemetria\Persistencia\IPersistence.cpp" />
+    <ClCompile Include="src\Telemetria\Serialización\ISerializer.cpp" />
     <ClCompile Include="src\Telemetria\TelemetryTracker.cpp" />
     <ClCompile Include="src\utils\Collisions.cpp" />
   </ItemGroup>

@@ -1,19 +1,27 @@
 #pragma once
+
 #include "queue"
+#include "../utils/Singleton.h"
+#include "Eventos/GenericEvent.h"
+#include "Persistencia/IPersistence.h"
 
-using Event = int;
 
-class TelemetryTracker
-{
+class TelemetryTracker : public Singleton<TelemetryTracker> {
+	friend Singleton<TelemetryTracker>;
 private:
+	
+	IPersistence persistence;
+
 	// Serialización
 	// Cola en la que se van introduciendo los eventos generados
-	std::queue<Event> events;
-public:
-	TelemetryTracker();
-	~TelemetryTracker();
+	std::queue<GenericEvent> events;
 
-	void addEvent(Event event);
-	Event getOldestEvent();
+	TelemetryTracker();
+
+public:
+	virtual ~TelemetryTracker();
+
+	void addEvent(GenericEvent event);
+	GenericEvent getOldestEvent();
 };
 

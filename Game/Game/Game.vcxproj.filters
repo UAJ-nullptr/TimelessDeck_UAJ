@@ -329,7 +329,15 @@
     <ClCompile Include="src\components\General Components\PopupComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\Telemetria\TelemetryTracker.cpp" />
+    <ClCompile Include="src\Telemetria\TelemetryTracker.cpp">
+      <Filter>Telemetría</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Telemetria\Serialización\ISerializer.cpp">
+      <Filter>Telemetría\Serialización</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Telemetria\Persistencia\IPersistence.cpp">
+      <Filter>Telemetría\Persistencia</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -681,12 +689,20 @@
     <ClInclude Include="src\components\General Components\PopupComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\Telemetria\TelemetryTracker.h" />
     <ClInclude Include="src\Telemetria\Eventos\GenericEvent.h">
       <Filter>Telemetría\Eventos</Filter>
     </ClInclude>
     <ClInclude Include="src\Telemetria\Eventos\Events.h">
       <Filter>Telemetría\Eventos</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Telemetria\TelemetryTracker.h">
+      <Filter>Telemetría</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Telemetria\Serialización\ISerializer.h">
+      <Filter>Telemetría\Serialización</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Telemetria\Persistencia\IPersistence.h">
+      <Filter>Telemetría\Persistencia</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -820,6 +836,12 @@
     </Filter>
     <Filter Include="Telemetría\Eventos">
       <UniqueIdentifier>{0851ed1c-9d5a-4a94-a794-cc4fa56c8a5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Telemetría\Persistencia">
+      <UniqueIdentifier>{cb5a49e2-d35e-4be0-94cc-e1003b70d916}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Telemetría\Serialización">
+      <UniqueIdentifier>{446524ee-2e98-49c6-839f-e847b6eea6f5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

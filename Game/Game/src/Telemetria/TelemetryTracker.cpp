@@ -10,14 +10,14 @@ TelemetryTracker::~TelemetryTracker()
 
 }
 
-void TelemetryTracker::addEvent(Event event)
+void TelemetryTracker::addEvent(GenericEvent event)
 {
 	events.push(event);
 }
 
-Event TelemetryTracker::getOldestEvent()
+GenericEvent TelemetryTracker::getOldestEvent()
 {
-	Event oldestEvent = events.front();
+	GenericEvent oldestEvent = events.front();
 	events.pop();
 	return oldestEvent;
 }
