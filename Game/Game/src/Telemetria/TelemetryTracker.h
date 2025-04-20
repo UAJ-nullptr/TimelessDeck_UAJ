@@ -19,7 +19,8 @@ private:
 	double elapsedTime;
 	double timeLimit;
 
-	TelemetryTracker(string appName, string appVers, int sessionId);
+	TelemetryTracker();
+	TelemetryTracker(string appName, string appVers, int sessionId, double timeLimit);
 
 public:
 	virtual ~TelemetryTracker();

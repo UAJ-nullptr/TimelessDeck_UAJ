@@ -9,5 +9,5 @@ public:
 	ServerPersistence();
 	~ServerPersistence();
 
-	void flush();
+	virtual void flush();
 };

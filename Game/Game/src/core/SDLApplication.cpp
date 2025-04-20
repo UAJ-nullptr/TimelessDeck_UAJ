@@ -19,6 +19,9 @@ SDLApplication::SDLApplication() {
 	exit = false;
 
 	mainMusic = &sdlutils().musics().at(MAIN_MUSIC);
+
+	TelemetryTracker::init("TimlessDeck", "1.0.0", 0, 1);
+	telemetryTracker = TelemetryTracker::instance();
 }
 
 // Destructora
@@ -56,7 +59,7 @@ void SDLApplication::run() {
 
 		deltaTime = (double)((NOW - LAST) * 1000 / (double)SDL_GetPerformanceFrequency());
 
-		// telemetrytracker.update(deltaTime);
+		telemetryTracker->update(deltaTime);
 
 		debugCounter += deltaTime;
 

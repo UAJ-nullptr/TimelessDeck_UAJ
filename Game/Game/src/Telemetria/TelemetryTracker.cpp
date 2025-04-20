@@ -1,13 +1,14 @@
 #include "TelemetryTracker.h"
 #include "Persistencia/FilePersistence.h"
 
-TelemetryTracker::TelemetryTracker(string appName, string appVers, int sessionId)
+TelemetryTracker::TelemetryTracker()
 {
-	currentId = 0;
-	this->appName = appName;
-	this->appVersion = appVers;
-	this->sessionId = sessionId;
 
+}
+
+TelemetryTracker::TelemetryTracker(string appName, string appVers, int sessionId, double timeLimit) : appName(appName),
+	appVersion(appVers), sessionId(sessionId), currentId(0), elapsedTime(0), timeLimit(timeLimit)
+{
 	persistence = new FilePersistence(sessionId);
 }
 
@@ -22,6 +23,8 @@ void TelemetryTracker::update(double deltaTime)
 	if (elapsedTime > timeLimit) {
 		// volcado a disco a traves de persistencia
 		persistence->flush();
+		//cout << deltaTime << " y " << elapsedTime << endl;
+		// creo que algo no va bien con el tiempo
 
 		elapsedTime = 0;
 	}

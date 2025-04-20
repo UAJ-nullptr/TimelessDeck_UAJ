@@ -9,10 +9,10 @@ FilePersistence::FilePersistence(int sessionId) {
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
 
-	filename = sessionId + ":" + timeInNano;
+	filename = "../Game/src/data/telemetry/" + std::to_string(sessionId) + "-" + std::to_string(timeInNano) + ".json";
 	file = new std::ofstream(filename);
 	if (!file->is_open()) {
-		std::cout << "Error.\n";
+		std::cout << "Telemetry file creation error.\n";
 		delete file;
 		file = nullptr;
 	}
@@ -37,7 +37,7 @@ void FilePersistence::flush()
 			events.pop();
 			s += serializer.serialize(oldestEvent);
 		}
-
+		s = "hola\n";
 		*file << s;
 	}
 }

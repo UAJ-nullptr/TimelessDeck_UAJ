@@ -12,5 +12,5 @@ public:
 	FilePersistence(int sessionId);
 	~FilePersistence();
 
-	void flush();
+	virtual void flush();
 };

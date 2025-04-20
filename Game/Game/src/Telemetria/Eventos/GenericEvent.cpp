@@ -7,5 +7,5 @@ void GenericEvent::serializeToJSON(JSONObject& jsonEvent)
 	jsonEvent["eType"] = new JSONValue(eType);
 	jsonEvent["appName"] = new JSONValue(appName);
 	jsonEvent["appVersion"] = new JSONValue(appVersion);
-	jsonEvent["sessionId"] = new JSONValue(sessionId);
+	// jsonEvent["sessionId"] = new JSONValue(sessionId); long tambien da problema
 }

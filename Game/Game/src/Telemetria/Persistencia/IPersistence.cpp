@@ -15,3 +15,8 @@ void IPersistence::send(GenericEvent event)
 {
 	events.push(event);
 }
+
+void IPersistence::flush()
+{
+
+}

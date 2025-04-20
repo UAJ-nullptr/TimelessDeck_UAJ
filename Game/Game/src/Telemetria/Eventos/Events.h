@@ -28,7 +28,7 @@ public:
 
 	void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
-		jsonEvent["LevelId"] = new JSONValue(levelId);
+		jsonEvent["levelId"] = new JSONValue(levelId);
 	}
 };
 
@@ -42,7 +42,7 @@ public:
 
 	void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
-		jsonEvent["LevelId"] = new JSONValue(levelId);
+		jsonEvent["levelId"] = new JSONValue(levelId);
 	}
 };
 
@@ -57,7 +57,8 @@ public:
 
 	void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
-		jsonEvent["LevelId"] = new JSONValue(levelId);
+		jsonEvent["levelId"] = new JSONValue(levelId);
+		jsonEvent["currentCard"] = new JSONValue(currentCard);
 	}
 };
 
@@ -73,7 +74,8 @@ public:
 
 	void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
-		jsonEvent["LevelId"] = new JSONValue(levelId);
+		jsonEvent["levelId"] = new JSONValue(levelId);
+		jsonEvent["cardFromAbility"] = new JSONValue(cardFromAbility);
 	}
 };
 
@@ -84,6 +86,11 @@ private:
 public:
 	PlayerHealedEvent(int evntId, long long timeStmp, string appNme, string appVrs, long sessionID, int heal) :
 		GenericEvent(evntId, timeStmp, PLAYER_HEALED, appName, appVrs, sessionID), quantityHealed(heal) {}
+
+	void serializeToJSON(JSONObject& jsonEvent) {
+		GenericEvent::serializeToJSON(jsonEvent);
+		jsonEvent["quantityHealed"] = new JSONValue(quantityHealed);
+	}
 };
 
 class PeriodicHealthEvent : public GenericEvent
@@ -93,6 +100,11 @@ private:
 public:
 	PeriodicHealthEvent(int evntId, long long timeStmp, string appNme, string appVrs, long sessionID, int currentHealth) :
 		GenericEvent(evntId, timeStmp, PERIODIC_HEALTH_STATUS, appName, appVrs, sessionID), healthStatus(currentHealth) {}
+
+	void serializeToJSON(JSONObject& jsonEvent) {
+		GenericEvent::serializeToJSON(jsonEvent);
+		jsonEvent["healthStatus"] = new JSONValue(healthStatus);
+	}
 };
 
 class InsufficientManaEvent : public GenericEvent
@@ -106,6 +118,13 @@ public:
 		long sessionID, int currentMana, CardId ability, int abilityCost) :
 		GenericEvent(evntId, timeStmp, NOT_ENOUGHT_MANA, appName, appVrs, sessionID), manaStatus(currentMana), 
 		cardFromAbility(ability), manaCost(abilityCost) {}
+
+	void serializeToJSON(JSONObject& jsonEvent) {
+		GenericEvent::serializeToJSON(jsonEvent);
+		jsonEvent["manaStatus"] = new JSONValue(manaStatus);
+		jsonEvent["cardFromAbility"] = new JSONValue(cardFromAbility);
+		jsonEvent["manaCost"] = new JSONValue(manaCost);
+	}
 };
 
 class ManaTakenEvent : public GenericEvent
@@ -118,16 +137,27 @@ public:
 		long sessionID, int currentMana, int takenMana) :
 		GenericEvent(evntId, timeStmp, MANA_TAKEN, appName, appVrs, sessionID), manaStatus(currentMana),
 		manaTaken(takenMana) {}
+
+	void serializeToJSON(JSONObject& jsonEvent) {
+		GenericEvent::serializeToJSON(jsonEvent);
+		jsonEvent["manaStatus"] = new JSONValue(manaStatus);
+		jsonEvent["manaTaken"] = new JSONValue(manaTaken);
+	}
 };
 
 
 class CanExitLevelEvent : public GenericEvent
 {
 private:
-	int LevelId;
+	int levelId;
 public:
 	CanExitLevelEvent(int evntId, long long timeStmp, string appNme, string appVrs, long sessionID, int levelid) :
-		GenericEvent(evntId, timeStmp, LEVEL_EXIT_POSSIBLE, appName, appVrs, sessionID), LevelId(levelid) {}
+		GenericEvent(evntId, timeStmp, LEVEL_EXIT_POSSIBLE, appName, appVrs, sessionID), levelId(levelid) {}
+
+	void serializeToJSON(JSONObject& jsonEvent) {
+		GenericEvent::serializeToJSON(jsonEvent);
+		jsonEvent["levelId"] = new JSONValue(levelId);
+	}
 };
 
 //class LevelExited : public GenericEvent
@@ -142,11 +172,17 @@ public:
 class TriedExitEvent : public GenericEvent
 {
 private:
-	int LevelId;
-	int eterStatus;
+	int levelId;
+	int etherStatus;
 public:
-	TriedExitEvent(int evntId, long long timeStmp, string appNme, string appVrs, long sessionID, int levelid, int currentEter) :
-		GenericEvent(evntId, timeStmp, TRIED_LEAVING, appName, appVrs, sessionID), LevelId(levelid), eterStatus(currentEter) {}
+	TriedExitEvent(int evntId, long long timeStmp, string appNme, string appVrs, long sessionID, int levelid, int currentEther) :
+		GenericEvent(evntId, timeStmp, TRIED_LEAVING, appName, appVrs, sessionID), levelId(levelid), etherStatus(currentEther) {}
+
+	void serializeToJSON(JSONObject& jsonEvent) {
+		GenericEvent::serializeToJSON(jsonEvent);
+		jsonEvent["levelId"] = new JSONValue(levelId);
+		jsonEvent["etherStatus"] = new JSONValue(etherStatus);
+	}
 };
 
 class ChangedCardDeckToHandEvent : public GenericEvent
@@ -156,6 +192,11 @@ private:
 public:
 	ChangedCardDeckToHandEvent(int evntId, long long timeStmp, string appNme, string appVrs, long sessionID,CardId card) :
 		GenericEvent(evntId, timeStmp, MOVED_TO_HAND, appName, appVrs, sessionID), cardChanged(card) {}
+
+	void serializeToJSON(JSONObject& jsonEvent) {
+		GenericEvent::serializeToJSON(jsonEvent);
+		jsonEvent["cardChanged"] = new JSONValue(cardChanged);
+	}
 };
 
 class ChangedCardHandToDeckEvent : public GenericEvent
@@ -165,6 +206,11 @@ private:
 public:
 	ChangedCardHandToDeckEvent(int evntId, long long timeStmp, string appNme, string appVrs, long sessionID, CardId card) :
 		GenericEvent(evntId, timeStmp, MOVED_FROM_HAND, appName, appVrs, sessionID), cardChanged(card) {}
+
+	void serializeToJSON(JSONObject& jsonEvent) {
+		GenericEvent::serializeToJSON(jsonEvent);
+		jsonEvent["cardChanged"] = new JSONValue(cardChanged);
+	}
 };
 
 class InventoryExitedEvent : public GenericEvent
@@ -175,4 +221,9 @@ public:
 
 	InventoryExitedEvent(int evntId, long long timeStmp, string appNme, string appVrs, long sessionID, vector<CardId> card) :
 		GenericEvent(evntId, timeStmp, INVENTORY_LEFT, appName, appVrs, sessionID), currentDeck(card) {}
+
+	void serializeToJSON(JSONObject& jsonEvent) {
+		GenericEvent::serializeToJSON(jsonEvent);
+		//jsonEvent["currentDeck"] = new JSONValue(currentDeck); // no se pueden vectores, convertir a JSONArray?
+	}
 };

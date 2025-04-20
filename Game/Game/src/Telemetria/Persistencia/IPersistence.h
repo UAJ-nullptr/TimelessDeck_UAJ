@@ -13,8 +13,8 @@ public:
 	IPersistence();
 	~IPersistence();
 
-	void send(GenericEvent event);
+	virtual void send(GenericEvent event);
 
-	void flush();
+	virtual void flush();
 };
 
