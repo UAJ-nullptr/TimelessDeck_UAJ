@@ -338,6 +338,13 @@
     <ClCompile Include="src\Telemetria\Persistencia\IPersistence.cpp">
       <Filter>Telemetría\Persistencia</Filter>
     </ClCompile>
+    <ClCompile Include="src\Telemetria\Persistencia\FilePersistence.cpp">
+      <Filter>Telemetría\Persistencia</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Telemetria\Persistencia\ServerPersistence.cpp">
+      <Filter>Telemetría\Persistencia</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Telemetria\Eventos\GenericEvent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -702,6 +709,12 @@
       <Filter>Telemetría\Serialización</Filter>
     </ClInclude>
     <ClInclude Include="src\Telemetria\Persistencia\IPersistence.h">
+      <Filter>Telemetría\Persistencia</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Telemetria\Persistencia\ServerPersistence.h">
+      <Filter>Telemetría\Persistencia</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Telemetria\Persistencia\FilePersistence.h">
       <Filter>Telemetría\Persistencia</Filter>
     </ClInclude>
   </ItemGroup>

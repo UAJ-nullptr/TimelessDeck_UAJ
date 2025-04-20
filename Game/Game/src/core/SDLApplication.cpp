@@ -56,6 +56,8 @@ void SDLApplication::run() {
 
 		deltaTime = (double)((NOW - LAST) * 1000 / (double)SDL_GetPerformanceFrequency());
 
+		// telemetrytracker.update(deltaTime);
+
 		debugCounter += deltaTime;
 
 		if (frameTime >= DELAY_TIME) {

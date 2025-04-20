@@ -1,6 +1,5 @@
 #pragma once
 
-#include "queue"
 #include "../utils/Singleton.h"
 #include "Eventos/Events.h"
 #include "Persistencia/IPersistence.h"
@@ -10,21 +9,22 @@
 class TelemetryTracker : public Singleton<TelemetryTracker> {
 	friend Singleton<TelemetryTracker>;
 private:
+	IPersistence* persistence;
 	
-	IPersistence persistence;
-
-	// Serialización
-	// Cola en la que se van introduciendo los eventos generados
-	std::queue<GenericEvent> events;
 	int currentId;
 	string appName;
 	string appVersion;
 	int sessionId;
 
+	double elapsedTime;
+	double timeLimit;
+
 	TelemetryTracker(string appName, string appVers, int sessionId);
 
 public:
 	virtual ~TelemetryTracker();
+
+	void update(double deltaTime);
 
 	void addEvent(GenericEvent event);
 	void addSessionStartedEvent();
@@ -42,6 +42,5 @@ public:
 	void addChangedToHandEvent(CardId card);
 	void addChangedToDeckEvent(CardId card);
 	void addInventoryExitedEvent(vector<CardId> deck);
-	GenericEvent getOldestEvent();
 };
 

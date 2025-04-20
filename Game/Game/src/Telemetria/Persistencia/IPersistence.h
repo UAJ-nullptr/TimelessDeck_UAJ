@@ -1,11 +1,14 @@
 #pragma once
+#include "queue"
+#include "../Serialización/ISerializer.h"
 
-#include "../Eventos/GenericEvent.h"
+class GenericEvent;
 
 class IPersistence
 {
-private:
-
+protected:
+	std::queue<GenericEvent> events;
+	ISerializer serializer;
 public:
 	IPersistence();
 	~IPersistence();

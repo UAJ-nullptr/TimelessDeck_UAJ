@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "../../data/json/JSON.h"
 
 using namespace std;
 
@@ -24,6 +25,7 @@ enum eventType
 };
 class GenericEvent
 {
+	friend class ISerializer;
 protected:
 	int eventId;
 	long long timeStamp;
@@ -36,5 +38,7 @@ public:
 		eType(evtType), appName(appNme), appVersion(appVrs), sessionId(sessionID)
 	{
 	};
+
+	virtual void serializeToJSON(JSONObject& jsonEvent);
 };
 

@@ -21,19 +21,29 @@ public:
 class LevelStartedEvent : public GenericEvent
 {
 private:
-	int LevelId;
+	int levelId;
 public:
 	LevelStartedEvent(int evntId, long long timeStmp, string appNme, string appVrs, long sessionID, int levelid) :
-		GenericEvent(evntId, timeStmp, START_LEVEL, appName, appVrs, sessionID), LevelId(levelid) {}
+		GenericEvent(evntId, timeStmp, START_LEVEL, appName, appVrs, sessionID), levelId(levelid) {}
+
+	void serializeToJSON(JSONObject& jsonEvent) {
+		GenericEvent::serializeToJSON(jsonEvent);
+		jsonEvent["LevelId"] = new JSONValue(levelId);
+	}
 };
 
 class LevelEndedEvent : public GenericEvent
 {
 private:
-	int LevelId;
+	int levelId;
 public:
 	LevelEndedEvent(int evntId, long long timeStmp, string appNme, string appVrs, long sessionID, int levelid) :
-		GenericEvent(evntId, timeStmp, END_LEVEL, appName, appVrs, sessionID), LevelId(levelid) {}
+		GenericEvent(evntId, timeStmp, END_LEVEL, appName, appVrs, sessionID), levelId(levelid) {}
+
+	void serializeToJSON(JSONObject& jsonEvent) {
+		GenericEvent::serializeToJSON(jsonEvent);
+		jsonEvent["LevelId"] = new JSONValue(levelId);
+	}
 };
 
 class ChangedCardPlayingEvent : public GenericEvent
@@ -44,6 +54,11 @@ private:
 public:
 	ChangedCardPlayingEvent(int evntId, long long timeStmp, string appNme, string appVrs, long sessionID, int levelid, CardId card) :
 		GenericEvent(evntId, timeStmp, CARD_CHANGED, appName, appVrs, sessionID), levelId(levelid), currentCard(card) {}
+
+	void serializeToJSON(JSONObject& jsonEvent) {
+		GenericEvent::serializeToJSON(jsonEvent);
+		jsonEvent["LevelId"] = new JSONValue(levelId);
+	}
 };
 
 class AbilityUsedEvent : public GenericEvent
@@ -55,6 +70,11 @@ public:
 
 	AbilityUsedEvent(int evntId, long long timeStmp, string appNme, string appVrs, long sessionID, int levelid, CardId card) :
 		GenericEvent(evntId, timeStmp, ABILITY_USED, appName, appVrs, sessionID), levelId(levelid), cardFromAbility(card) {}
+
+	void serializeToJSON(JSONObject& jsonEvent) {
+		GenericEvent::serializeToJSON(jsonEvent);
+		jsonEvent["LevelId"] = new JSONValue(levelId);
+	}
 };
 
 class PlayerHealedEvent : public GenericEvent
