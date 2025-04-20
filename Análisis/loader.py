@@ -6,7 +6,7 @@ class Loader:
 
 
 
-    def __init__(self, filepath, loadMultipleFiles = false):
+    def __init__(self, filepath, loadMultipleFiles = False):
 
         self.loadFiles(filepath, loadMultipleFiles)
 
