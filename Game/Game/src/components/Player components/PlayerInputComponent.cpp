@@ -55,6 +55,10 @@ void PlayerInputComponent::handleInput() {
 	// Cursor
 	gmCtrl_.controllerToCursor();
 	// Portal
+	if (gmCtrl_.completeLevel()) 
+	{
+		// TRIED LEAVING
+	}
 	if (canExit && gmCtrl_.completeLevel()) {
 		prtlComp_->countDownSetup();
 	}

@@ -28,6 +28,7 @@ void ChargedPortalComponent::update() {
 // Activar la salida para que el update empiece a recoger input
 void ChargedPortalComponent::activateExit() {
 	exit = true;
+	TelemetryTracker::instance()->addEvent(LEVEL_EXIT_POSSIBLE, PlayerData::instance()->getLevel());
 }
 
 // Prepara el contador y el número para la cuenta atrás

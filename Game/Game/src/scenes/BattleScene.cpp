@@ -34,6 +34,9 @@ BattleScene::BattleScene(BattleType t_, bool tuto) : GameState(), type(t_) {
 	battleSceneOST = &sdlutils().musics().at("BattleMusic");
 	battleSceneOST->play();
 	sdlutils().focusMouseOnWindow();
+
+	// IMPLEMENTADO START_LEVEL
+	TelemetryTracker::instance()->addEvent(START_LEVEL);
 };
 
 void BattleScene::createUI() {
@@ -181,5 +184,7 @@ void BattleScene::onHealthChanges(float value) {
 // Llamar al cambio del valor de éter
 void BattleScene::onEtherChanges(float value) {
 	if (statistics != nullptr) statistics->onEtherChanges(value);
-	if (value >= 100) getTracker()->endTimeCouinting();
+	if (value >= 100) {
+		getTracker()->endTimeCouinting();
+	}
 }

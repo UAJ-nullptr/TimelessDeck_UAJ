@@ -40,6 +40,8 @@ public:
 	virtual ~BattleScene() { 
 		battleSceneOST->haltMusic();
 		sdlutils().unfocusMouseOnWindow();
+		// IMPLEMENTADO END_LEVEL
+		TelemetryTracker::instance()->addEvent(END_LEVEL);
 	};
 
 	// Getters
