@@ -50,6 +50,7 @@ class JSONValue
 		JSONValue(const JSONArray &m_array_value);
 		JSONValue(const JSONObject &m_object_value);
 		JSONValue(const JSONValue &m_source);
+		JSONValue(std::vector<int> m_vector_value);
 		~JSONValue();
 
 		bool IsNull() const;
@@ -88,6 +89,7 @@ class JSONValue
 			bool bool_value;
 			long long number_value;
 			std::string *string_value;
+			std::vector<int> vector_value;
 			JSONArray *array_value;
 			JSONObject *object_value;
 		};

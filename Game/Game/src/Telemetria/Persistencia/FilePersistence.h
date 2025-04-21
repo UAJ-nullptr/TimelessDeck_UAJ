@@ -12,7 +12,7 @@ private:
 	bool first;
 
 public:
-	FilePersistence(int sessionId);
+	FilePersistence(std::string appName, int sessionId, long long epoc);
 	~FilePersistence();
 
 	virtual void flush();

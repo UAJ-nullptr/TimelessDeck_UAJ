@@ -484,6 +484,15 @@ JSONValue::JSONValue(const JSONValue &m_source)
 	}
 }
 
+JSONValue::JSONValue(std::vector<int> m_vector_value) 
+{
+	type = JSONType_Array;
+	array_value = new JSONArray();
+	for (int i : m_vector_value) {
+		array_value->push_back(new JSONValue(i));
+	}
+}
+
 /**
  * The destructor for the JSON Value object
  * Handles deleting the objects in the array or the object value

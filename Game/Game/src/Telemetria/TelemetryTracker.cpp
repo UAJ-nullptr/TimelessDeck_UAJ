@@ -8,10 +8,14 @@ TelemetryTracker::TelemetryTracker() : appName("null"), appVersion("0"), session
 
 }
 
-TelemetryTracker::TelemetryTracker(string appName, string appVers, int sessionId, double timeLimit) : appName(appName),
+TelemetryTracker::TelemetryTracker(string appName, string appVers, double timeLimit) : appName(appName),
 	appVersion(appVers), sessionId(sessionId), currentId(0), elapsedTime(0), timeLimit(timeLimit)
 {
-	persistence = new FilePersistence(sessionId);
+    long long epoc = getEpocTimestamp();
+    sessionId = epoc / pow(10, 12);
+    sessionId /= rand() % 100 + 100;
+
+	persistence = new FilePersistence(appName, sessionId, epoc);
 }
 
 TelemetryTracker::~TelemetryTracker()
@@ -43,6 +47,7 @@ void TelemetryTracker::flush()
 {
 	persistence->flush();
 }
+
 void TelemetryTracker::addEvent(EventType type, ...)
 {
     auto time = std::chrono::system_clock::now();

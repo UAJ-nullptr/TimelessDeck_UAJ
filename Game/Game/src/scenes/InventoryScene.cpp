@@ -2,6 +2,7 @@
 #include "../core/SDLApplication.h"
 #include "../data/PlayerData.h"
 #include "../components/General Components/CallbackDelayer.h"
+#include "../Telemetria/TelemetryTracker.h"
 
 // Se encarga de cargar todos los datos desde el dataplayer, así como obtener los datos del deck y de la library
 InventoryScene::InventoryScene() : GameState(), feedback(nullptr) {
@@ -291,6 +292,8 @@ InventoryScene::~InventoryScene() {
 	}
 
 	PlayerData::instance()->setDeck(newDeck);
+
+	TelemetryTracker::instance()->addEvent(EventType::INVENTORY_LEFT, newDeck);
 }
 
 

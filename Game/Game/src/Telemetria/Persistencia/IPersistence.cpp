@@ -18,7 +18,7 @@ IPersistence::IPersistence(SerializerType serType) : serType(serType)
 
 IPersistence::~IPersistence()
 {
-
+	delete serializer;
 }
 
 void IPersistence::send(GenericEvent* event)

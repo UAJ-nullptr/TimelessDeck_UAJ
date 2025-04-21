@@ -1,6 +1,7 @@
 #pragma once
 #include "GenericEvent.h"
 #include "../../components/ecs.h"
+#include "../../data/CardData.h"
 #include <vector>
 
 class SessionStartedEvent: public GenericEvent
@@ -23,6 +24,7 @@ class LevelStartedEvent : public GenericEvent
 {
 private:
 	int levelId;
+
 public:
 	LevelStartedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid) :
 		GenericEvent(evntId, timeStmp, START_LEVEL, appName, appVrs, sessionID), levelId(levelid) {}
@@ -37,6 +39,7 @@ class LevelEndedEvent : public GenericEvent
 {
 private:
 	int levelId;
+
 public:
 	LevelEndedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid) :
 		GenericEvent(evntId, timeStmp, END_LEVEL, appName, appVrs, sessionID), levelId(levelid) {}
@@ -52,6 +55,7 @@ class ChangedCardPlayingEvent : public GenericEvent
 private:
 	int levelId;
 	CardId currentCard;
+
 public:
 	ChangedCardPlayingEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid, CardId card) :
 		GenericEvent(evntId, timeStmp, CARD_CHANGED, appName, appVrs, sessionID), levelId(levelid), currentCard(card) {}
@@ -68,6 +72,7 @@ class AbilityUsedEvent : public GenericEvent
 private:
 	int levelId; // Para poder saber habilidadesUsadas/nivel (???)
 	CardId cardFromAbility;
+
 public:
 
 	AbilityUsedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid, CardId card) :
@@ -84,6 +89,7 @@ class PlayerHealedEvent : public GenericEvent
 {
 private:
 	int quantityHealed;
+
 public:
 	PlayerHealedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int heal) :
 		GenericEvent(evntId, timeStmp, PLAYER_HEALED, appName, appVrs, sessionID), quantityHealed(heal) {}
@@ -99,6 +105,7 @@ class PeriodicHealthEvent : public GenericEvent
 {
 private:
 	int healthStatus;
+
 public:
 	PeriodicHealthEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int currentHealth) :
 		GenericEvent(evntId, timeStmp, PERIODIC_HEALTH_STATUS, appName, appVrs, sessionID), healthStatus(currentHealth) {}
@@ -115,6 +122,7 @@ private:
 	int manaStatus;
 	CardId cardFromAbility;
 	int manaCost;
+
 public:
 	InsufficientManaEvent(int evntId, long long timeStmp, string appName, string appVrs,
 		long sessionID, int currentMana, CardId ability, int abilityCost) :
@@ -134,6 +142,7 @@ class ManaTakenEvent : public GenericEvent
 private:
 	int manaStatus;
 	int manaTaken;
+
 public:
 	ManaTakenEvent(int evntId, long long timeStmp, string appName, string appVrs,
 		long sessionID, int currentMana, int takenMana) :
@@ -152,6 +161,7 @@ class CanExitLevelEvent : public GenericEvent
 {
 private:
 	int levelId;
+
 public:
 	CanExitLevelEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid) :
 		GenericEvent(evntId, timeStmp, LEVEL_EXIT_POSSIBLE, appName, appVrs, sessionID), levelId(levelid) {}
@@ -162,20 +172,12 @@ public:
 	}
 };
 
-//class LevelExited : public GenericEvent
-//{
-//public:
-//private:
-//	int LevelId;
-//	CanExitLevelEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid) :
-//		GenericEvent(evntId, timeStmp, LEVEL_EXIT_POSSIBLE, appName, appVrs, sessionID), LevelId(levelid) {}
-//};
-
 class TriedExitEvent : public GenericEvent
 {
 private:
 	int levelId;
 	int etherStatus;
+
 public:
 	TriedExitEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid, int currentEther) :
 		GenericEvent(evntId, timeStmp, TRIED_LEAVING, appName, appVrs, sessionID), levelId(levelid), etherStatus(currentEther) {}
@@ -191,8 +193,9 @@ class ChangedCardDeckToHandEvent : public GenericEvent
 {
 private:
 	CardId cardChanged;
+
 public:
-	ChangedCardDeckToHandEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID,CardId card) :
+	ChangedCardDeckToHandEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, CardId card) :
 		GenericEvent(evntId, timeStmp, MOVED_TO_HAND, appName, appVrs, sessionID), cardChanged(card) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
@@ -205,6 +208,7 @@ class ChangedCardHandToDeckEvent : public GenericEvent
 {
 private:
 	CardId cardChanged;
+
 public:
 	ChangedCardHandToDeckEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, CardId card) :
 		GenericEvent(evntId, timeStmp, MOVED_FROM_HAND, appName, appVrs, sessionID), cardChanged(card) {}
@@ -219,6 +223,7 @@ class InventoryExitedEvent : public GenericEvent
 {
 private:
 	vector<CardId> currentDeck;
+
 public:
 
 	InventoryExitedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, vector<CardId> card) :
@@ -226,6 +231,12 @@ public:
 
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
-		//jsonEvent["currentDeck"] = new JSONValue(currentDeck); // no se pueden vectores, convertir a JSONArray?
+
+		vector<int> aux;
+		for (int i : currentDeck) {
+			aux.push_back(i);
+		}
+
+		jsonEvent["currentDeck"] = new JSONValue(aux);
 	}
 };

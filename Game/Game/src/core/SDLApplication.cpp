@@ -20,7 +20,7 @@ SDLApplication::SDLApplication() {
 
 	mainMusic = &sdlutils().musics().at(MAIN_MUSIC);
 
-	TelemetryTracker::init("TimlessDeck", "1.0.0", 0, 1);
+	TelemetryTracker::init("TimlessDeck", "1.0.0", 1);
 	telemetryTracker = TelemetryTracker::instance();
 }
 
@@ -66,7 +66,6 @@ void SDLApplication::run() {
 			startTime = SDL_GetTicks();
 
 			telemetryTracker->update(deltaTime);
-			telemetryTracker->addEvent(PERIODIC_HEALTH_STATUS, 27);
 		
 			render();
 		}

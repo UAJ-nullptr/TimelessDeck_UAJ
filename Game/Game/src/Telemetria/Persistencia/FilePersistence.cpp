@@ -2,14 +2,11 @@
 #include "../Eventos/GenericEvent.h"
 #include <chrono>
 #include "iostream"
+#include "random"
 
-FilePersistence::FilePersistence(int sessionId) : first(true)
+FilePersistence::FilePersistence(std::string appName, int sessionId, long long epoc) : first(true)
 {
-	auto time = chrono::system_clock::now();
-	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
-		time.time_since_epoch()).count();
-
-	filename = "../Game/src/data/telemetry/" + std::to_string(sessionId) + "-" + std::to_string(timeInNano) + ".json";
+	filename = "../Game/src/data/telemetry/" + appName + "-" + std::to_string(sessionId) + "-" + std::to_string(epoc) + ".json";
 	file = new std::ofstream(filename);
 	if (!file->is_open()) {
 		std::cout << "Telemetry file creation error.\n";

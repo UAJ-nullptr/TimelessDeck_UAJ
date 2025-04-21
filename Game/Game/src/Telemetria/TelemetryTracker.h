@@ -20,7 +20,7 @@ private:
 	double timeLimit;
 
 	TelemetryTracker();
-	TelemetryTracker(string appName, string appVers, int sessionId, double timeLimit);
+	TelemetryTracker(string appName, string appVers, double timeLimit);
 
 	long long getEpocTimestamp();
 
@@ -30,6 +30,6 @@ public:
 	void update(double deltaTime);
 	void flush();
 
-	void addEvent( EventType type,...);
+	void addEvent(EventType type,...);
 };
 
