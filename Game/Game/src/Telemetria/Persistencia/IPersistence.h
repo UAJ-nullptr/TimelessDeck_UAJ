@@ -1,19 +1,18 @@
 #pragma once
 #include "queue"
 #include "../Serialización/ISerializer.h"
-
-class GenericEvent;
+#include "../Eventos/Events.h"
 
 class IPersistence
 {
 protected:
-	std::queue<GenericEvent> events;
+	std::queue<GenericEvent*> events;
 	ISerializer serializer;
 public:
 	IPersistence();
-	~IPersistence();
+	virtual ~IPersistence();
 
-	virtual void send(GenericEvent event);
+	virtual void send(GenericEvent* event);
 
 	virtual void flush();
 };

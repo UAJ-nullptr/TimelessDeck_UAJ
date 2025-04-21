@@ -34,8 +34,8 @@ protected:
 	string appVersion;
 	long sessionId;
 public:
-	GenericEvent(int evntId, long long timeStmp, eventType evtType, string appNme, string appVrs, long sessionID) : eventId(evntId), timeStamp(timeStmp),
-		eType(evtType), appName(appNme), appVersion(appVrs), sessionId(sessionID)
+	GenericEvent(int evntId, long long timeStmp, eventType evtType, string appName, string appVrs, long sessionID) : eventId(evntId), timeStamp(timeStmp),
+		eType(evtType), appName(appName), appVersion(appVrs), sessionId(sessionID)
 	{
 	};
 

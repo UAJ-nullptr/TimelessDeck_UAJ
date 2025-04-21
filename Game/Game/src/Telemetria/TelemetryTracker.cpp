@@ -14,7 +14,7 @@ TelemetryTracker::TelemetryTracker(string appName, string appVers, int sessionId
 
 TelemetryTracker::~TelemetryTracker()
 {
-
+	delete persistence;
 }
 
 void TelemetryTracker::update(double deltaTime)
@@ -30,7 +30,12 @@ void TelemetryTracker::update(double deltaTime)
 	}
 }
 
-void TelemetryTracker::addEvent(GenericEvent event)
+void TelemetryTracker::flush()
+{
+	persistence->flush();
+}
+
+void TelemetryTracker::addEvent(GenericEvent* event)
 {
 	persistence->send(event);
 }
@@ -40,7 +45,7 @@ void TelemetryTracker::addSessionStartedEvent()
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(SessionStartedEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId));
+	persistence->send(new SessionStartedEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId));
 	currentId++;
 }
 
@@ -49,7 +54,7 @@ void TelemetryTracker::addSessionEndedEvent()
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(SessionEndedEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId));
+	persistence->send(new SessionEndedEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId));
 	currentId++;
 }
 
@@ -58,7 +63,7 @@ void TelemetryTracker::addLevelStartedEvent(int levelId)
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(LevelStartedEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId,levelId));
+	persistence->send(new LevelStartedEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId,levelId));
 	currentId++;
 }
 
@@ -67,7 +72,7 @@ void TelemetryTracker::addLevelEndedEvent(int levelId)
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(LevelEndedEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId,levelId));
+	persistence->send(new LevelEndedEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId,levelId));
 	currentId++;
 }
 
@@ -76,7 +81,7 @@ void TelemetryTracker::addChangedCardEvent(int levelId, CardId card)
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(ChangedCardPlayingEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, levelId, card));
+	persistence->send(new  ChangedCardPlayingEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, levelId, card));
 	currentId++;
 }
 
@@ -85,7 +90,7 @@ void TelemetryTracker::addAbilityUsedEvent(int levelId, CardId card)
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(AbilityUsedEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, levelId, card));
+	persistence->send(new AbilityUsedEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, levelId, card));
 	currentId++;
 }
 
@@ -94,7 +99,7 @@ void TelemetryTracker::addPlayerHealedEvent(int heal)
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(PlayerHealedEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, heal));
+	persistence->send(new PlayerHealedEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, heal));
 	currentId++;
 }
 
@@ -103,7 +108,7 @@ void TelemetryTracker::addPeriodicHealthStatusEvent(int health)
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(PeriodicHealthEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, health));
+	persistence->send(new PeriodicHealthEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, health));
 	currentId++;
 }
 
@@ -112,7 +117,7 @@ void TelemetryTracker::addInsuficientManaEvent(int currentMana, CardId cardAbili
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(InsufficientManaEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, 
+	persistence->send(new InsufficientManaEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId,
 		currentMana,cardAbility,abilityCost));
 	currentId++;
 }
@@ -122,7 +127,7 @@ void TelemetryTracker::addManaTakenEvent(int currentMana, int manaTaken)
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(ManaTakenEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, currentMana,manaTaken));
+	persistence->send(new ManaTakenEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, currentMana,manaTaken));
 	currentId++;
 }
 
@@ -131,7 +136,7 @@ void TelemetryTracker::addExitPossibleEvent(int levelId)
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(CanExitLevelEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, levelId));
+	persistence->send(new CanExitLevelEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, levelId));
 	currentId++;
 }
 
@@ -140,7 +145,7 @@ void TelemetryTracker::addTriedExitEvent(int levelId, int currentEter)
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(TriedExitEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, levelId, currentEter));
+	persistence->send(new TriedExitEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, levelId, currentEter));
 	currentId++;
 }
 
@@ -149,7 +154,7 @@ void TelemetryTracker::addChangedToHandEvent(CardId card)
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(ChangedCardDeckToHandEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, card));
+	persistence->send(new ChangedCardDeckToHandEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, card));
 	currentId++;
 }
 
@@ -158,7 +163,7 @@ void TelemetryTracker::addChangedToDeckEvent(CardId card)
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(ChangedCardHandToDeckEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, card));
+	persistence->send(new ChangedCardHandToDeckEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, card));
 	currentId++;
 }
 
@@ -167,7 +172,7 @@ void TelemetryTracker::addInventoryExitedEvent(vector<CardId> deck)
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
-	persistence->send(InventoryExitedEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, deck));
+	persistence->send(new InventoryExitedEvent(currentId, timeInNano, this->appName, this->appVersion, this->sessionId, deck));
 	currentId++;
 }
 

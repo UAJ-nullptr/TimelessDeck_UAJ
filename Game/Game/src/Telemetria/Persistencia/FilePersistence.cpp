@@ -33,11 +33,12 @@ void FilePersistence::flush()
 		// serialización 
 		std::string s;
 		while (events.size() > 0) {
-			GenericEvent oldestEvent = events.front();
-			events.pop();
-			s += serializer.serialize(oldestEvent);
+			s += serializer.serialize(events.front());
+			GenericEvent* gE = events.front();
+			delete gE;
+			events.pop();	
 		}
-		s = "hola\n";
+		//s = "hola\n";
 		*file << s;
 	}
 }

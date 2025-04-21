@@ -26,8 +26,9 @@ public:
 	virtual ~TelemetryTracker();
 
 	void update(double deltaTime);
+	void flush();
 
-	void addEvent(GenericEvent event);
+	void addEvent(GenericEvent* event);
 	void addSessionStartedEvent();
 	void addSessionEndedEvent();
 	void addLevelStartedEvent(int levelId);

@@ -45,7 +45,7 @@ void SDLApplication::run() {
 	Uint64 LAST = 0;
 	
 
-	
+	telemetryTracker->addSessionStartedEvent();
 
 	while (!exit) {
 		InputHandler::instance()->refresh();
@@ -59,14 +59,15 @@ void SDLApplication::run() {
 
 		deltaTime = (double)((NOW - LAST) * 1000 / (double)SDL_GetPerformanceFrequency());
 
-		telemetryTracker->update(deltaTime);
-
 		debugCounter += deltaTime;
 
 		if (frameTime >= DELAY_TIME) {
 			
 			startTime = SDL_GetTicks();
-			
+
+			telemetryTracker->update(deltaTime);
+			telemetryTracker->addPlayerHealedEvent(10);
+		
 			render();
 		}
 
@@ -79,6 +80,9 @@ void SDLApplication::run() {
 			gmCtrl().changeToKeyboard();
 		}
 	}
+	telemetryTracker->addSessionEndedEvent();
+	telemetryTracker->flush();
+
 	gameStateMachine->clearStates();
 }
 

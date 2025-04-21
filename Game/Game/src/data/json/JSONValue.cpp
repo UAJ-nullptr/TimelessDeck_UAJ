@@ -369,6 +369,33 @@ JSONValue::JSONValue(double m_number_value)
  *
  * @access public
  *
+ * @param long m_number_value The number to use as the value
+ */
+JSONValue::JSONValue(long m_number_value)
+{
+	type = JSONType_Number;
+	number_value = m_number_value;
+}
+
+/**
+ * Basic constructor for creating a JSON Value of type Number
+ *
+ * @access public
+ *
+ * @param long long m_number_value The number to use as the value
+ */
+JSONValue::JSONValue(long long m_number_value)
+{
+	type = JSONType_Number;
+	number_value = m_number_value;
+}
+
+
+/**
+ * Basic constructor for creating a JSON Value of type Number
+ *
+ * @access public
+ *
  * @param int m_integer_value The number to use as the value
  */
 JSONValue::JSONValue(int m_integer_value)

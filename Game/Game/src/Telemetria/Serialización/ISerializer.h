@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "../Eventos/GenericEvent.h"
+#include "../Eventos/Events.h"
 #include "../../data/json/JSON.h"
 
 class ISerializer
@@ -12,6 +12,6 @@ public:
 	ISerializer();
 	~ISerializer();
 
-	std::string serialize(GenericEvent event);
+	std::string serialize(GenericEvent* event);
 };
 
