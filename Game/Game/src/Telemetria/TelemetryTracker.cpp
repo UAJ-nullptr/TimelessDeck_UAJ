@@ -1,5 +1,6 @@
 #include "TelemetryTracker.h"
 #include "Persistencia/FilePersistence.h"
+#include <cstdarg>
 
 TelemetryTracker::TelemetryTracker() : appName("null"), appVersion("0"), sessionId(0), currentId(0), elapsedTime(0),
 	timeLimit(0), persistence(nullptr)
@@ -42,101 +43,65 @@ void TelemetryTracker::flush()
 {
 	persistence->flush();
 }
-
-void TelemetryTracker::addEvent(GenericEvent* event)
+void TelemetryTracker::addEvent(EventType type, ...)
 {
-	persistence->send(event);
-}
+    auto time = std::chrono::system_clock::now();
+    long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
+        time.time_since_epoch()).count();
+    va_list args;
+    va_start(args, type);
 
-void TelemetryTracker::addSessionStartedEvent()
-{
-	persistence->send(new SessionStartedEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId));
-	currentId++;
-}
-
-void TelemetryTracker::addSessionEndedEvent()
-{
-	persistence->send(new SessionEndedEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId));
-	currentId++;
-}
-
-void TelemetryTracker::addLevelStartedEvent(int levelId)
-{
-	persistence->send(new LevelStartedEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId,levelId));
-	currentId++;
-}
-
-void TelemetryTracker::addLevelEndedEvent(int levelId)
-{
-	persistence->send(new LevelEndedEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId,levelId));
-	currentId++;
-}
-
-void TelemetryTracker::addChangedCardEvent(int levelId, CardId card)
-{
-	persistence->send(new  ChangedCardPlayingEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId, levelId, card));
-	currentId++;
-}
-
-void TelemetryTracker::addAbilityUsedEvent(int levelId, CardId card)
-{
-	persistence->send(new AbilityUsedEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId, levelId, card));
-	currentId++;
-}
-
-void TelemetryTracker::addPlayerHealedEvent(int heal)
-{
-	persistence->send(new PlayerHealedEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId, heal));
-	currentId++;
-}
-
-void TelemetryTracker::addPeriodicHealthStatusEvent(int health)
-{
-	persistence->send(new PeriodicHealthEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId, health));
-	currentId++;
-}
-
-void TelemetryTracker::addInsuficientManaEvent(int currentMana, CardId cardAbility, int abilityCost)
-{
-	persistence->send(new InsufficientManaEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId,
-		currentMana,cardAbility,abilityCost));
-	currentId++;
-}
-
-void TelemetryTracker::addManaTakenEvent(int currentMana, int manaTaken)
-{
-	persistence->send(new ManaTakenEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId, currentMana,manaTaken));
-	currentId++;
-}
-
-void TelemetryTracker::addExitPossibleEvent(int levelId)
-{
-	persistence->send(new CanExitLevelEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId, levelId));
-	currentId++;
-}
-
-void TelemetryTracker::addTriedExitEvent(int levelId, int currentEter)
-{
-	persistence->send(new TriedExitEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId, levelId, currentEter));
-	currentId++;
-}
-
-void TelemetryTracker::addChangedToHandEvent(CardId card)
-{
-	persistence->send(new ChangedCardDeckToHandEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId, card));
-	currentId++;
-}
-
-void TelemetryTracker::addChangedToDeckEvent(CardId card)
-{
-	persistence->send(new ChangedCardHandToDeckEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId, card));
-	currentId++;
-}
-
-void TelemetryTracker::addInventoryExitedEvent(vector<CardId> deck)
-{
-	persistence->send(new InventoryExitedEvent(currentId, getEpocTimestamp(), this->appName, this->appVersion, this->sessionId, deck));
-	currentId++;
+    switch (type)
+    {
+    case START_SESSION:
+        persistence->send(new SessionStartedEvent(currentId, timeInNano, appName, appVersion, sessionId));
+        break;
+    case END_SESSION:
+        persistence->send(new SessionEndedEvent(currentId, timeInNano, appName, appVersion, sessionId));
+        break;
+    case START_LEVEL:
+        persistence->send(new LevelStartedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args,int)));
+        break;
+    case END_LEVEL:
+        persistence->send(new LevelEndedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
+        break;
+    case CARD_CHANGED:
+        persistence->send(new ChangedCardPlayingEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args, CardId)));
+        break;
+    case ABILITY_USED:
+        persistence->send(new AbilityUsedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args, CardId)));
+        break;
+    case PLAYER_HEALED:
+        persistence->send(new PlayerHealedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
+        break;
+    case PERIODIC_HEALTH_STATUS:
+        persistence->send(new PeriodicHealthEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
+        break;
+    case MANA_TAKEN:
+        persistence->send(new ManaTakenEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args, int)));
+        break;
+    case NOT_ENOUGHT_MANA:
+        persistence->send(new InsufficientManaEvent(currentId, timeInNano, appName, appVersion, sessionId,
+            va_arg(args, int), va_arg(args, CardId), va_arg(args, int)));
+        break;
+    case LEVEL_EXIT_POSSIBLE:
+        persistence->send(new CanExitLevelEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
+        break;
+    case TRIED_LEAVING:
+        persistence->send(new TriedExitEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args, int)));
+        break;
+    case MOVED_FROM_HAND:
+        persistence->send(new ChangedCardHandToDeckEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, CardId)));
+        break;
+    case MOVED_TO_HAND:
+        persistence->send(new ChangedCardDeckToHandEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, CardId)));
+        break;
+    case INVENTORY_LEFT:
+        persistence->send(new InventoryExitedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, vector<CardId>)));
+        break;
+    }
+    va_end(args);
+    currentId++;
 }
 
 

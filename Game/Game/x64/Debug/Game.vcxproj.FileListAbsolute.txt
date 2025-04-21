@@ -1,1 +1,2 @@
 C:\Users\rafa0\Desktop\GitHub\nullptr\Game\Game\x64\Debug\Game.exe
+C:\Users\pedro\Documents\GitHub\TimelessDeck_UAJ\Game\Game\x64\Debug\Game.exe

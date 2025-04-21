@@ -30,21 +30,6 @@ public:
 	void update(double deltaTime);
 	void flush();
 
-	void addEvent(GenericEvent* event);
-	void addSessionStartedEvent();
-	void addSessionEndedEvent();
-	void addLevelStartedEvent(int levelId);
-	void addLevelEndedEvent(int levelId);
-	void addChangedCardEvent(int levelId, CardId card);
-	void addAbilityUsedEvent(int levelId, CardId card);
-	void addPlayerHealedEvent(int heal);
-	void addPeriodicHealthStatusEvent(int health);
-	void addInsuficientManaEvent(int currentMana, CardId cardAbility, int abilityCost);
-	void addManaTakenEvent(int currentMana, int manaTaken);
-	void addExitPossibleEvent(int levelId);
-	void addTriedExitEvent(int levelId, int currentEter);
-	void addChangedToHandEvent(CardId card);
-	void addChangedToDeckEvent(CardId card);
-	void addInventoryExitedEvent(vector<CardId> deck);
+	void addEvent( EventType type,...);
 };
 

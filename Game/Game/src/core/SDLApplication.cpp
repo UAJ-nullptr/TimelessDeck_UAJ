@@ -45,7 +45,7 @@ void SDLApplication::run() {
 	Uint64 LAST = 0;
 	
 
-	telemetryTracker->addSessionStartedEvent();
+	telemetryTracker->addEvent(START_SESSION);
 
 	while (!exit) {
 		InputHandler::instance()->refresh();
@@ -66,6 +66,7 @@ void SDLApplication::run() {
 			startTime = SDL_GetTicks();
 
 			telemetryTracker->update(deltaTime);
+			telemetryTracker->addEvent(PERIODIC_HEALTH_STATUS, 27);
 		
 			render();
 		}
@@ -79,7 +80,7 @@ void SDLApplication::run() {
 			gmCtrl().changeToKeyboard();
 		}
 	}
-	telemetryTracker->addSessionEndedEvent();
+	telemetryTracker->addEvent(END_SESSION);
 	telemetryTracker->flush();
 
 	gameStateMachine->clearStates();
