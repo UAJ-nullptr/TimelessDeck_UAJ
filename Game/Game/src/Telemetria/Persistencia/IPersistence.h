@@ -3,13 +3,22 @@
 #include "../Serialización/ISerializer.h"
 #include "../Eventos/Events.h"
 
+enum SerializerType {
+	JSON_SER,
+	CSV_SER
+};
+
 class IPersistence
 {
 protected:
 	std::queue<GenericEvent*> events;
-	ISerializer serializer;
+
+	SerializerType serType;
+
+	ISerializer* serializer;
+
 public:
-	IPersistence();
+	IPersistence(SerializerType serType = JSON_SER);
 	virtual ~IPersistence();
 
 	virtual void send(GenericEvent* event);

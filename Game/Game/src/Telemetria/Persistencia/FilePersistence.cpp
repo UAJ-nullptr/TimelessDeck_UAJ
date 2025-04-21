@@ -3,8 +3,8 @@
 #include <chrono>
 #include "iostream"
 
-FilePersistence::FilePersistence(int sessionId) {
-	// Abrir/Crear el archivo
+FilePersistence::FilePersistence(int sessionId) : first(true)
+{
 	auto time = chrono::system_clock::now();
 	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(
 		time.time_since_epoch()).count();
@@ -16,12 +16,15 @@ FilePersistence::FilePersistence(int sessionId) {
 		delete file;
 		file = nullptr;
 	}
+	else
+		*file << "[\n";
 }
 
 FilePersistence::~FilePersistence()
 {
 	// Cerramos el archivo
 	if (file != nullptr) {
+		*file << "\n]";
 		file->close();
 		delete file;
 	}	
@@ -33,12 +36,13 @@ void FilePersistence::flush()
 		// serialización 
 		std::string s;
 		while (events.size() > 0) {
-			s += serializer.serialize(events.front());
+			if (!first) s += ",\n";
+			s += "\t" + serializer->serialize(events.front());
 			GenericEvent* gE = events.front();
 			delete gE;
-			events.pop();	
+			events.pop();
+			first = false;
 		}
-		//s = "hola\n";
 		*file << s;
 	}
 }

@@ -345,6 +345,9 @@
       <Filter>Telemetría\Persistencia</Filter>
     </ClCompile>
     <ClCompile Include="src\Telemetria\Eventos\GenericEvent.cpp" />
+    <ClCompile Include="src\Telemetria\Serialización\JSONSerializer.cpp">
+      <Filter>Telemetría\Serialización</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -716,6 +719,9 @@
     </ClInclude>
     <ClInclude Include="src\Telemetria\Persistencia\FilePersistence.h">
       <Filter>Telemetría\Persistencia</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Telemetria\Serialización\JSONSerializer.h">
+      <Filter>Telemetría\Serialización</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

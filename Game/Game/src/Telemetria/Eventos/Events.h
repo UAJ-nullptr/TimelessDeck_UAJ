@@ -2,6 +2,7 @@
 #include "GenericEvent.h"
 #include "../../components/ecs.h"
 #include <vector>
+
 class SessionStartedEvent: public GenericEvent
 {
 private:

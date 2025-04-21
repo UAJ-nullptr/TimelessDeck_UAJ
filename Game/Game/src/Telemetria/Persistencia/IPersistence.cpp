@@ -1,8 +1,19 @@
 #include "IPersistence.h"
+#include "../Serialización/JSONSerializer.h"
 
-IPersistence::IPersistence()
+IPersistence::IPersistence(SerializerType serType) : serType(serType)
 {
-
+	switch (serType)
+	{
+	case JSON_SER:
+		serializer = new JSONSerializer();
+		break;
+	case CSV_SER:
+		break;
+	default:
+		serializer = new JSONSerializer();
+		break;
+	}
 }
 
 IPersistence::~IPersistence()

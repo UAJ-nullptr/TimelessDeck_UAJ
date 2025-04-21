@@ -66,7 +66,6 @@ void SDLApplication::run() {
 			startTime = SDL_GetTicks();
 
 			telemetryTracker->update(deltaTime);
-			telemetryTracker->addPlayerHealedEvent(10);
 		
 			render();
 		}

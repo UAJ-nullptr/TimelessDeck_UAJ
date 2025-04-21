@@ -22,6 +22,8 @@ private:
 	TelemetryTracker();
 	TelemetryTracker(string appName, string appVers, int sessionId, double timeLimit);
 
+	long long getEpocTimestamp();
+
 public:
 	virtual ~TelemetryTracker();
 

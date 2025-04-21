@@ -4,7 +4,7 @@
 
 using namespace std;
 
-enum eventType
+enum EventType
 {
 	START_SESSION,
 	END_SESSION,
@@ -23,18 +23,19 @@ enum eventType
 	MOVED_TO_HAND,
 	INVENTORY_LEFT
 };
+
 class GenericEvent
 {
 	friend class ISerializer;
 protected:
 	int eventId;
 	long long timeStamp;
-	eventType eType;
+	EventType eType;
 	string appName;
 	string appVersion;
 	long sessionId;
 public:
-	GenericEvent(int evntId, long long timeStmp, eventType evtType, string appName, string appVrs, long sessionID) : eventId(evntId), timeStamp(timeStmp),
+	GenericEvent(int evntId, long long timeStmp, EventType evtType, string appName, string appVrs, long sessionID) : eventId(evntId), timeStamp(timeStmp),
 		eType(evtType), appName(appName), appVersion(appVrs), sessionId(sessionID)
 	{
 	};

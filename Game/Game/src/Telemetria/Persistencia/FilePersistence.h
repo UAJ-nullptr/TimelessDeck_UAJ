@@ -8,6 +8,9 @@ private:
 	std::string filename;
 
 	std::ofstream* file;
+
+	bool first;
+
 public:
 	FilePersistence(int sessionId);
 	~FilePersistence();
