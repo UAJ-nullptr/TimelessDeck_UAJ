@@ -8,6 +8,7 @@
 #include "../gameObjects/Node Objects/Node.h"
 #include "../components/Enemy components/EnemyGenerator.h"
 #include "../components/General Components/StatsTrackComponent.h"
+#include "../Telemetria/TelemetryTracker.h"
 
 
 class StatisticsUI;
