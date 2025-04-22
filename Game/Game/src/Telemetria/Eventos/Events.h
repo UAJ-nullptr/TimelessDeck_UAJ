@@ -4,6 +4,7 @@
 #include "../../data/CardData.h"
 #include <vector>
 
+// Implementado
 class SessionStartedEvent: public GenericEvent
 {
 private:
@@ -13,6 +14,7 @@ public:
 		GenericEvent(evntId, timeStmp, START_SESSION, appName, appVrs, sessionID) {}
 };
 
+// Implementado
 class SessionEndedEvent : public GenericEvent
 {
 public:
@@ -20,6 +22,7 @@ public:
 		GenericEvent(evntId, timeStmp, END_SESSION, appName, appVrs, sessionID) {}
 };
 
+// Implementado
 class LevelStartedEvent : public GenericEvent
 {
 private:
@@ -35,6 +38,7 @@ public:
 	}
 };
 
+// Implementado
 class LevelEndedEvent : public GenericEvent
 {
 private:
@@ -50,12 +54,12 @@ public:
 	}
 };
 
+// Implementado (HAY QUE CAMBIAR EL cardId POR UN STRING
 class ChangedCardPlayingEvent : public GenericEvent
 {
 private:
 	int levelId;
 	CardId currentCard;
-
 public:
 	ChangedCardPlayingEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid, CardId card) :
 		GenericEvent(evntId, timeStmp, CARD_CHANGED, appName, appVrs, sessionID), levelId(levelid), currentCard(card) {}
@@ -67,6 +71,7 @@ public:
 	}
 };
 
+// Implementado (Lo mismo, va a recibir un string)
 class AbilityUsedEvent : public GenericEvent
 {
 private:
@@ -85,6 +90,7 @@ public:
 	}
 };
 
+// Implementado
 class PlayerHealedEvent : public GenericEvent
 {
 private:
@@ -101,6 +107,7 @@ public:
 	}
 };
 
+// Implementado
 class PeriodicHealthEvent : public GenericEvent
 {
 private:
@@ -116,6 +123,7 @@ public:
 	}
 };
 
+// Implementado (Lo mismo, recibe un string en vez de cardId)
 class InsufficientManaEvent : public GenericEvent
 {
 private:
@@ -137,6 +145,7 @@ public:
 	}
 };
 
+// Implementado
 class ManaTakenEvent : public GenericEvent
 {
 private:
@@ -156,7 +165,7 @@ public:
 	}
 };
 
-
+// Implementado
 class CanExitLevelEvent : public GenericEvent
 {
 private:
@@ -172,20 +181,18 @@ public:
 	}
 };
 
+// Implementado
 class TriedExitEvent : public GenericEvent
 {
 private:
 	int levelId;
-	int etherStatus;
-
 public:
-	TriedExitEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid, int currentEther) :
-		GenericEvent(evntId, timeStmp, TRIED_LEAVING, appName, appVrs, sessionID), levelId(levelid), etherStatus(currentEther) {}
+	TriedExitEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid) :
+		GenericEvent(evntId, timeStmp, TRIED_LEAVING, appName, appVrs, sessionID), levelId(levelid) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
 		jsonEvent["levelId"] = new JSONValue(levelId);
-		jsonEvent["etherStatus"] = new JSONValue(etherStatus);
 	}
 };
 
@@ -204,6 +211,7 @@ public:
 	}
 };
 
+// Implementado
 class ChangedCardHandToDeckEvent : public GenericEvent
 {
 private:
@@ -219,6 +227,7 @@ public:
 	}
 };
 
+// Implementado
 class InventoryExitedEvent : public GenericEvent
 {
 private:

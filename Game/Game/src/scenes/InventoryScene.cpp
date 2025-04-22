@@ -203,6 +203,8 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 					}
 					invCard.myText->changeText(to_string(invCard.cuantity - invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
 					invCard.myDeckText->changeText(to_string(invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
+
+					TelemetryTracker::instance()->addEvent(MOVED_FROM_HAND, invCard.card);
 				}
 				// Si era el botón fuera del deck se aumente su cantidad en este
 				else {
@@ -215,6 +217,7 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 						}
 						invCard.myText->changeText(to_string(invCard.cuantity - invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
 						invCard.myDeckText->changeText(to_string(invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
+						TelemetryTracker::instance()->addEvent(MOVED_TO_HAND, invCard.card);
 					}
 				}
 

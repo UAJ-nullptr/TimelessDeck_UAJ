@@ -93,7 +93,7 @@ void TelemetryTracker::addEvent(EventType type, ...)
         persistence->send(new CanExitLevelEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
         break;
     case TRIED_LEAVING:
-        persistence->send(new TriedExitEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args, int)));
+        persistence->send(new TriedExitEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
         break;
     case MOVED_FROM_HAND:
         persistence->send(new ChangedCardHandToDeckEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, CardId)));
