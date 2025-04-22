@@ -68,13 +68,13 @@ void TelemetryTracker::addEvent(EventType type, ...)
         persistence->send(new LevelStartedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args,int)));
         break;
     case END_LEVEL:
-        persistence->send(new LevelEndedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
+        persistence->send(new LevelEndedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args,bool)));
         break;
     case CARD_CHANGED:
-        persistence->send(new ChangedCardPlayingEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args, CardId)));
+        persistence->send(new ChangedCardPlayingEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
         break;
     case ABILITY_USED:
-        persistence->send(new AbilityUsedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args, CardId)));
+        persistence->send(new AbilityUsedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
         break;
     case PLAYER_HEALED:
         persistence->send(new PlayerHealedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args, int)));
@@ -89,14 +89,14 @@ void TelemetryTracker::addEvent(EventType type, ...)
     case LEVEL_EXIT_POSSIBLE:
         persistence->send(new CanExitLevelEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
         break;
-    case TRIED_LEAVING:
-        persistence->send(new TriedExitEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
+    case LEAVE_FAILED:
+        persistence->send(new ExitFailed(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
         break;
     case MOVED_FROM_HAND:
-        persistence->send(new ChangedCardHandToDeckEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, CardId)));
+        persistence->send(new ChangedCardHandToDeckEvent(currentId, timeInNano, appName, appVersion, sessionId));
         break;
     case MOVED_TO_HAND:
-        persistence->send(new ChangedCardDeckToHandEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, CardId)));
+        persistence->send(new ChangedCardDeckToHandEvent(currentId, timeInNano, appName, appVersion, sessionId));
         break;
     case INVENTORY_LEFT:
         persistence->send(new InventoryExitedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, vector<CardId>)));

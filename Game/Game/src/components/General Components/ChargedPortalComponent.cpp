@@ -35,8 +35,6 @@ void ChargedPortalComponent::activateExit() {
 // Prepara el contador y el número para la cuenta atrás
 void ChargedPortalComponent::countDownSetup() {
 
-	TelemetryTracker::instance()->addEvent(EventType::TRIED_LEAVING, PlayerData::instance()->getLevel());
-
 	if (exit && deltaTime == 0) {
 		// Empezar el contador
 		deltaTime += SDLApplication::instance()->getDeltaTimeSeconds();
@@ -51,5 +49,9 @@ void ChargedPortalComponent::countDownSetup() {
 		tr->setPos(UI_COUNTDOWN_ETHER_POS);
 		tr->setWidth(tr->getWidth() * 1.5);
 		tr->setHeight(tr->getHeight() * 1.5);
+	}
+	else 
+	{
+		TelemetryTracker::instance()->addEvent(LEAVE_FAILED, PlayerData::instance()->getLevel());
 	}
 }

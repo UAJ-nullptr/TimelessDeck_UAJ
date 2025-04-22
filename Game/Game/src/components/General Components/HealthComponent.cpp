@@ -125,14 +125,14 @@ void HealthComponent::update()
 // Cura al objeto el valor puesto
 void HealthComponent::heal(int heal)
 {
-	TelemetryTracker::instance()->addEvent(EventType::PLAYER_HEALED, heal, lifePoints);
-
+	int currentLife = lifePoints;
 	if (lifePoints + heal <= modifiedMaxLife) {
 		Mix_PlayChannelTimed(-1, healSound->getChunk(), 0, -1);
 		lifePoints += heal;
 	}
 	else lifePoints = modifiedMaxLife;
 	dynamic_cast<BattleScene*>(gStt)->OnPlayerDamage(lifePoints);
+	TelemetryTracker::instance()->addEvent(EventType::PLAYER_HEALED, currentLife, lifePoints);
 }
 
 // Al llegar la vida a 0, el objeto se dispone a morir

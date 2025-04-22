@@ -42,8 +42,6 @@ BattleScene::~BattleScene()
 {
 	battleSceneOST->haltMusic();
 	sdlutils().unfocusMouseOnWindow();
-
-	TelemetryTracker::instance()->addEvent(EventType::END_LEVEL);
 }
 
 void BattleScene::createUI() {
@@ -92,6 +90,7 @@ void BattleScene::OnPlayerDies() {
 	player->removeComponent<PlayerInputComponent>();
 	player->removeComponent<CardComponent>();
 	pointer->removeComponent<Image>();
+	TelemetryTracker::instance()->addEvent(EventType::END_LEVEL, false);
 }
 
 void BattleScene::OnPlayerDamage(float value) {

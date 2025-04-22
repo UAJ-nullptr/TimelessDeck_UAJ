@@ -45,10 +45,10 @@ class LevelEndedEvent : public GenericEvent
 {
 private:
 	int levelId;
-
+	bool win;
 public:
-	LevelEndedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid) :
-		GenericEvent(evntId, timeStmp, END_LEVEL, appName, appVrs, sessionID), levelId(levelid) {}
+	LevelEndedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid, bool victory) :
+		GenericEvent(evntId, timeStmp, END_LEVEL, appName, appVrs, sessionID), levelId(levelid), win(victory) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
@@ -61,16 +61,14 @@ class ChangedCardPlayingEvent : public GenericEvent
 {
 private:
 	int levelId;
-	CardId currentCard;
 
 public:
-	ChangedCardPlayingEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid, CardId card) :
-		GenericEvent(evntId, timeStmp, CARD_CHANGED, appName, appVrs, sessionID), levelId(levelid), currentCard(card) {}
+	ChangedCardPlayingEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid) :
+		GenericEvent(evntId, timeStmp, CARD_CHANGED, appName, appVrs, sessionID), levelId(levelid) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
 		jsonEvent["levelId"] = new JSONValue(levelId);
-		jsonEvent["currentCard"] = new JSONValue(currentCard);
 	}
 };
 
@@ -79,17 +77,15 @@ class AbilityUsedEvent : public GenericEvent
 {
 private:
 	int levelId; // Para poder saber habilidadesUsadas/nivel (???)
-	CardId cardFromAbility;
 
 public:
 
-	AbilityUsedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid, CardId card) :
-		GenericEvent(evntId, timeStmp, ABILITY_USED, appName, appVrs, sessionID), levelId(levelid), cardFromAbility(card) {}
+	AbilityUsedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid) :
+		GenericEvent(evntId, timeStmp, ABILITY_USED, appName, appVrs, sessionID), levelId(levelid) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
 		jsonEvent["levelId"] = new JSONValue(levelId);
-		jsonEvent["cardFromAbility"] = new JSONValue(cardFromAbility);
 	}
 };
 
@@ -97,19 +93,19 @@ public:
 class PlayerHealedEvent : public GenericEvent
 {
 private:
-	int quantityHealed;
+	int lifeAfterHeal;
 	int lifeBeforeHeal;
 
 public:
 	PlayerHealedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int heal, int life) :
-		GenericEvent(evntId, timeStmp, PLAYER_HEALED, appName, appVrs, sessionID), quantityHealed(heal),
+		GenericEvent(evntId, timeStmp, PLAYER_HEALED, appName, appVrs, sessionID), lifeAfterHeal(heal),
 		lifeBeforeHeal(life) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent)
 	{
 		GenericEvent::serializeToJSON(jsonEvent);
-		jsonEvent["quantityHealed"] = new JSONValue(quantityHealed);
 		jsonEvent["lifeBeforeHeal"] = new JSONValue(lifeBeforeHeal);
+		jsonEvent["lifeAfterHeal"] = new JSONValue(lifeAfterHeal);
 	}
 };
 
@@ -139,19 +135,19 @@ public:
 class ManaTakenEvent : public GenericEvent
 {
 private:
-	int manaStatus;
-	int manaTaken;
+	int manaBefore;
+	int manaAfter;
 
 public:
 	ManaTakenEvent(int evntId, long long timeStmp, string appName, string appVrs,
 		long sessionID, int currentMana, int takenMana) :
-		GenericEvent(evntId, timeStmp, MANA_TAKEN, appName, appVrs, sessionID), manaStatus(currentMana),
-		manaTaken(takenMana) {}
+		GenericEvent(evntId, timeStmp, MANA_TAKEN, appName, appVrs, sessionID), manaBefore(currentMana),
+		manaAfter(takenMana) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
-		jsonEvent["manaStatus"] = new JSONValue(manaStatus);
-		jsonEvent["manaTaken"] = new JSONValue(manaTaken);
+		jsonEvent["manaBefore"] = new JSONValue(manaBefore);
+		jsonEvent["manaAfter"] = new JSONValue(manaAfter);
 	}
 };
 
@@ -172,14 +168,14 @@ public:
 };
 
 // Implementado
-class TriedExitEvent : public GenericEvent
+class ExitFailed : public GenericEvent
 {
 private:
 	int levelId;
 
 public:
-	TriedExitEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid) :
-		GenericEvent(evntId, timeStmp, TRIED_LEAVING, appName, appVrs, sessionID), levelId(levelid) {}
+	ExitFailed(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid) :
+		GenericEvent(evntId, timeStmp, LEAVE_FAILED, appName, appVrs, sessionID), levelId(levelid) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
@@ -191,15 +187,13 @@ public:
 class ChangedCardDeckToHandEvent : public GenericEvent
 {
 private:
-	CardId cardChanged;
 
 public:
 	ChangedCardDeckToHandEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, CardId card) :
-		GenericEvent(evntId, timeStmp, MOVED_TO_HAND, appName, appVrs, sessionID), cardChanged(card) {}
+		GenericEvent(evntId, timeStmp, MOVED_TO_HAND, appName, appVrs, sessionID) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
-		jsonEvent["cardChanged"] = new JSONValue(cardChanged);
 	}
 };
 
@@ -207,15 +201,13 @@ public:
 class ChangedCardHandToDeckEvent : public GenericEvent
 {
 private:
-	CardId cardChanged;
 
 public:
 	ChangedCardHandToDeckEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, CardId card) :
-		GenericEvent(evntId, timeStmp, MOVED_FROM_HAND, appName, appVrs, sessionID), cardChanged(card) {}
+		GenericEvent(evntId, timeStmp, MOVED_FROM_HAND, appName, appVrs, sessionID) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
-		jsonEvent["cardChanged"] = new JSONValue(cardChanged);
 	}
 };
 

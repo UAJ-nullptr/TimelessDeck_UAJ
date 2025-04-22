@@ -15,8 +15,7 @@ CallBackCol Mana::pickMana(){
 	return[&](GameObject* gameobject) {
 		
 		PlayerData* pD = PlayerData::instance();
-
-		TelemetryTracker::instance()->addEvent(EventType::MANA_TAKEN, pD->getCurrMana(), MANA_VALUE);
+		int currentMana = pD->getCurrMana();
 
 		if (pD->getCurrMana()+MANA_VALUE <= pD->getMaxMana()) {
 			Mix_PlayChannelTimed(-1, manaPickSound->getChunk(), 0, -1);
@@ -27,6 +26,7 @@ CallBackCol Mana::pickMana(){
 		else {
 			pD->setCurrMana(pD->getMaxMana());
 		}
+		TelemetryTracker::instance()->addEvent(EventType::MANA_TAKEN, currentMana, pD->getCurrMana());
 		setAlive(false);
 	};
 }
