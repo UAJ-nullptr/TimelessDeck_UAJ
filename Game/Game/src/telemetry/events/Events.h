@@ -46,6 +46,7 @@ class LevelEndedEvent : public GenericEvent
 private:
 	int levelId;
 	bool win;
+
 public:
 	LevelEndedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid, bool victory) :
 		GenericEvent(evntId, timeStmp, END_LEVEL, appName, appVrs, sessionID), levelId(levelid), win(victory) {}
@@ -95,17 +96,19 @@ class PlayerHealedEvent : public GenericEvent
 {
 private:
 	int lifeAfterHeal;
+	int attemptedHeal;
 	int lifeBeforeHeal;
 
 public:
-	PlayerHealedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int heal, int life) :
-		GenericEvent(evntId, timeStmp, PLAYER_HEALED, appName, appVrs, sessionID), lifeAfterHeal(heal),
-		lifeBeforeHeal(life) {}
+	PlayerHealedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int heal, int attempt,
+		int life) : GenericEvent(evntId, timeStmp, PLAYER_HEALED, appName, appVrs, sessionID), lifeAfterHeal(heal),
+		attemptedHeal(attempt), lifeBeforeHeal(life) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent)
 	{
 		GenericEvent::serializeToJSON(jsonEvent);
 		jsonEvent["lifeBeforeHeal"] = new JSONValue(lifeBeforeHeal);
+		jsonEvent["attemptedHeal"] = new JSONValue(attemptedHeal);
 		jsonEvent["lifeAfterHeal"] = new JSONValue(lifeAfterHeal);
 	}
 };
@@ -190,7 +193,7 @@ class ChangedCardDeckToHandEvent : public GenericEvent
 private:
 
 public:
-	ChangedCardDeckToHandEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, CardId card) :
+	ChangedCardDeckToHandEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID) :
 		GenericEvent(evntId, timeStmp, MOVED_TO_HAND, appName, appVrs, sessionID) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
@@ -204,7 +207,7 @@ class ChangedCardHandToDeckEvent : public GenericEvent
 private:
 
 public:
-	ChangedCardHandToDeckEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, CardId card) :
+	ChangedCardHandToDeckEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID) :
 		GenericEvent(evntId, timeStmp, MOVED_FROM_HAND, appName, appVrs, sessionID) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
