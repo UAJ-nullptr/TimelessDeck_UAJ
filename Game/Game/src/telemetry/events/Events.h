@@ -53,6 +53,7 @@ public:
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
 		jsonEvent["levelId"] = new JSONValue(levelId);
+		jsonEvent["win"] = new JSONValue(win);
 	}
 };
 
