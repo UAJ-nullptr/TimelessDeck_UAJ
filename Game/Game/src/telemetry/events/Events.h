@@ -17,6 +17,8 @@ public:
 // Implementado
 class SessionEndedEvent : public GenericEvent
 {
+private:
+
 public:
 	SessionEndedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID) :
 		GenericEvent(evntId, timeStmp, END_SESSION, appName, appVrs, sessionID) {}
@@ -60,6 +62,7 @@ class ChangedCardPlayingEvent : public GenericEvent
 private:
 	int levelId;
 	CardId currentCard;
+
 public:
 	ChangedCardPlayingEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid, CardId card) :
 		GenericEvent(evntId, timeStmp, CARD_CHANGED, appName, appVrs, sessionID), levelId(levelid), currentCard(card) {}
@@ -95,31 +98,18 @@ class PlayerHealedEvent : public GenericEvent
 {
 private:
 	int quantityHealed;
+	int lifeBeforeHeal;
 
 public:
-	PlayerHealedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int heal) :
-		GenericEvent(evntId, timeStmp, PLAYER_HEALED, appName, appVrs, sessionID), quantityHealed(heal) {}
+	PlayerHealedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int heal, int life) :
+		GenericEvent(evntId, timeStmp, PLAYER_HEALED, appName, appVrs, sessionID), quantityHealed(heal),
+		lifeBeforeHeal(life) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent)
 	{
 		GenericEvent::serializeToJSON(jsonEvent);
 		jsonEvent["quantityHealed"] = new JSONValue(quantityHealed);
-	}
-};
-
-// Implementado
-class PeriodicHealthEvent : public GenericEvent
-{
-private:
-	int healthStatus;
-
-public:
-	PeriodicHealthEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int currentHealth) :
-		GenericEvent(evntId, timeStmp, PERIODIC_HEALTH_STATUS, appName, appVrs, sessionID), healthStatus(currentHealth) {}
-
-	virtual void serializeToJSON(JSONObject& jsonEvent) {
-		GenericEvent::serializeToJSON(jsonEvent);
-		jsonEvent["healthStatus"] = new JSONValue(healthStatus);
+		jsonEvent["lifeBeforeHeal"] = new JSONValue(lifeBeforeHeal);
 	}
 };
 
@@ -186,6 +176,7 @@ class TriedExitEvent : public GenericEvent
 {
 private:
 	int levelId;
+
 public:
 	TriedExitEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid) :
 		GenericEvent(evntId, timeStmp, TRIED_LEAVING, appName, appVrs, sessionID), levelId(levelid) {}
@@ -196,6 +187,7 @@ public:
 	}
 };
 
+// Implementado
 class ChangedCardDeckToHandEvent : public GenericEvent
 {
 private:

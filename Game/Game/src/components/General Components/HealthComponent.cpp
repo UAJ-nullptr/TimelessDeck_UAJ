@@ -125,8 +125,7 @@ void HealthComponent::update()
 // Cura al objeto el valor puesto
 void HealthComponent::heal(int heal)
 {
-	TelemetryTracker::instance()->addEvent(EventType::PLAYER_HEALED, heal);
-	TelemetryTracker::instance()->addEvent(PERIODIC_HEALTH_STATUS, lifePoints);
+	TelemetryTracker::instance()->addEvent(EventType::PLAYER_HEALED, heal, lifePoints);
 
 	if (lifePoints + heal <= modifiedMaxLife) {
 		Mix_PlayChannelTimed(-1, healSound->getChunk(), 0, -1);

@@ -13,7 +13,6 @@ enum EventType
 	CARD_CHANGED,
 	ABILITY_USED,
 	PLAYER_HEALED,
-	PERIODIC_HEALTH_STATUS,
 	MANA_TAKEN,
 	NOT_ENOUGH_MANA,
 	LEVEL_EXIT_POSSIBLE,
@@ -34,10 +33,9 @@ protected:
 	string appVersion;
 	long sessionId;
 public:
-	GenericEvent(int evntId, long long timeStmp, EventType evtType, string appName, string appVrs, long sessionID) : eventId(evntId), timeStamp(timeStmp),
-		eType(evtType), appName(appName), appVersion(appVrs), sessionId(sessionID)
-	{
-	};
+	GenericEvent(int evntId, long long timeStmp, EventType evtType, string appName, string appVrs, long sessionID) :
+		eventId(evntId), timeStamp(timeStmp), eType(evtType), appName(appName), appVersion(appVrs), sessionId(sessionID)
+	{};
 
 	virtual void serializeToJSON(JSONObject& jsonEvent);
 };

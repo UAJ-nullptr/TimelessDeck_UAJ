@@ -77,10 +77,7 @@ void TelemetryTracker::addEvent(EventType type, ...)
         persistence->send(new AbilityUsedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args, CardId)));
         break;
     case PLAYER_HEALED:
-        persistence->send(new PlayerHealedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
-        break;
-    case PERIODIC_HEALTH_STATUS:
-        persistence->send(new PeriodicHealthEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
+        persistence->send(new PlayerHealedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args, int)));
         break;
     case MANA_TAKEN:
         persistence->send(new ManaTakenEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args, int)));
