@@ -134,7 +134,7 @@ private:
 public:
 	InsufficientManaEvent(int evntId, long long timeStmp, string appName, string appVrs,
 		long sessionID, int currentMana, CardId ability, int abilityCost) :
-		GenericEvent(evntId, timeStmp, NOT_ENOUGHT_MANA, appName, appVrs, sessionID), manaStatus(currentMana), 
+		GenericEvent(evntId, timeStmp, NOT_ENOUGH_MANA, appName, appVrs, sessionID), manaStatus(currentMana), 
 		cardFromAbility(ability), manaCost(abilityCost) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent) {

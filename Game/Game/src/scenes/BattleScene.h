@@ -8,7 +8,7 @@
 #include "../gameObjects/Node Objects/Node.h"
 #include "../components/Enemy components/EnemyGenerator.h"
 #include "../components/General Components/StatsTrackComponent.h"
-#include "../Telemetria/TelemetryTracker.h"
+#include "../telemetry/TelemetryTracker.h"
 
 
 class StatisticsUI;
@@ -38,12 +38,7 @@ public:
 	// Constructora
 	BattleScene(BattleType t_, bool tuto = false);
 	// Destructora
-	virtual ~BattleScene() { 
-		battleSceneOST->haltMusic();
-		sdlutils().unfocusMouseOnWindow();
-		// IMPLEMENTADO END_LEVEL
-		TelemetryTracker::instance()->addEvent(END_LEVEL);
-	};
+	virtual ~BattleScene();
 
 	// Getters
 	Player* getPlayer() { return player; };

@@ -24,7 +24,7 @@
 #include "../scenes/GameOverScene.h"
 #include "../scenes/CinematicScene.h"
 #include "../gameObjects/Node Objects/Node.h"
-#include "../Telemetria/TelemetryTracker.h"
+#include "../telemetry/TelemetryTracker.h"
 
 using namespace std;
 using TextureName = string;

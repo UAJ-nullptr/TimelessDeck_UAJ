@@ -99,11 +99,11 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 		abiliting = true;
 		lastAbilityTime = SDL_GetTicks();
 
-		TelemetryTracker::instance()->addEvent(ABILITY_USED, PlayerData::instance()->getLevel(), (*active)->getName());
+		TelemetryTracker::instance()->addEvent(EventType::ABILITY_USED, PlayerData::instance()->getLevel(), (*active)->getName());
 	}
 	else 
 	{
-		TelemetryTracker::instance()->addEvent(NOT_ENOUGHT_MANA, mana, (*active)->getName(), (*active)->getMana());
+		TelemetryTracker::instance()->addEvent(EventType::NOT_ENOUGH_MANA, mana, (*active)->getName(), (*active)->getMana());
 	}
 }
 
@@ -123,8 +123,8 @@ void CardComponent::switchActive(bool left) {
 			where->changeUISelected(false, 1);
 		}
 	}
-	//Implementado: PASA STRING EN VEZ DE CARDID
-	TelemetryTracker::instance()->addEvent(CARD_CHANGED, PlayerData::instance()->getLevel(), (*active)->getName());
+	
+	TelemetryTracker::instance()->addEvent(EventType::CARD_CHANGED, PlayerData::instance()->getLevel(), (*active)->getName());
 }
 
 void CardComponent::selectLeft() {
@@ -150,8 +150,8 @@ void CardComponent::switchActive(int number) {
 		std::advance(active, number);
 		where->changeUISelected(true, number);
 	}
-	//Implementado: PASA STRING EN VEZ DE CARDID
-	TelemetryTracker::instance()->addEvent(CARD_CHANGED, PlayerData::instance()->getLevel(), (*active)->getName());
+	
+	TelemetryTracker::instance()->addEvent(EventType::CARD_CHANGED, PlayerData::instance()->getLevel(), (*active)->getName());
 }
 
 //Baraja el mazo y roba la mano inicial

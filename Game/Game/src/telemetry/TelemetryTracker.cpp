@@ -1,5 +1,5 @@
 #include "TelemetryTracker.h"
-#include "Persistencia/FilePersistence.h"
+#include "persistence/FilePersistence.h"
 #include <cstdarg>
 
 TelemetryTracker::TelemetryTracker() : appName("null"), appVersion("0"), sessionId(0), currentId(0), elapsedTime(0),
@@ -85,7 +85,7 @@ void TelemetryTracker::addEvent(EventType type, ...)
     case MANA_TAKEN:
         persistence->send(new ManaTakenEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args, int)));
         break;
-    case NOT_ENOUGHT_MANA:
+    case NOT_ENOUGH_MANA:
         persistence->send(new InsufficientManaEvent(currentId, timeInNano, appName, appVersion, sessionId,
             va_arg(args, int), va_arg(args, CardId), va_arg(args, int)));
         break;

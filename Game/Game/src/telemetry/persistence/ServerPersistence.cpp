@@ -1,5 +1,5 @@
 #include "ServerPersistence.h"
-#include "../Eventos/GenericEvent.h"
+#include "../events/GenericEvent.h"
 
 ServerPersistence::ServerPersistence() {
 

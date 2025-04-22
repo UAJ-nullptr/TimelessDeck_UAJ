@@ -1,8 +1,8 @@
 #pragma once
 
 #include "../utils/Singleton.h"
-#include "Eventos/Events.h"
-#include "Persistencia/IPersistence.h"
+#include "events/Events.h"
+#include "persistence/IPersistence.h"
 #include <chrono>
 
 

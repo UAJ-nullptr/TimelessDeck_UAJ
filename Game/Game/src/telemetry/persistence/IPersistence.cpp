@@ -1,5 +1,5 @@
 #include "IPersistence.h"
-#include "../Serialización/JSONSerializer.h"
+#include "../serialization/JSONSerializer.h"
 
 IPersistence::IPersistence(SerializerType serType) : serType(serType)
 {

@@ -28,13 +28,15 @@ void ChargedPortalComponent::update() {
 // Activar la salida para que el update empiece a recoger input
 void ChargedPortalComponent::activateExit() {
 	exit = true;
-	//IMPLEMENTADO LEVEL_EXIT_POSSIBLE
-	TelemetryTracker::instance()->addEvent(LEVEL_EXIT_POSSIBLE, PlayerData::instance()->getLevel());
+	
+	TelemetryTracker::instance()->addEvent(EventType::LEVEL_EXIT_POSSIBLE, PlayerData::instance()->getLevel());
 }
 
 // Prepara el contador y el número para la cuenta atrás
 void ChargedPortalComponent::countDownSetup() {
-	TelemetryTracker::instance()->addEvent(TRIED_LEAVING, PlayerData::instance()->getLevel());
+
+	TelemetryTracker::instance()->addEvent(EventType::TRIED_LEAVING, PlayerData::instance()->getLevel());
+
 	if (exit && deltaTime == 0) {
 		// Empezar el contador
 		deltaTime += SDLApplication::instance()->getDeltaTimeSeconds();

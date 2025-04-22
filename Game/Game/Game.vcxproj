@@ -270,14 +270,14 @@
     <ClInclude Include="src\sdlutils\Texture.h" />
     <ClInclude Include="src\sdlutils\VirtualTimer.h" />
     <ClInclude Include="src\targetver.h" />
-    <ClInclude Include="src\Telemetria\Eventos\GenericEvent.h" />
-    <ClInclude Include="src\Telemetria\Eventos\Events.h" />
-    <ClInclude Include="src\Telemetria\Persistencia\FilePersistence.h" />
-    <ClInclude Include="src\Telemetria\Persistencia\IPersistence.h" />
-    <ClInclude Include="src\Telemetria\Persistencia\ServerPersistence.h" />
-    <ClInclude Include="src\Telemetria\Serialización\ISerializer.h" />
-    <ClInclude Include="src\Telemetria\Serialización\JSONSerializer.h" />
-    <ClInclude Include="src\Telemetria\TelemetryTracker.h" />
+    <ClInclude Include="src\telemetry\events\Events.h" />
+    <ClInclude Include="src\telemetry\events\GenericEvent.h" />
+    <ClInclude Include="src\telemetry\persistence\FilePersistence.h" />
+    <ClInclude Include="src\telemetry\persistence\IPersistence.h" />
+    <ClInclude Include="src\telemetry\persistence\ServerPersistence.h" />
+    <ClInclude Include="src\telemetry\serialization\ISerializer.h" />
+    <ClInclude Include="src\telemetry\serialization\JSONSerializer.h" />
+    <ClInclude Include="src\telemetry\TelemetryTracker.h" />
     <ClInclude Include="src\utils\Collisions.h" />
     <ClInclude Include="src\utils\Singleton.h" />
   </ItemGroup>
@@ -391,13 +391,13 @@
     <ClCompile Include="src\sdlutils\SDLUtils.cpp" />
     <ClCompile Include="src\sdlutils\SoundEffect.cpp" />
     <ClCompile Include="src\sdlutils\Texture.cpp" />
-    <ClCompile Include="src\Telemetria\Eventos\GenericEvent.cpp" />
-    <ClCompile Include="src\Telemetria\Persistencia\FilePersistence.cpp" />
-    <ClCompile Include="src\Telemetria\Persistencia\IPersistence.cpp" />
-    <ClCompile Include="src\Telemetria\Persistencia\ServerPersistence.cpp" />
-    <ClCompile Include="src\Telemetria\Serialización\ISerializer.cpp" />
-    <ClCompile Include="src\Telemetria\Serialización\JSONSerializer.cpp" />
-    <ClCompile Include="src\Telemetria\TelemetryTracker.cpp" />
+    <ClCompile Include="src\telemetry\events\GenericEvent.cpp" />
+    <ClCompile Include="src\telemetry\persistence\FilePersistence.cpp" />
+    <ClCompile Include="src\telemetry\persistence\IPersistence.cpp" />
+    <ClCompile Include="src\telemetry\persistence\ServerPersistence.cpp" />
+    <ClCompile Include="src\telemetry\serialization\ISerializer.cpp" />
+    <ClCompile Include="src\telemetry\serialization\JSONSerializer.cpp" />
+    <ClCompile Include="src\telemetry\TelemetryTracker.cpp" />
     <ClCompile Include="src\utils\Collisions.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -45,7 +45,7 @@ void SDLApplication::run() {
 	Uint64 LAST = 0;
 	
 
-	telemetryTracker->addEvent(START_SESSION);
+	telemetryTracker->addEvent(EventType::START_SESSION);
 
 	while (!exit) {
 		InputHandler::instance()->refresh();
@@ -79,7 +79,7 @@ void SDLApplication::run() {
 			gmCtrl().changeToKeyboard();
 		}
 	}
-	telemetryTracker->addEvent(END_SESSION);
+	telemetryTracker->addEvent(EventType::END_SESSION);
 	telemetryTracker->flush();
 
 	gameStateMachine->clearStates();

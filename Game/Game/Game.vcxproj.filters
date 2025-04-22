@@ -329,24 +329,26 @@
     <ClCompile Include="src\components\General Components\PopupComponent.cpp">
       <Filter>Archivos de Dependecias\Components\General Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\Telemetria\TelemetryTracker.cpp">
-      <Filter>Telemetría</Filter>
+    <ClCompile Include="src\telemetry\events\GenericEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
     </ClCompile>
-    <ClCompile Include="src\Telemetria\Serialización\ISerializer.cpp">
-      <Filter>Telemetría\Serialización</Filter>
+    <ClCompile Include="src\telemetry\persistence\FilePersistence.cpp">
+      <Filter>Telemetry\Persistence</Filter>
     </ClCompile>
-    <ClCompile Include="src\Telemetria\Persistencia\IPersistence.cpp">
-      <Filter>Telemetría\Persistencia</Filter>
+    <ClCompile Include="src\telemetry\persistence\IPersistence.cpp">
+      <Filter>Telemetry\Persistence</Filter>
     </ClCompile>
-    <ClCompile Include="src\Telemetria\Persistencia\FilePersistence.cpp">
-      <Filter>Telemetría\Persistencia</Filter>
+    <ClCompile Include="src\telemetry\persistence\ServerPersistence.cpp">
+      <Filter>Telemetry\Persistence</Filter>
     </ClCompile>
-    <ClCompile Include="src\Telemetria\Persistencia\ServerPersistence.cpp">
-      <Filter>Telemetría\Persistencia</Filter>
+    <ClCompile Include="src\telemetry\serialization\ISerializer.cpp">
+      <Filter>Telemetry\Serialization</Filter>
     </ClCompile>
-    <ClCompile Include="src\Telemetria\Eventos\GenericEvent.cpp" />
-    <ClCompile Include="src\Telemetria\Serialización\JSONSerializer.cpp">
-      <Filter>Telemetría\Serialización</Filter>
+    <ClCompile Include="src\telemetry\serialization\JSONSerializer.cpp">
+      <Filter>Telemetry\Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\TelemetryTracker.cpp">
+      <Filter>Telemetry</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -699,29 +701,29 @@
     <ClInclude Include="src\components\General Components\PopupComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\Telemetria\Eventos\GenericEvent.h">
-      <Filter>Telemetría\Eventos</Filter>
+    <ClInclude Include="src\telemetry\events\Events.h">
+      <Filter>Telemetry\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Telemetria\Eventos\Events.h">
-      <Filter>Telemetría\Eventos</Filter>
+    <ClInclude Include="src\telemetry\events\GenericEvent.h">
+      <Filter>Telemetry\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Telemetria\TelemetryTracker.h">
-      <Filter>Telemetría</Filter>
+    <ClInclude Include="src\telemetry\persistence\FilePersistence.h">
+      <Filter>Telemetry\Persistence</Filter>
     </ClInclude>
-    <ClInclude Include="src\Telemetria\Serialización\ISerializer.h">
-      <Filter>Telemetría\Serialización</Filter>
+    <ClInclude Include="src\telemetry\persistence\IPersistence.h">
+      <Filter>Telemetry\Persistence</Filter>
     </ClInclude>
-    <ClInclude Include="src\Telemetria\Persistencia\IPersistence.h">
-      <Filter>Telemetría\Persistencia</Filter>
+    <ClInclude Include="src\telemetry\persistence\ServerPersistence.h">
+      <Filter>Telemetry\Persistence</Filter>
     </ClInclude>
-    <ClInclude Include="src\Telemetria\Persistencia\ServerPersistence.h">
-      <Filter>Telemetría\Persistencia</Filter>
+    <ClInclude Include="src\telemetry\serialization\ISerializer.h">
+      <Filter>Telemetry\Serialization</Filter>
     </ClInclude>
-    <ClInclude Include="src\Telemetria\Persistencia\FilePersistence.h">
-      <Filter>Telemetría\Persistencia</Filter>
+    <ClInclude Include="src\telemetry\serialization\JSONSerializer.h">
+      <Filter>Telemetry\Serialization</Filter>
     </ClInclude>
-    <ClInclude Include="src\Telemetria\Serialización\JSONSerializer.h">
-      <Filter>Telemetría\Serialización</Filter>
+    <ClInclude Include="src\telemetry\TelemetryTracker.h">
+      <Filter>Telemetry</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -850,17 +852,17 @@
     <Filter Include="Archivos de Encabezado\Core">
       <UniqueIdentifier>{98992aa9-64df-4604-9431-33c2e4038671}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Telemetría">
+    <Filter Include="Telemetry">
       <UniqueIdentifier>{b8d8c5e4-af9c-4933-94c9-63f0d3af8c4c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Telemetría\Eventos">
-      <UniqueIdentifier>{0851ed1c-9d5a-4a94-a794-cc4fa56c8a5c}</UniqueIdentifier>
+    <Filter Include="Telemetry\Events">
+      <UniqueIdentifier>{e25c5ec5-b134-4d23-af86-e17cab81e837}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Telemetría\Persistencia">
-      <UniqueIdentifier>{cb5a49e2-d35e-4be0-94cc-e1003b70d916}</UniqueIdentifier>
+    <Filter Include="Telemetry\Persistence">
+      <UniqueIdentifier>{e44de38f-76cb-4e02-a59f-18005d2c1b76}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Telemetría\Serialización">
-      <UniqueIdentifier>{446524ee-2e98-49c6-839f-e847b6eea6f5}</UniqueIdentifier>
+    <Filter Include="Telemetry\Serialization">
+      <UniqueIdentifier>{5133bb10-457c-4809-8d75-d4823d5619b0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 #pragma once
 #include "queue"
-#include "../Serialización/ISerializer.h"
-#include "../Eventos/Events.h"
+#include "../serialization/ISerializer.h"
+#include "../events/Events.h"
 
 enum SerializerType {
 	JSON_SER,
