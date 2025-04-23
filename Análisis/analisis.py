@@ -27,11 +27,15 @@ def calculateOvertime(levelDF, level_end_event):
 
 def calculateEffectiveHeal(levelDF):
     healing_events = levelDF[levelDF["eType"] == "PLAYER_HEALED"]
-    return np.mean(((healing_events['lifeAfterHeal'] - healing_events['lifeBeforeHeal']) / healing_events['attemptedHeal']).to_numpy())
+    if len(healing_events) == 0:
+        return 0
+    return np.mean(((healing_events['lifeBeforeHeal'] - healing_events['lifeAfterHeal']) / healing_events['attemptedHeal']).to_numpy())
 
 def calculateMana(levelDF):
     mana_events = levelDF[levelDF["eType"] == "MANA_TAKEN"]
-    return np.mean((mana_events['manaAfter'] - mana_events['manaBefore']).to_numpy())
+    if len(mana_events) == 0:
+        return 0
+    return np.mean(((mana_events['manaAfter'] - mana_events['manaBefore']) / 5).to_numpy())
 
 def meanSession(sessionDF, event_types):
     level_start_event = sessionDF[sessionDF["eType"] == "START_LEVEL"]
@@ -60,7 +64,9 @@ def meanSession(sessionDF, event_types):
             level_overtime.append(overtime)
     event_mean = np.mean(np.array(event_counters), axis=0)
     overtime_mean = np.mean(np.array(level_overtime), axis=0)
-    return event_mean, overtime_mean
+    effective_healing_mean = np.mean(np.array(effective_healing), axis=0)
+    effective_mana_taken_mean = np.mean(np.array(effective_mana_taken), axis=0)
+    return event_mean, overtime_mean, effective_healing_mean, effective_mana_taken_mean
 
 def calculateAnalitics(df_sorted, event_types, inventory_types):
     game_start_events = df_sorted[df_sorted["eType"] == "START_SESSION"]
@@ -68,6 +74,8 @@ def calculateAnalitics(df_sorted, event_types, inventory_types):
     events_means = []
     inventory_means = []
     overtime_means = []
+    effective_healing_means = []
+    effective_mana_taken_means = []
 
     for i in range(len(game_start_events)):
         # Aislamos la parte del dataframe de la sesion i
@@ -76,15 +84,19 @@ def calculateAnalitics(df_sorted, event_types, inventory_types):
         sessionDF = df_sorted[(df_sorted["timeStamp"] > session_start_time) & (df_sorted["timeStamp"] < session_end_time)]
         # Medias de los eventos en nivel - Partida
 
-        session_event_means, session_overtime_means = meanSession(sessionDF, event_types)
+        session_event_means, session_overtime_means, effective_healing_mean, effective_mana_taken_mean  = meanSession(sessionDF, event_types)
         events_means.append(session_event_means)
         overtime_means.append(session_overtime_means)
+        effective_healing_means.append(effective_healing_mean)
+        effective_mana_taken_means.append(effective_mana_taken_mean)
         # Medias de los eventos en sesion - Inventario
         inventory_means.append(levelValues(sessionDF, inventory_types))
     event_mean = np.mean(np.array(events_means), axis=0)
     overtime_mean = np.mean(np.array(overtime_means), axis=0)
-
-    return event_mean, overtime_mean
+    inventory_mean = np.mean(np.array(inventory_means), axis=0)
+    healing_mean = np.mean(np.array(effective_healing_means), axis=0)
+    mana_taken_mean = np.mean(np.array(effective_mana_taken_means), axis=0)
+    return event_mean, overtime_mean, inventory_mean, healing_mean, mana_taken_mean
 
 def convertValues(df_sorted):
     data_converted = df_sorted.copy()
@@ -93,7 +105,7 @@ def convertValues(df_sorted):
                                                  10:'LEAVE_FAILED', 11:'MOVED_FROM_HAND', 12:'MOVED_TO_HAND', 13:'INVENTORY_LEFT'})
     return data_converted
 
-loader = Loader("TimlessDeck-15724-1745417392410329000.json", False)
+loader = Loader("telemetry_data", True)
 
 dataSorted = loader.data
 
@@ -110,7 +122,21 @@ inventory_type_map = { 11:'MOVED_FROM_HAND', 12:'MOVED_TO_HAND'}
 
 # Sacar la media
 dataSorted = convertValues(dataSorted)
-means, overtime_mean = calculateAnalitics(dataSorted, event_type_map, inventory_type_map) # Se reemplazara por event_type_map
-print(means)
-print(overtime_mean)
+event_means, overtime_mean, inventory_mean, healing_mean, mana_taken_mean = calculateAnalitics(dataSorted, event_type_map, inventory_type_map) # Se reemplazara por event_type_map
+
+print("---------EVENT METRICS----------\n")
+print("Average card changes per level:", event_means[0])
+print("Average skill uses per level:", event_means[1])
+print("Average attempts at skill without mana (per level):", event_means[2])
+print("Average attempts at leaving without full charge (per level):", event_means[4])
+
+print("\n\n---------INVENTORY METRICS----------\n")
+print("Deck reductions per session:", inventory_mean[0])
+print("Deck additions per session:", inventory_mean[1])
+
+
+print("\n\n---------BATTLE METRICS----------\n")
+print("Overtime average: ", overtime_mean, "s")
+print("Effective healing%: ", healing_mean * 100)
+print("Effective mana taking%: ",mana_taken_mean * 100)
 # display(means)
