@@ -102,8 +102,11 @@ print("Successful abilities usage%: ", successful_ability_uses)
 categories = ['Card Changes', 'Abilities used']
 createGraphic(categories, event_means[:2], '¿El jugador entiende el funcionamiento de las cartas?')
 
-categories = ['Effective healing (percentage)', 'Failed ability attemps', 'Successful ability uses', 'Effective mana (percentage)']
-createGraphic(categories, [healing_mean, event_means[2], successful_ability_uses, mana_taken_mean], '¿El jugador entiende las tres barras superiores?')
+categories = ['Effective healing (percentage)', 'Effective mana (percentage)']
+createGraphic(categories, [healing_mean, mana_taken_mean], '¿El jugador entiende las tres barras superiores? - Cambios efectivos')
+
+categories = ['Failed ability attemps', 'Successful ability uses']
+createGraphic(categories, [event_means[2], successful_ability_uses], '¿El jugador entiende las tres barras superiores? - Habilidades')
 
 categories = ['Overtime per level', 'Failed level exits']
 createGraphic(categories, [overtime_mean, event_means[4]], '¿El jugador entiende qué tiene que hacer para salir del nivel, y cuándo lo puede hacer?')
