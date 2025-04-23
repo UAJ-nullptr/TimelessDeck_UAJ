@@ -43,7 +43,7 @@ FilePersistence::~FilePersistence()
 	if (file != nullptr) {
 
 		if (serType == SerializerType::JSON_SER)
-			*file << "[\n";
+			*file << "]\n";
 
 		file->close();
 		delete file;
