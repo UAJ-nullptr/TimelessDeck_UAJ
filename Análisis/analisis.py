@@ -5,8 +5,8 @@ from loader import Loader
 
 def levelValues(levelDF, event_type_map):
     counts = []
-    for code in event_type_map.keys():
-        count = len(levelDF[levelDF["eType"] == code]) 
+    for code in event_type_map.values():
+        count = len(levelDF[levelDF["eType"] == code])
         counts.append(count)
 
     return np.array(counts)
@@ -14,9 +14,16 @@ def levelValues(levelDF, event_type_map):
 def calculateOvertime(levelDF, level_end_event):
     if (level_end_event['win'] == "false"):
         return -1
-    
-    event = levelDF[levelDF["eType"] == "LEVEL_EXIT_POSSIBLE"]
-    return level_end_event['timeStamp'] - event['timeStamp']
+
+    possibleEndEvents = levelDF[levelDF["eType"] == "LEVEL_EXIT_POSSIBLE"]
+    if (len(possibleEndEvents) == 0):
+        return -1
+    endTS = level_end_event['timeStamp']
+    firstPossibleEndEvent = possibleEndEvents.iloc[0]
+    endPossibleTS = firstPossibleEndEvent['timeStamp']
+    overtime = endTS - endPossibleTS
+    overtimeValue = overtime.total_seconds()
+    return overtimeValue
 
 def calculateEffectiveHeal(levelDF):
     healing_events = levelDF[levelDF["eType"] == "PLAYER_HEALED"]
@@ -51,14 +58,16 @@ def meanSession(sessionDF, event_types):
         overtime = calculateOvertime(levelDF, level_end_event.iloc[i])
         if (overtime >= 0):
             level_overtime.append(overtime)
-
-    return np.mean(np.array(event_counters), axis=0), np.mean(np.array(level_overtime), axis=0)
+    event_mean = np.mean(np.array(event_counters), axis=0)
+    overtime_mean = np.mean(np.array(level_overtime), axis=0)
+    return event_mean, overtime_mean
 
 def calculateAnalitics(df_sorted, event_types, inventory_types):
     game_start_events = df_sorted[df_sorted["eType"] == "START_SESSION"]
     game_end_events = df_sorted[df_sorted["eType"] == "END_SESSION"]
     events_means = []
     inventory_means = []
+    overtime_means = []
 
     for i in range(len(game_start_events)):
         # Aislamos la parte del dataframe de la sesion i
@@ -66,20 +75,25 @@ def calculateAnalitics(df_sorted, event_types, inventory_types):
         session_end_time = game_end_events['timeStamp'].iloc[i]
         sessionDF = df_sorted[(df_sorted["timeStamp"] > session_start_time) & (df_sorted["timeStamp"] < session_end_time)]
         # Medias de los eventos en nivel - Partida
-        events_means.append(meanSession(sessionDF, event_types))
+
+        session_event_means, session_overtime_means = meanSession(sessionDF, event_types)
+        events_means.append(session_event_means)
+        overtime_means.append(session_overtime_means)
         # Medias de los eventos en sesion - Inventario
         inventory_means.append(levelValues(sessionDF, inventory_types))
+    event_mean = np.mean(np.array(events_means), axis=0)
+    overtime_mean = np.mean(np.array(overtime_means), axis=0)
 
-    return np.mean(np.array(events_means), axis=0)
+    return event_mean, overtime_mean
 
 def convertValues(df_sorted):
     data_converted = df_sorted.copy()
     data_converted['eType'] = data_converted['eType'].map({0: 'START_SESSION', 1:'END_SESSION', 2:'START_LEVEL', 3:'END_LEVEL', 4:'CARD_CHANGED',
-                                                 5:'ABILITY_USED', 6:'PLAYER_HEALED', 7:'MANA_TAKEN', 8:'NOT_ENOUGHT_MANA', 9:'LEVEL_EXIT_POSSIBLE', 
+                                                 5:'ABILITY_USED', 6:'PLAYER_HEALED', 7:'MANA_TAKEN', 8:'NOT_ENOUGHT_MANA', 9:'LEVEL_EXIT_POSSIBLE',
                                                  10:'LEAVE_FAILED', 11:'MOVED_FROM_HAND', 12:'MOVED_TO_HAND', 13:'INVENTORY_LEFT'})
     return data_converted
 
-loader = Loader("TimlessDeck-12036-1745274911802608300.json", False)
+loader = Loader("TimlessDeck-15724-1745417392410329000.json", False)
 
 dataSorted = loader.data
 
@@ -87,8 +101,8 @@ dataSorted = dataSorted.sort_values("timeStamp")
 # Display all rows of the DataFrame
 pd.set_option("display.max_rows", None)
 
-event_type_map = { 4:'CARD_CHANGED', 5:'ABILITY_USED', 
-                  8:'NOT_ENOUGHT_MANA', 9:'LEVEL_EXIT_POSSIBLE', 
+event_type_map = { 4:'CARD_CHANGED', 5:'ABILITY_USED',
+                  8:'NOT_ENOUGHT_MANA', 9:'LEVEL_EXIT_POSSIBLE',
                   10:'LEAVE_FAILED'
 }
 
@@ -96,6 +110,7 @@ inventory_type_map = { 11:'MOVED_FROM_HAND', 12:'MOVED_TO_HAND'}
 
 # Sacar la media
 dataSorted = convertValues(dataSorted)
-means = calculateAnalitics(dataSorted, event_type_map, inventory_type_map) # Se reemplazara por event_type_map
+means, overtime_mean = calculateAnalitics(dataSorted, event_type_map, inventory_type_map) # Se reemplazara por event_type_map
 print(means)
+print(overtime_mean)
 # display(means)
