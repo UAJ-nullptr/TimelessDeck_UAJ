@@ -275,8 +275,10 @@
     <ClInclude Include="src\telemetry\persistence\FilePersistence.h" />
     <ClInclude Include="src\telemetry\persistence\IPersistence.h" />
     <ClInclude Include="src\telemetry\persistence\ServerPersistence.h" />
+    <ClInclude Include="src\telemetry\serialization\CSVSerializer.h" />
     <ClInclude Include="src\telemetry\serialization\ISerializer.h" />
     <ClInclude Include="src\telemetry\serialization\JSONSerializer.h" />
+    <ClInclude Include="src\telemetry\serialization\YALMSerializer.h" />
     <ClInclude Include="src\telemetry\TelemetryTracker.h" />
     <ClInclude Include="src\utils\Collisions.h" />
     <ClInclude Include="src\utils\Singleton.h" />
@@ -395,8 +397,10 @@
     <ClCompile Include="src\telemetry\persistence\FilePersistence.cpp" />
     <ClCompile Include="src\telemetry\persistence\IPersistence.cpp" />
     <ClCompile Include="src\telemetry\persistence\ServerPersistence.cpp" />
+    <ClCompile Include="src\telemetry\serialization\CSVSerializer.cpp" />
     <ClCompile Include="src\telemetry\serialization\ISerializer.cpp" />
     <ClCompile Include="src\telemetry\serialization\JSONSerializer.cpp" />
+    <ClCompile Include="src\telemetry\serialization\YALMSerializer.cpp" />
     <ClCompile Include="src\telemetry\TelemetryTracker.cpp" />
     <ClCompile Include="src\utils\Collisions.cpp" />
   </ItemGroup>

@@ -12,6 +12,11 @@ private:
 public:
 	SessionStartedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID) :
 		GenericEvent(evntId, timeStmp, START_SESSION, appName, appVrs, sessionID) {}
+
+	virtual void serializeToYALM(std::string& endResult) {
+		GenericEvent::serializeToYALM(endResult);
+		endResult += "\n";
+	}
 };
 
 // Implementado
@@ -22,6 +27,11 @@ private:
 public:
 	SessionEndedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID) :
 		GenericEvent(evntId, timeStmp, END_SESSION, appName, appVrs, sessionID) {}
+
+	virtual void serializeToYALM(std::string& endResult) {
+		GenericEvent::serializeToYALM(endResult);
+		endResult += "\n";
+	}
 };
 
 // Implementado
@@ -37,6 +47,12 @@ public:
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
 		jsonEvent["levelId"] = new JSONValue(levelId);
+	}
+
+	virtual void serializeToYALM(std::string& endResult) {
+		GenericEvent::serializeToYALM(endResult);
+		endResult += "  levelId: " + std::to_string(levelId) + "\n";
+		endResult += "\n";
 	}
 };
 
@@ -56,6 +72,13 @@ public:
 		jsonEvent["levelId"] = new JSONValue(levelId);
 		jsonEvent["win"] = new JSONValue(win);
 	}
+
+	virtual void serializeToYALM(std::string& endResult) {
+		GenericEvent::serializeToYALM(endResult);
+		endResult += "  levelId: " + std::to_string(levelId) + "\n";
+		endResult += "  win: " + std::to_string(win) + "\n";
+		endResult += "\n";
+	}
 };
 
 // Implementado (HAY QUE CAMBIAR EL cardId POR UN STRING
@@ -72,13 +95,19 @@ public:
 		GenericEvent::serializeToJSON(jsonEvent);
 		jsonEvent["levelId"] = new JSONValue(levelId);
 	}
+
+	virtual void serializeToYALM(std::string& endResult) {
+		GenericEvent::serializeToYALM(endResult);
+		endResult += "  levelId: " + std::to_string(levelId) + "\n";
+		endResult += "\n";
+	}
 };
 
 // Implementado (Lo mismo, va a recibir un string)
 class AbilityUsedEvent : public GenericEvent
 {
 private:
-	int levelId; // Para poder saber habilidadesUsadas/nivel (???)
+	int levelId; // Para poder saber habilidadesUsadas/nivel
 
 public:
 
@@ -88,6 +117,12 @@ public:
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
 		jsonEvent["levelId"] = new JSONValue(levelId);
+	}
+
+	virtual void serializeToYALM(std::string& endResult) {
+		GenericEvent::serializeToYALM(endResult);
+		endResult += "  levelId: " + std::to_string(levelId) + "\n";
+		endResult += "\n";
 	}
 };
 
@@ -111,6 +146,14 @@ public:
 		jsonEvent["attemptedHeal"] = new JSONValue(attemptedHeal);
 		jsonEvent["lifeAfterHeal"] = new JSONValue(lifeAfterHeal);
 	}
+
+	virtual void serializeToYALM(std::string& endResult) {
+		GenericEvent::serializeToYALM(endResult);
+		endResult += "  lifeBeforeHeal: " + std::to_string(lifeBeforeHeal) + "\n";
+		endResult += "  attemptedHeal: " + std::to_string(attemptedHeal) + "\n";
+		endResult += "  lifeAfterHeal: " + std::to_string(lifeAfterHeal) + "\n";
+		endResult += "\n";
+	}
 };
 
 // Implementado (Lo mismo, recibe un string en vez de cardId)
@@ -129,6 +172,13 @@ public:
 		GenericEvent::serializeToJSON(jsonEvent);
 		jsonEvent["manaStatus"] = new JSONValue(manaStatus);
 		jsonEvent["manaCost"] = new JSONValue(manaCost);
+	}
+
+	virtual void serializeToYALM(std::string& endResult) {
+		GenericEvent::serializeToYALM(endResult);
+		endResult += "  manaStatus: " + std::to_string(manaStatus) + "\n";
+		endResult += "  manaCost: " + std::to_string(manaCost) + "\n";
+		endResult += "\n";
 	}
 };
 
@@ -150,6 +200,13 @@ public:
 		jsonEvent["manaBefore"] = new JSONValue(manaBefore);
 		jsonEvent["manaAfter"] = new JSONValue(manaAfter);
 	}
+
+	virtual void serializeToYALM(std::string& endResult) {
+		GenericEvent::serializeToYALM(endResult);
+		endResult += "  manaBefore: " + std::to_string(manaBefore) + "\n";
+		endResult += "  manaAfter: " + std::to_string(manaAfter) + "\n";
+		endResult += "\n";
+	}
 };
 
 // Implementado
@@ -165,6 +222,12 @@ public:
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
 		jsonEvent["levelId"] = new JSONValue(levelId);
+	}
+
+	virtual void serializeToYALM(std::string& endResult) {
+		GenericEvent::serializeToYALM(endResult);
+		endResult += "  levelId: " + std::to_string(levelId) + "\n";
+		endResult += "\n";
 	}
 };
 
@@ -182,6 +245,12 @@ public:
 		GenericEvent::serializeToJSON(jsonEvent);
 		jsonEvent["levelId"] = new JSONValue(levelId);
 	}
+
+	virtual void serializeToYALM(std::string& endResult) {
+		GenericEvent::serializeToYALM(endResult);
+		endResult += "  levelId: " + std::to_string(levelId) + "\n";
+		endResult += "\n";
+	}
 };
 
 // Implementado
@@ -193,8 +262,9 @@ public:
 	ChangedCardDeckToHandEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID) :
 		GenericEvent(evntId, timeStmp, MOVED_TO_HAND, appName, appVrs, sessionID) {}
 
-	virtual void serializeToJSON(JSONObject& jsonEvent) {
-		GenericEvent::serializeToJSON(jsonEvent);
+	virtual void serializeToYALM(std::string& endResult) {
+		GenericEvent::serializeToYALM(endResult);
+		endResult += "\n";
 	}
 };
 
@@ -207,8 +277,9 @@ public:
 	ChangedCardHandToDeckEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID) :
 		GenericEvent(evntId, timeStmp, MOVED_FROM_HAND, appName, appVrs, sessionID) {}
 
-	virtual void serializeToJSON(JSONObject& jsonEvent) {
-		GenericEvent::serializeToJSON(jsonEvent);
+	virtual void serializeToYALM(std::string& endResult) {
+		GenericEvent::serializeToYALM(endResult);
+		endResult += "\n";
 	}
 };
 
@@ -232,5 +303,15 @@ public:
 		}
 
 		jsonEvent["currentDeck"] = new JSONValue(aux);
+	}
+
+	virtual void serializeToYALM(std::string& endResult) {
+		GenericEvent::serializeToYALM(endResult);
+		
+		endResult += "  currentDeck:\n";
+		for (int i : currentDeck) {
+			endResult += "  - " + std::to_string(i) + "\n";
+		}
+		endResult += "\n";
 	}
 };

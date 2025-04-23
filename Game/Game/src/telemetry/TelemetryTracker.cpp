@@ -15,7 +15,8 @@ TelemetryTracker::TelemetryTracker(string appName, string appVers, double timeLi
     sessionId = epoc / pow(10, 12);
     sessionId /= rand() % 100 + 100;
 
-	persistence = new FilePersistence(appName, sessionId, epoc);
+	persistence = new FilePersistence(appName, SerializerType::JSON_SER, sessionId, epoc);
+	//persistence = new FilePersistence(appName, SerializerType::YALM_SER, sessionId, epoc);
 }
 
 TelemetryTracker::~TelemetryTracker()

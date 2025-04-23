@@ -5,7 +5,8 @@
 
 enum SerializerType {
 	JSON_SER,
-	CSV_SER
+	CSV_SER,
+	YALM_SER
 };
 
 class IPersistence
@@ -18,7 +19,7 @@ protected:
 	ISerializer* serializer;
 
 public:
-	IPersistence(SerializerType serType = JSON_SER);
+	IPersistence(SerializerType serType = SerializerType::JSON_SER);
 	virtual ~IPersistence();
 
 	virtual void send(GenericEvent* event);

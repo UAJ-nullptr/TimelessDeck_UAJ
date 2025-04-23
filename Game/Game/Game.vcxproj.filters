@@ -350,6 +350,12 @@
     <ClCompile Include="src\telemetry\TelemetryTracker.cpp">
       <Filter>Telemetry</Filter>
     </ClCompile>
+    <ClCompile Include="src\telemetry\serialization\YALMSerializer.cpp">
+      <Filter>Telemetry\Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\serialization\CSVSerializer.cpp">
+      <Filter>Telemetry\Serialization</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\GameStateMachine.h">
@@ -724,6 +730,12 @@
     </ClInclude>
     <ClInclude Include="src\telemetry\TelemetryTracker.h">
       <Filter>Telemetry</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\serialization\YALMSerializer.h">
+      <Filter>Telemetry\Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\serialization\CSVSerializer.h">
+      <Filter>Telemetry\Serialization</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

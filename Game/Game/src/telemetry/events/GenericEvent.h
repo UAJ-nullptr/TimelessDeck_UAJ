@@ -38,5 +38,7 @@ public:
 	{};
 
 	virtual void serializeToJSON(JSONObject& jsonEvent);
+	virtual void serializeToCSV(std::string& endResult);
+	virtual void serializeToYALM(std::string& endResult);
 };
 
