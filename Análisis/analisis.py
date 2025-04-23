@@ -1,55 +1,11 @@
 import glob
+import sys
 import numpy as np
 import pandas as pd
-import matplotlib as mpl
+import matplotlib as plt
 from loader import Loader
-
-def levelValues(levelDF, event_type_map):
-    counts = []
-    for code in event_type_map.values():
-        count = len(levelDF[levelDF["eType"] == code])
-        counts.append(count)
-
-    return np.array(counts)
-
-def calculateOvertime(levelDF, level_end_event):
-    if (level_end_event['win'] == "false"):
-        return -1
-
-    possibleEndEvents = levelDF[levelDF["eType"] == "LEVEL_EXIT_POSSIBLE"]
-    if (len(possibleEndEvents) == 0):
-        return -1
-    endTS = level_end_event['timeStamp']
-    firstPossibleEndEvent = possibleEndEvents.iloc[0]
-    endPossibleTS = firstPossibleEndEvent['timeStamp']
-    overtime = endTS - endPossibleTS
-    overtimeValue = overtime.total_seconds()
-    return overtimeValue
-
-def calculateEffectiveHeal(levelDF):
-    healing_events = levelDF[levelDF["eType"] == "PLAYER_HEALED"]
-    if len(healing_events) == 0:
-        return 0
-    return np.mean(((healing_events['lifeBeforeHeal'] - healing_events['lifeAfterHeal']) / healing_events['attemptedHeal']).to_numpy())
-
-def calculateDeckDiffs(sessionDF):
-    deck_change_events = sessionDF[sessionDF["eType"] == "INVENTORY_LEFT"]
-    deck_change_arrays = deck_change_events["currentDeck"]
-
-    lenght = len(deck_change_arrays)
-    count = 0
-    for i in range(lenght-1):
-        if deck_change_arrays.iloc[i] != deck_change_arrays.iloc[i+1] :
-            count += 1
-    pass
-
-    return count
-
-def calculateMana(levelDF):
-    mana_events = levelDF[levelDF["eType"] == "MANA_TAKEN"]
-    if len(mana_events) == 0:
-        return 0
-    return np.mean(((mana_events['manaAfter'] - mana_events['manaBefore']) / 5).to_numpy())
+from utils import convertValues, createGraphic, levelValues, getEventTypeMap, getInventoryTypeMap
+from event_metrics import calculateEffectiveHeal, calculateOvertime, calculateDeckDiffs, calculateMana
 
 def meanSession(sessionDF, event_types):
     level_start_event = sessionDF[sessionDF["eType"] == "START_LEVEL"]
@@ -115,31 +71,15 @@ def calculateAnalitics(df_sorted, event_types, inventory_types):
     mana_taken_mean = np.mean(np.array(effective_mana_taken_means), axis=0)
     return event_mean, overtime_mean, inventory_mean, healing_mean, mana_taken_mean, deck_change_mean
 
-def convertValues(df_sorted):
-    data_converted = df_sorted.copy()
-    data_converted['eType'] = data_converted['eType'].map({0: 'START_SESSION', 1:'END_SESSION', 2:'START_LEVEL', 3:'END_LEVEL', 4:'CARD_CHANGED',
-                                                 5:'ABILITY_USED', 6:'PLAYER_HEALED', 7:'MANA_TAKEN', 8:'NOT_ENOUGHT_MANA', 9:'LEVEL_EXIT_POSSIBLE',
-                                                 10:'LEAVE_FAILED', 11:'MOVED_FROM_HAND', 12:'MOVED_TO_HAND', 13:'INVENTORY_LEFT'})
-    return data_converted
-
 loader = Loader("telemetry_data", True)
 
 dataSorted = loader.data
 
 dataSorted = dataSorted.sort_values("timeStamp")
-# Display all rows of the DataFrame
-pd.set_option("display.max_rows", None)
-
-event_type_map = { 4:'CARD_CHANGED', 5:'ABILITY_USED',
-                  8:'NOT_ENOUGHT_MANA', 9:'LEVEL_EXIT_POSSIBLE',
-                  10:'LEAVE_FAILED'
-}
-
-inventory_type_map = { 11:'MOVED_FROM_HAND', 12:'MOVED_TO_HAND'}
 
 # Sacar la media
 dataSorted = convertValues(dataSorted)
-event_means, overtime_mean, inventory_mean, healing_mean, mana_taken_mean, deck_change_mean = calculateAnalitics(dataSorted, event_type_map, inventory_type_map) # Se reemplazara por event_type_map
+event_means, overtime_mean, inventory_mean, healing_mean, mana_taken_mean, deck_change_mean = calculateAnalitics(dataSorted, getEventTypeMap(), getInventoryTypeMap())
 
 print("---------EVENT METRICS----------\n")
 print("Average card changes per level:", event_means[0])
@@ -152,10 +92,21 @@ print("Deck reductions per session:", inventory_mean[0])
 print("Deck additions per session:", inventory_mean[1])
 print("Average deck changes per session:", deck_change_mean)
 
-
+successful_ability_uses = event_means[1] / (event_means[1] + event_means[2]) * 100
 print("\n\n---------BATTLE METRICS----------\n")
 print("Overtime average: ", overtime_mean, "s")
 print("Effective healing%: ", healing_mean * 100)
 print("Effective mana taking%: ",mana_taken_mean * 100)
-print("Successful skill usage%: ",event_means[1] / (event_means[1] + event_means[2]) * 100)
-# display(means)
+print("Successful abilities usage%: ", successful_ability_uses)
+
+categories = ['Card Changes', 'Abilities used']
+createGraphic(categories, event_means[:2], '¿El jugador entiende el funcionamiento de las cartas?')
+
+categories = ['Effective healing (percentage)', 'Failed ability attemps', 'Successful ability uses', 'Effective mana (percentage)']
+createGraphic(categories, [healing_mean, event_means[2], successful_ability_uses, mana_taken_mean], '¿El jugador entiende las tres barras superiores?')
+
+categories = ['Overtime per level', 'Failed level exits']
+createGraphic(categories, [overtime_mean, event_means[4]], '¿El jugador entiende qué tiene que hacer para salir del nivel, y cuándo lo puede hacer?')
+
+categories = ['Deck reductions', 'Deck additions', 'Effective changes in deck']
+createGraphic(categories, [inventory_mean[0], inventory_mean[1], deck_change_mean], '¿Entiende el jugador como gestionar sus cartas?')
