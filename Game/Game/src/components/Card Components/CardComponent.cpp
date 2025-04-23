@@ -103,7 +103,7 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 	}
 	else 
 	{
-		TelemetryTracker::instance()->addEvent(EventType::NOT_ENOUGH_MANA, mana, (*active)->getMana());
+		TelemetryTracker::instance()->addEvent(EventType::NOT_ENOUGH_MANA,(*active)->getMana(), mana);
 	}
 }
 

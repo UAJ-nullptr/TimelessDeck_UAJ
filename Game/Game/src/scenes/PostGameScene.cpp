@@ -13,6 +13,9 @@ PostGameScene::PostGameScene(int dmg, int mlee, int rngd, int tnk, int mny, floa
 	SDLApplication::popGameState();
 	newCard = PlayerData::instance()->getNewCard();
 	PlayerData::instance()->addMoney(money);
+
+	TelemetryTracker::instance()->addEvent(EventType::END_LEVEL, true, PlayerData::instance()->getLevel());
+
 	PlayerData::instance()->nextLevel();
 
 	GameObject* background = addGameObject();

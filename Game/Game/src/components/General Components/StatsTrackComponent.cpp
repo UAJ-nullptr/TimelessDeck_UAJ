@@ -42,6 +42,5 @@ void StatsTrackComponent::startStatsScene()
 	if (dynamic_cast<BattleScene*>(gStt)->getPlayer()->getComponent<HealthComponent>()->getLife() > 0)
 	{
 		SDLApplication::pushNewScene<PostGameScene>(damage, melee, ranged, tank, money, time);
-		TelemetryTracker::instance()->addEvent(EventType::END_LEVEL, true);
 	}
 }

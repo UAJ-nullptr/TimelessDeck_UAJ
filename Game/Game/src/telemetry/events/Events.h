@@ -118,19 +118,16 @@ class InsufficientManaEvent : public GenericEvent
 {
 private:
 	int manaStatus;
-	CardId cardFromAbility;
 	int manaCost;
 
 public:
 	InsufficientManaEvent(int evntId, long long timeStmp, string appName, string appVrs,
-		long sessionID, int currentMana, CardId ability, int abilityCost) :
-		GenericEvent(evntId, timeStmp, NOT_ENOUGH_MANA, appName, appVrs, sessionID), manaStatus(currentMana), 
-		cardFromAbility(ability), manaCost(abilityCost) {}
+		long sessionID, int currentMana, int abilityCost) :
+		GenericEvent(evntId, timeStmp, NOT_ENOUGH_MANA, appName, appVrs, sessionID), manaStatus(currentMana), manaCost(abilityCost) {}
 
 	virtual void serializeToJSON(JSONObject& jsonEvent) {
 		GenericEvent::serializeToJSON(jsonEvent);
 		jsonEvent["manaStatus"] = new JSONValue(manaStatus);
-		jsonEvent["cardFromAbility"] = new JSONValue(cardFromAbility);
 		jsonEvent["manaCost"] = new JSONValue(manaCost);
 	}
 };

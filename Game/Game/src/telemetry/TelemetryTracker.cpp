@@ -68,7 +68,7 @@ void TelemetryTracker::addEvent(EventType type, ...)
         persistence->send(new LevelStartedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args,int)));
         break;
     case END_LEVEL:
-        persistence->send(new LevelEndedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args,bool)));
+        persistence->send(new LevelEndedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int), va_arg(args, bool)));
         break;
     case CARD_CHANGED:
         persistence->send(new ChangedCardPlayingEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
@@ -84,7 +84,7 @@ void TelemetryTracker::addEvent(EventType type, ...)
         break;
     case NOT_ENOUGH_MANA:
         persistence->send(new InsufficientManaEvent(currentId, timeInNano, appName, appVersion, sessionId,
-            va_arg(args, int), va_arg(args, CardId), va_arg(args, int)));
+            va_arg(args, int), va_arg(args, int)));
         break;
     case LEVEL_EXIT_POSSIBLE:
         persistence->send(new CanExitLevelEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));

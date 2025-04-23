@@ -90,7 +90,7 @@ void BattleScene::OnPlayerDies() {
 	player->removeComponent<PlayerInputComponent>();
 	player->removeComponent<CardComponent>();
 	pointer->removeComponent<Image>();
-	TelemetryTracker::instance()->addEvent(EventType::END_LEVEL, false);
+	TelemetryTracker::instance()->addEvent(EventType::END_LEVEL, false, PlayerData::instance()->getLevel());
 }
 
 void BattleScene::OnPlayerDamage(float value) {

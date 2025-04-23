@@ -26,7 +26,7 @@ CallBackCol Mana::pickMana(){
 		else {
 			pD->setCurrMana(pD->getMaxMana());
 		}
-		TelemetryTracker::instance()->addEvent(EventType::MANA_TAKEN, currentMana, pD->getCurrMana());
+		TelemetryTracker::instance()->addEvent(EventType::MANA_TAKEN, pD->getCurrMana(), currentMana);
 		setAlive(false);
 	};
 }

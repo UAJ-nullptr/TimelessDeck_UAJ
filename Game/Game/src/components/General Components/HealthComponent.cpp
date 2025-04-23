@@ -134,7 +134,7 @@ void HealthComponent::heal(int heal)
 	else lifePoints = modifiedMaxLife;
 	dynamic_cast<BattleScene*>(gStt)->OnPlayerDamage(lifePoints);
 
-	TelemetryTracker::instance()->addEvent(EventType::PLAYER_HEALED, currentLife, heal, lifePoints);
+	TelemetryTracker::instance()->addEvent(EventType::PLAYER_HEALED, lifePoints, heal, currentLife);
 }
 
 // Al llegar la vida a 0, el objeto se dispone a morir
