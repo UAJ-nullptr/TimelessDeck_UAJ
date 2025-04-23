@@ -35,7 +35,7 @@ BattleScene::BattleScene(BattleType t_, bool tuto) : GameState(), type(t_) {
 	battleSceneOST->play();
 	sdlutils().focusMouseOnWindow();
 
-	TelemetryTracker::instance()->addEvent(EventType::START_LEVEL);
+	TelemetryTracker::instance()->addEvent(EventType::START_LEVEL, PlayerData::instance()->getLevel());
 }
 
 BattleScene::~BattleScene()
