@@ -350,11 +350,53 @@
     <ClCompile Include="src\telemetry\TelemetryTracker.cpp">
       <Filter>Telemetry</Filter>
     </ClCompile>
-    <ClCompile Include="src\telemetry\serialization\YALMSerializer.cpp">
+    <ClCompile Include="src\telemetry\serialization\YAMLSerializer.cpp">
       <Filter>Telemetry\Serialization</Filter>
     </ClCompile>
     <ClCompile Include="src\telemetry\serialization\CSVSerializer.cpp">
       <Filter>Telemetry\Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\events\SessionStartedEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\events\SessionEndedEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\events\LevelStartedEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\events\LevelEndedEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\events\ChangedCardPlayingEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\events\AbilityUsedEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\events\PlayerHealedEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\events\InsufficientManaEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\events\ManaTakenEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\events\CanExitLevelEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\events\ExitFailedEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\events\ChangedCardDeckToHandEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\events\ChangedCardHandToDeckEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\events\InventoryExitedEvent.cpp">
+      <Filter>Telemetry\Events</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -707,9 +749,6 @@
     <ClInclude Include="src\components\General Components\PopupComponent.h">
       <Filter>Archivos de Encabezado\Components\General Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\telemetry\events\Events.h">
-      <Filter>Telemetry\Events</Filter>
-    </ClInclude>
     <ClInclude Include="src\telemetry\events\GenericEvent.h">
       <Filter>Telemetry\Events</Filter>
     </ClInclude>
@@ -731,11 +770,53 @@
     <ClInclude Include="src\telemetry\TelemetryTracker.h">
       <Filter>Telemetry</Filter>
     </ClInclude>
-    <ClInclude Include="src\telemetry\serialization\YALMSerializer.h">
+    <ClInclude Include="src\telemetry\serialization\YAMLSerializer.h">
       <Filter>Telemetry\Serialization</Filter>
     </ClInclude>
     <ClInclude Include="src\telemetry\serialization\CSVSerializer.h">
       <Filter>Telemetry\Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\events\SessionStartedEvent.h">
+      <Filter>Telemetry\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\events\SessionEndedEvent.h">
+      <Filter>Telemetry\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\events\LevelStartedEvent.h">
+      <Filter>Telemetry\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\events\LevelEndedEvent.h">
+      <Filter>Telemetry\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\events\ChangedCardPlayingEvent.h">
+      <Filter>Telemetry\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\events\AbilityUsedEvent.h">
+      <Filter>Telemetry\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\events\PlayerHealedEvent.h">
+      <Filter>Telemetry\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\events\InsufficientManaEvent.h">
+      <Filter>Telemetry\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\events\ManaTakenEvent.h">
+      <Filter>Telemetry\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\events\CanExitLevelEvent.h">
+      <Filter>Telemetry\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\events\ExitFailedEvent.h">
+      <Filter>Telemetry\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\events\ChangedCardDeckToHandEvent.h">
+      <Filter>Telemetry\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\events\ChangedCardHandToDeckEvent.h">
+      <Filter>Telemetry\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\telemetry\events\InventoryExitedEvent.h">
+      <Filter>Telemetry\Events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

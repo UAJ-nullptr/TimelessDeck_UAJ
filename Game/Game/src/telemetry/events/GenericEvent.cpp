@@ -15,7 +15,7 @@ void GenericEvent::serializeToCSV(std::string& endResult)
 
 }
 
-void GenericEvent::serializeToYALM(std::string& endResult)
+void GenericEvent::serializeToYAML(std::string& endResult)
 {
 	endResult += std::to_string(eventId) + ":\n";
 	endResult += "  timeStamp: " + std::to_string(timeStamp) + "\n";

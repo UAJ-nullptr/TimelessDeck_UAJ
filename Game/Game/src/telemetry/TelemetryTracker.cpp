@@ -2,6 +2,22 @@
 #include "persistence/FilePersistence.h"
 #include <cstdarg>
 
+// EVENTOS
+#include "events/AbilityUsedEvent.h"
+#include "events/CanExitLevelEvent.h"
+#include "events/ChangedCardDeckToHandEvent.h"
+#include "events/ChangedCardHandToDeckEvent.h"
+#include "events/ChangedCardPlayingEvent.h"
+#include "events/ExitFailedEvent.h"
+#include "events/InsufficientManaEvent.h"
+#include "events/InventoryExitedEvent.h"
+#include "events/LevelEndedEvent.h"
+#include "events/LevelStartedEvent.h"
+#include "events/ManaTakenEvent.h"
+#include "events/PlayerHealedEvent.h"
+#include "events/SessionEndedEvent.h"
+#include "events/SessionStartedEvent.h"
+
 TelemetryTracker::TelemetryTracker() : appName("null"), appVersion("0"), sessionId(0), currentId(0), elapsedTime(0),
 	timeLimit(0), persistence(nullptr)
 {
@@ -91,7 +107,7 @@ void TelemetryTracker::addEvent(EventType type, ...)
         persistence->send(new CanExitLevelEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
         break;
     case LEAVE_FAILED:
-        persistence->send(new ExitFailed(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
+        persistence->send(new ExitFailedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, int)));
         break;
     case MOVED_FROM_HAND:
         persistence->send(new ChangedCardHandToDeckEvent(currentId, timeInNano, appName, appVersion, sessionId));

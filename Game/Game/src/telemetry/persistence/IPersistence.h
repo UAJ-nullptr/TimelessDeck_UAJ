@@ -1,12 +1,12 @@
 #pragma once
 #include "queue"
 #include "../serialization/ISerializer.h"
-#include "../events/Events.h"
+#include "../events/GenericEvent.h"
 
 enum SerializerType {
 	JSON_SER,
 	CSV_SER,
-	YALM_SER
+	YAML_SER
 };
 
 class IPersistence

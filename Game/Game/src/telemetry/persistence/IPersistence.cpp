@@ -1,7 +1,7 @@
 #include "IPersistence.h"
 #include "../serialization/JSONSerializer.h"
 #include "../serialization/CSVSerializer.h"
-#include "../serialization/YALMSerializer.h"
+#include "../serialization/YAMLSerializer.h"
 
 IPersistence::IPersistence(SerializerType serType) : serType(serType)
 {
@@ -16,8 +16,8 @@ IPersistence::IPersistence(SerializerType serType) : serType(serType)
 		// de ella
 		//serializer = new CSVSerializer();
 		break;
-	case YALM_SER:
-		serializer = new YALMSerializer();
+	case YAML_SER:
+		serializer = new YAMLSerializer();
 		break;
 	default:
 		serializer = new JSONSerializer();

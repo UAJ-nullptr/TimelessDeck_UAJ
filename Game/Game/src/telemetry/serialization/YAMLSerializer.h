@@ -1,13 +1,13 @@
 #pragma once
 #include "ISerializer.h"
 
-class YALMSerializer : public ISerializer
+class YAMLSerializer : public ISerializer
 {
 private:
 
 public:
-	YALMSerializer();
-	~YALMSerializer();
+	YAMLSerializer();
+	~YAMLSerializer();
 
 	virtual std::string serialize(std::queue<GenericEvent*>* event);
 };

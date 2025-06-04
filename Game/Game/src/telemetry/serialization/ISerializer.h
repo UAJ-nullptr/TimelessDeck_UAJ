@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "../events/Events.h"
+#include "../events/GenericEvent.h"
 #include "queue"
 
 class ISerializer

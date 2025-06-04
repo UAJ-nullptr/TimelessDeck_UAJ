@@ -18,8 +18,8 @@ FilePersistence::FilePersistence(std::string appName, SerializerType sType, int 
 	case CSV_SER:
 		extension = ".csv";
 		break;
-	case YALM_SER:
-		extension = ".yalm";
+	case YAML_SER:
+		extension = ".yaml";
 		break;
 	default:
 		extension = ".json";
