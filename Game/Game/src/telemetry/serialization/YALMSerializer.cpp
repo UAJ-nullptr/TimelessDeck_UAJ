@@ -10,11 +10,16 @@ YALMSerializer::~YALMSerializer()
 
 }
 
-std::string YALMSerializer::serialize(GenericEvent* event)
+std::string YALMSerializer::serialize(std::queue<GenericEvent*>* event)
 {
 	std::string serialized = "";
 
-	event->serializeToYALM(serialized);
+	while (event->size() > 0)
+	{
+		event->front()->serializeToYALM(serialized);
+		delete event->front();
+		event->pop();
+	}
 
 	return serialized;
 }

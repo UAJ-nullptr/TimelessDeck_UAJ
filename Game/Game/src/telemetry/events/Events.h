@@ -314,4 +314,8 @@ public:
 		}
 		endResult += "\n";
 	}
+	~InventoryExitedEvent()
+	{
+		currentDeck.clear();
+	}
 };

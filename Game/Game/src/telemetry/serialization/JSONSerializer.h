@@ -9,6 +9,8 @@ public:
 	JSONSerializer();
 	~JSONSerializer();
 
-	virtual std::string serialize(GenericEvent* event);
+	virtual std::string startSerializing();
+	virtual std::string serialize(std::queue<GenericEvent*>* event);
+	virtual std::string finishSerializing();
 };
 

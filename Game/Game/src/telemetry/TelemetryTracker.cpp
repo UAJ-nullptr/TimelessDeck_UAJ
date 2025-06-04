@@ -100,7 +100,7 @@ void TelemetryTracker::addEvent(EventType type, ...)
         persistence->send(new ChangedCardDeckToHandEvent(currentId, timeInNano, appName, appVersion, sessionId));
         break;
     case INVENTORY_LEFT:
-        persistence->send(new InventoryExitedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, vector<CardId>)));
+        persistence->send(new InventoryExitedEvent(currentId, timeInNano, appName, appVersion, sessionId, va_arg(args, vector<CardId>))); //MEMORY LEAK Y NO SE POR QUE
         break;
     }
     va_end(args);

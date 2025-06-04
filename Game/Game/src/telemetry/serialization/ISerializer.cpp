@@ -10,7 +10,17 @@ ISerializer::~ISerializer()
 
 }
 
-std::string ISerializer::serialize(GenericEvent* event)
+std::string ISerializer::startSerializing()
+{
+	return "";
+}
+
+std::string ISerializer::serialize(std::queue<GenericEvent*>* event)
 {    
+	return "";
+}
+
+std::string ISerializer::finishSerializing()
+{
 	return "";
 }

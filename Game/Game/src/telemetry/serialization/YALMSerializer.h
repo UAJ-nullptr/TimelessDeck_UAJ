@@ -9,6 +9,6 @@ public:
 	YALMSerializer();
 	~YALMSerializer();
 
-	virtual std::string serialize(GenericEvent* event);
+	virtual std::string serialize(std::queue<GenericEvent*>* event);
 };
 
