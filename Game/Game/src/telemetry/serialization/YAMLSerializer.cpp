@@ -10,7 +10,7 @@ YAMLSerializer::~YAMLSerializer()
 
 }
 
-std::string YAMLSerializer::serialize(std::queue<GenericEvent*>* event)
+std::string YAMLSerializer::serialize(EventQueue* event)
 {
 	std::string serialized = "";
 
@@ -18,7 +18,7 @@ std::string YAMLSerializer::serialize(std::queue<GenericEvent*>* event)
 	{
 		event->front()->serializeToYAML(serialized);
 		delete event->front();
-		event->pop();
+		event->deQueue();
 	}
 
 	return serialized;

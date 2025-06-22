@@ -2,7 +2,9 @@
 
 #include <string>
 #include "../events/GenericEvent.h"
-#include "queue"
+#include "../DQueue.h"
+
+using EventQueue = DQueue<GenericEvent*,500>;
 
 class ISerializer
 {
@@ -13,7 +15,7 @@ public:
 	~ISerializer();
 
 	virtual std::string startSerializing();
-	virtual std::string serialize(std::queue<GenericEvent*>* event);
+	virtual std::string serialize(EventQueue* event);
 	virtual std::string finishSerializing();
 };
 

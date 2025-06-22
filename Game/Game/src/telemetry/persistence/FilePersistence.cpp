@@ -41,7 +41,7 @@ FilePersistence::~FilePersistence()
 	if (file != nullptr) {
 
 		*file << serializer->finishSerializing();
-
+		file->flush();
 		file->close();
 		delete file;
 	}	
@@ -59,3 +59,5 @@ void FilePersistence::flush()
 		*file << s;
 	}
 }
+
+

@@ -1,7 +1,6 @@
 #pragma once
-#include "queue"
+#include "../DQueue.h"
 #include "../serialization/ISerializer.h"
-#include "../events/GenericEvent.h"
 
 enum SerializerType {
 	JSON_SER,
@@ -12,7 +11,8 @@ enum SerializerType {
 class IPersistence
 {
 protected:
-	std::queue<GenericEvent*> events;
+	DQueue<GenericEvent*,500> events = DQueue<GenericEvent*, 500>();
+	//EventQueue events;
 
 	SerializerType serType;
 

@@ -9,6 +9,6 @@ public:
 	YAMLSerializer();
 	~YAMLSerializer();
 
-	virtual std::string serialize(std::queue<GenericEvent*>* event);
+	virtual std::string serialize(EventQueue* event);
 };
 

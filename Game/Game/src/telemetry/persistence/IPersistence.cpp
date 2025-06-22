@@ -32,7 +32,7 @@ IPersistence::~IPersistence()
 
 void IPersistence::send(GenericEvent* event)
 {
-	events.push(event);
+	events.enQueue(event);
 }
 
 void IPersistence::flush()

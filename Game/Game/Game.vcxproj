@@ -270,6 +270,7 @@
     <ClInclude Include="src\sdlutils\Texture.h" />
     <ClInclude Include="src\sdlutils\VirtualTimer.h" />
     <ClInclude Include="src\targetver.h" />
+    <ClInclude Include="src\telemetry\DQueue.h" />
     <ClInclude Include="src\telemetry\events\AbilityUsedEvent.h" />
     <ClInclude Include="src\telemetry\events\CanExitLevelEvent.h" />
     <ClInclude Include="src\telemetry\events\ChangedCardDeckToHandEvent.h" />
@@ -406,6 +407,7 @@
     <ClCompile Include="src\sdlutils\SDLUtils.cpp" />
     <ClCompile Include="src\sdlutils\SoundEffect.cpp" />
     <ClCompile Include="src\sdlutils\Texture.cpp" />
+    <ClCompile Include="src\telemetry\DQueue.cpp" />
     <ClCompile Include="src\telemetry\events\AbilityUsedEvent.cpp" />
     <ClCompile Include="src\telemetry\events\CanExitLevelEvent.cpp" />
     <ClCompile Include="src\telemetry\events\ChangedCardDeckToHandEvent.cpp" />

@@ -15,7 +15,7 @@ std::string ISerializer::startSerializing()
 	return "";
 }
 
-std::string ISerializer::serialize(std::queue<GenericEvent*>* event)
+std::string ISerializer::serialize(EventQueue* event)
 {    
 	return "";
 }
