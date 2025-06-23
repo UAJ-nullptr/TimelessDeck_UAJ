@@ -41,9 +41,7 @@ class EventLibrary :
                 with open(path, 'r', encoding='utf-8') as archivo:
                     try:
                         data = json.load(archivo)
-
                         data = self.isValidSessionFile(data, file)
-
                         for obj in data:
                             event_type = obj.get('eType')
                             if isinstance(event_type, int):  # solo si eventType es un entero válido
@@ -53,7 +51,6 @@ class EventLibrary :
 
     def isValidSessionFile(self, data, file_name=""):
         sorted_data = sorted(data, key=lambda x: x.get('timeStamp'))
-
         start_session_events = []
         end_session_events = []
 
@@ -71,7 +68,6 @@ class EventLibrary :
         return self.checkLevelErrors(data)
 
     def checkLevelErrors(self, data):
-
         limit_events = [(i, e) for i, e in enumerate(data) if e.get('eType') in (2, 3)]
         if len(limit_events) == 0:
             return {}
