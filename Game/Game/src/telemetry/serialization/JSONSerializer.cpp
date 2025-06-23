@@ -19,7 +19,6 @@ std::string JSONSerializer::startSerializing()
 
 std::string JSONSerializer::serialize(EventQueue* event)
 {
-	JSONObject jEvent;
 	string myFileText = "";
 
 	while (event->size() > 0)
@@ -29,6 +28,7 @@ std::string JSONSerializer::serialize(EventQueue* event)
 
 		myFileText += "\t";
 
+		JSONObject jEvent;
 		event->front()->serializeToJSON(jEvent);
 
 		std::unique_ptr<JSONValue> fileJSON(new JSONValue(jEvent));
