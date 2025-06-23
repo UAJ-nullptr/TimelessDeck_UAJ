@@ -54,7 +54,6 @@ def calculateAnalitics(df_sorted, event_types, inventory_types):
         session_end_time = game_end_events['timeStamp'].iloc[i]
         sessionDF = df_sorted[(df_sorted["timeStamp"] > session_start_time) & (df_sorted["timeStamp"] < session_end_time)]
         # Medias de los eventos en nivel - Partida
-
         session_event_means, session_overtime_means, effective_healing_mean, effective_mana_taken_mean  = meanSession(sessionDF, event_types)
         deck_diffs.append(calculateDeckDiffs(sessionDF))
         events_means.append(session_event_means)
@@ -98,21 +97,3 @@ print("Overtime average: ", overtime_mean, "s")
 print("Effective healing%: ", healing_mean * 100)
 print("Effective mana taking%: ",mana_taken_mean * 100)
 print("Successful abilities usage%: ", successful_ability_uses)
-
-print("\n")
-folder = createFolder()
-
-categories = ['Card Changes', 'Abilities used']
-createGraphic(categories, event_means[:2], '¿El jugador entiende el funcionamiento de las cartas?', 'Card_Mechanics',  folder)
-
-categories = ['Effective healing (percentage)', 'Effective mana (percentage)']
-createGraphic(categories, [healing_mean, mana_taken_mean], '¿El jugador entiende las tres barras superiores? - Cambios efectivos', 'UI_Understanding_Effective_Changes', folder)
-
-categories = ['Failed ability attemps', 'Successful ability uses']
-createGraphic(categories, [event_means[2], successful_ability_uses], '¿El jugador entiende las tres barras superiores? - Habilidades', 'UI_Understanding_Abilities', folder)
-
-categories = ['Overtime per level', 'Failed level exits']
-createGraphic(categories, [overtime_mean, event_means[4]], '¿El jugador entiende qué tiene que hacer para salir del nivel, y cuándo lo puede hacer?', 'Exit_Level', folder)
-
-categories = ['Deck reductions', 'Deck additions', 'Effective changes in deck']
-createGraphic(categories, [inventory_mean[0], inventory_mean[1], deck_change_mean], '¿Entiende el jugador como gestionar sus cartas?', 'Card_Management', folder)

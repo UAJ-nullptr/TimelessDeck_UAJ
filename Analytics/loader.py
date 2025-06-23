@@ -4,8 +4,6 @@ import os
 
 class Loader:
 
-
-
     def __init__(self, filepath, loadMultipleFiles = False):
 
         self.loadFiles(filepath, loadMultipleFiles)
