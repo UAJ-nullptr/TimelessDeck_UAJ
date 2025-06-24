@@ -1,7 +1,6 @@
 #include "SessionStartedEvent.h"
 
-SessionStartedEvent::SessionStartedEvent(int evntId, long long timeStmp, string appName, string appVrs,
-	long sessionID) : GenericEvent(evntId, timeStmp, START_SESSION, appName, appVrs, sessionID) { }
+SessionStartedEvent::SessionStartedEvent() : GenericEvent(START_SESSION) { }
 
 
 void SessionStartedEvent::serializeToYAML(std::string& endResult) {

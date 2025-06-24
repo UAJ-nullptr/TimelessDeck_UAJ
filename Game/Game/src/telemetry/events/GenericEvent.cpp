@@ -1,5 +1,30 @@
 #include "GenericEvent.h"
 
+void GenericEvent::setEventId(int id)
+{
+	eventId = id;
+}
+
+void GenericEvent::setEventTimeStamp(long long tmstmp)
+{
+	timeStamp = tmstmp;
+}
+
+void GenericEvent::setEventAppName(string name)
+{
+	appName = name;
+}
+
+void GenericEvent::setEventAppVersion(string version)
+{
+	appVersion = version;
+}
+
+void GenericEvent::setEventSessionId(long sssnId)
+{
+	sessionId = sssnId;
+}
+
 void GenericEvent::serializeToJSON(JSONObject& jsonEvent)
 {
 	jsonEvent["eventId"] = new JSONValue(eventId);

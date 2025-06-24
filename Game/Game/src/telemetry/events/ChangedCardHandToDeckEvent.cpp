@@ -1,7 +1,7 @@
 #include "ChangedCardHandToDeckEvent.h"
 
-ChangedCardHandToDeckEvent::ChangedCardHandToDeckEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID) :
-	GenericEvent(evntId, timeStmp, MOVED_FROM_HAND, appName, appVrs, sessionID) { }
+ChangedCardHandToDeckEvent::ChangedCardHandToDeckEvent() :
+	GenericEvent(MOVED_FROM_HAND) { }
 
 void ChangedCardHandToDeckEvent::serializeToYAML(std::string& endResult) {
 	GenericEvent::serializeToYAML(endResult);

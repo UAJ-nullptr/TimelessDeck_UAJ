@@ -7,6 +7,9 @@
 #include "../../gameObjects/UI/CardCounter.h"
 #include "../../gameObjects/Card Objects/Cards.h"
 #include "../../scenes/TutorialScene.h"
+#include "../../telemetry/events/AbilityUsedEvent.h"
+#include "../../telemetry/events/InsufficientManaEvent.h"
+#include "../../telemetry/events/ChangedCardPlayingEvent.h"
 
 //Constructor CardComponent, carga todos los datos del Player Data
 CardComponent::CardComponent(bool tuto) : gmCtrl_(gmCtrl()), lastAbilityTime(0) {
@@ -99,11 +102,11 @@ void CardComponent::ability(Vector2D playerPos, Vector2D mousePos) {
 		abiliting = true;
 		lastAbilityTime = SDL_GetTicks();
 
-		TelemetryTracker::instance()->addEvent(EventType::ABILITY_USED, PlayerData::instance()->getLevel());
+		TelemetryTracker::instance()->addEvent(new AbilityUsedEvent(PlayerData::instance()->getLevel()));
 	}
 	else 
 	{
-		TelemetryTracker::instance()->addEvent(EventType::NOT_ENOUGH_MANA,(*active)->getMana(), mana);
+		TelemetryTracker::instance()->addEvent(new InsufficientManaEvent((*active)->getMana(), mana));
 	}
 }
 
@@ -124,7 +127,7 @@ void CardComponent::switchActive(bool left) {
 		}
 	}
 	
-	TelemetryTracker::instance()->addEvent(EventType::CARD_CHANGED, PlayerData::instance()->getLevel());
+	TelemetryTracker::instance()->addEvent(new ChangedCardPlayingEvent(PlayerData::instance()->getLevel()));
 }
 
 void CardComponent::selectLeft() {
@@ -151,7 +154,7 @@ void CardComponent::switchActive(int number) {
 		where->changeUISelected(true, number);
 	}
 	
-	TelemetryTracker::instance()->addEvent(EventType::CARD_CHANGED, PlayerData::instance()->getLevel());
+	TelemetryTracker::instance()->addEvent(new ChangedCardPlayingEvent(PlayerData::instance()->getLevel()));
 }
 
 //Baraja el mazo y roba la mano inicial

@@ -7,8 +7,7 @@ private:
 	int levelId;
 
 public:
-	CanExitLevelEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID,
-		int levelid);
+	CanExitLevelEvent(int levelid);
 
 	virtual void serializeToJSON(JSONObject& jsonEvent);
 	virtual void serializeToYAML(std::string& endResult);

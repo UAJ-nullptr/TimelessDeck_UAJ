@@ -6,7 +6,7 @@ class SessionStartedEvent : public GenericEvent
 private:
 
 public:
-	SessionStartedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID);
+	SessionStartedEvent();
 
 	virtual void serializeToYAML(std::string& endResult);
 };

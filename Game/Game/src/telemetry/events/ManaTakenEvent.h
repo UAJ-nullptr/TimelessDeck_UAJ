@@ -8,8 +8,7 @@ private:
 	int manaAfter;
 
 public:
-	ManaTakenEvent(int evntId, long long timeStmp, string appName, string appVrs,
-		long sessionID, int currentMana, int takenMana);
+	ManaTakenEvent(int currentMana, int takenMana);
 
 	virtual void serializeToJSON(JSONObject& jsonEvent);
 	virtual void serializeToYAML(std::string& endResult);

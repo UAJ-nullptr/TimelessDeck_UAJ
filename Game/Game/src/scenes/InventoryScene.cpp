@@ -3,6 +3,9 @@
 #include "../data/PlayerData.h"
 #include "../components/General Components/CallbackDelayer.h"
 #include "../telemetry/TelemetryTracker.h"
+#include "../telemetry/events/ChangedCardDeckToHandEvent.h"
+#include "../telemetry/events/ChangedCardHandToDeckEvent.h"
+#include "../telemetry/events/InventoryExitedEvent.h"
 
 // Se encarga de cargar todos los datos desde el dataplayer, así como obtener los datos del deck y de la library
 InventoryScene::InventoryScene() : GameState(), feedback(nullptr) {
@@ -204,7 +207,7 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 					invCard.myText->changeText(to_string(invCard.cuantity - invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
 					invCard.myDeckText->changeText(to_string(invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
 
-					TelemetryTracker::instance()->addEvent(EventType::MOVED_FROM_HAND);
+					TelemetryTracker::instance()->addEvent(new ChangedCardHandToDeckEvent());
 				}
 				// Si era el botón fuera del deck se aumente su cantidad en este
 				else {
@@ -218,7 +221,7 @@ Button* InventoryScene::createCard(Vector2D pos, CardId crd, bool dck) {
 						invCard.myText->changeText(to_string(invCard.cuantity - invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
 						invCard.myDeckText->changeText(to_string(invCard.cuantityDeck) + "/" + to_string(invCard.cuantity));
 						
-						TelemetryTracker::instance()->addEvent(EventType::MOVED_TO_HAND);
+						TelemetryTracker::instance()->addEvent(new ChangedCardDeckToHandEvent());
 					}
 				}
 
@@ -297,7 +300,7 @@ InventoryScene::~InventoryScene() {
 
 	PlayerData::instance()->setDeck(newDeck);
 
-	TelemetryTracker::instance()->addEvent(EventType::INVENTORY_LEFT, newDeck);
+	TelemetryTracker::instance()->addEvent(new InventoryExitedEvent(newDeck));
 }
 
 

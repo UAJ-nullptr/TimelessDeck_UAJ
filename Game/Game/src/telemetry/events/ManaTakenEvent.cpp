@@ -1,8 +1,7 @@
 #include "ManaTakenEvent.h"
 
-ManaTakenEvent::ManaTakenEvent(int evntId, long long timeStmp, string appName, string appVrs,
-	long sessionID, int currentMana, int takenMana) :
-	GenericEvent(evntId, timeStmp, MANA_TAKEN, appName, appVrs, sessionID), manaBefore(currentMana),
+ManaTakenEvent::ManaTakenEvent(int currentMana, int takenMana) :
+	GenericEvent(MANA_TAKEN), manaBefore(currentMana),
 	manaAfter(takenMana) { }
 
 void ManaTakenEvent::serializeToJSON(JSONObject& jsonEvent) {

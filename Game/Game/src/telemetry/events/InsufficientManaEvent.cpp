@@ -1,8 +1,7 @@
 #include "InsufficientManaEvent.h"
 
-InsufficientManaEvent::InsufficientManaEvent(int evntId, long long timeStmp, string appName, string appVrs,
-	long sessionID, int currentMana, int abilityCost) :
-	GenericEvent(evntId, timeStmp, NOT_ENOUGH_MANA, appName, appVrs, sessionID), manaStatus(currentMana), manaCost(abilityCost) { }
+InsufficientManaEvent::InsufficientManaEvent(int currentMana, int abilityCost) :
+	GenericEvent(NOT_ENOUGH_MANA), manaStatus(currentMana), manaCost(abilityCost) { }
 
 void InsufficientManaEvent::serializeToJSON(JSONObject& jsonEvent) {
 	GenericEvent::serializeToJSON(jsonEvent);

@@ -33,9 +33,14 @@ protected:
 	string appVersion;
 	long sessionId;
 public:
-	GenericEvent(int evntId, long long timeStmp, EventType evtType, string appName, string appVrs, long sessionID) :
-		eventId(evntId), timeStamp(timeStmp), eType(evtType), appName(appName), appVersion(appVrs), sessionId(sessionID)
+	GenericEvent(EventType evtType) :
+		eType(evtType)
 	{};
+	virtual void setEventId(int id);
+	virtual void setEventTimeStamp(long long tmstmp);
+	virtual void setEventAppName(string name);
+	virtual void setEventAppVersion(string version);
+	virtual void setEventSessionId(long sssnId);
 
 	virtual void serializeToJSON(JSONObject& jsonEvent);
 	virtual void serializeToCSV(std::string& endResult);

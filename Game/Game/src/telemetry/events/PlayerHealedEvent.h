@@ -9,7 +9,7 @@ private:
 	int lifeBeforeHeal;
 
 public:
-	PlayerHealedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int heal, int attempt,
+	PlayerHealedEvent(int heal, int attempt,
 		int life);
 
 	virtual void serializeToJSON(JSONObject& jsonEvent);

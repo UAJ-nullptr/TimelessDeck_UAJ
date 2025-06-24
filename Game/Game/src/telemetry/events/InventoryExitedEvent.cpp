@@ -1,8 +1,7 @@
 #include "InventoryExitedEvent.h"
 
-InventoryExitedEvent::InventoryExitedEvent(int evntId, long long timeStmp, string appName, string appVrs,
-	long sessionID, vector<CardId> card) :
-	GenericEvent(evntId, timeStmp, INVENTORY_LEFT, appName, appVrs, sessionID), currentDeck(card) { }
+InventoryExitedEvent::InventoryExitedEvent(vector<CardId> card) :
+	GenericEvent(INVENTORY_LEFT), currentDeck(card) { }
 
 InventoryExitedEvent::~InventoryExitedEvent()
 {

@@ -7,7 +7,7 @@ private:
 	int levelId;
 
 public:
-	AbilityUsedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid);
+	AbilityUsedEvent(int levelid);
 
 	virtual void serializeToJSON(JSONObject& jsonEvent);
 	virtual void serializeToYAML(std::string& endResult);

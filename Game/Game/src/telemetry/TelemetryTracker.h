@@ -30,6 +30,6 @@ public:
 	void update(double deltaTime);
 	void flush();
 
-	void addEvent(EventType type,...);
+	void addEvent(GenericEvent* event);
 };
 

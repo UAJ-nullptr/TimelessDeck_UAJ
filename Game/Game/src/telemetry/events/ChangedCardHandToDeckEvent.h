@@ -6,7 +6,7 @@ class ChangedCardHandToDeckEvent : public GenericEvent
 private:
 
 public:
-	ChangedCardHandToDeckEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID);
+	ChangedCardHandToDeckEvent();
 
 	virtual void serializeToYAML(std::string& endResult);
 };

@@ -7,7 +7,7 @@ private:
 	int levelId;
 
 public:
-	LevelStartedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID, int levelid);
+	LevelStartedEvent(int levelid);
 
 	virtual void serializeToJSON(JSONObject& jsonEvent);
 	virtual void serializeToYAML(std::string& endResult);

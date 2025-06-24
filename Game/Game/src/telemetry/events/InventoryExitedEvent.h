@@ -8,8 +8,7 @@ private:
 	vector<CardId> currentDeck;
 
 public:
-	InventoryExitedEvent(int evntId, long long timeStmp, string appName, string appVrs, long sessionID,
-		vector<CardId> card);
+	InventoryExitedEvent(vector<CardId> card);
 	~InventoryExitedEvent();
 
 	virtual void serializeToJSON(JSONObject& jsonEvent);

@@ -1,8 +1,7 @@
 #include "ChangedCardPlayingEvent.h"
 
-ChangedCardPlayingEvent::ChangedCardPlayingEvent(int evntId, long long timeStmp, string appName, string appVrs,
-	long sessionID, int levelid) :
-	GenericEvent(evntId, timeStmp, CARD_CHANGED, appName, appVrs, sessionID), levelId(levelid) { }
+ChangedCardPlayingEvent::ChangedCardPlayingEvent(int levelid) :
+	GenericEvent(CARD_CHANGED), levelId(levelid) { }
 
 void ChangedCardPlayingEvent::serializeToJSON(JSONObject& jsonEvent) {
 	GenericEvent::serializeToJSON(jsonEvent);
