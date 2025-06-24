@@ -12,8 +12,16 @@ TelemetryTracker::TelemetryTracker(string appName, string appVers, double timeLi
     sessionId = epoc / pow(10, 12);
     sessionId /= rand() % 100 + 100;
 
-	persistence = new FilePersistence(appName, SerializerType::JSON_SER, sessionId, epoc);
-	//persistence = new FilePersistence(appName, SerializerType::YALM_SER, sessionId, epoc);
+	try {
+		persistence = new FilePersistence(appName, SerializerType::JSON_SER, sessionId, epoc);
+		//persistence = new FilePersistence(appName, SerializerType::YALM_SER, sessionId, epoc);
+		telemetrySystemCreated = true;
+	}
+	catch (exception e) {
+		persistence = nullptr;
+		telemetrySystemCreated = false;
+		cout << e.what() << endl;
+	}
 }
 
 TelemetryTracker::~TelemetryTracker()
@@ -32,27 +40,31 @@ long long TelemetryTracker::getEpocTimestamp()
 
 void TelemetryTracker::update(double deltaTime)
 {
-	elapsedTime += deltaTime;
-	if (elapsedTime > timeLimit) {
-		persistence->flush();
-		elapsedTime = 0;
+	if (telemetrySystemCreated) {
+		elapsedTime += deltaTime;
+		if (elapsedTime > timeLimit) {
+			persistence->flush();
+			elapsedTime = 0;
+		}
 	}
 }
 
 void TelemetryTracker::flush()
 {
-	persistence->flush();
+	if (telemetrySystemCreated) persistence->flush();
 }
 
 void TelemetryTracker::addEvent(GenericEvent* event)
 {
-	auto time = std::chrono::system_clock::now();
-	long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(time.time_since_epoch()).count();
-	event->setEventTimeStamp(timeInNano);
-	event->setEventAppName(appName);
-	event->setEventAppVersion(appVersion);
-	event->setEventId(currentId);
-	event->setEventSessionId(sessionId);
-	persistence->send(event);
-	currentId++;
+	if (telemetrySystemCreated) {
+		auto time = std::chrono::system_clock::now();
+		long long timeInNano = std::chrono::duration_cast<std::chrono::nanoseconds>(time.time_since_epoch()).count();
+		event->setEventTimeStamp(timeInNano);
+		event->setEventAppName(appName);
+		event->setEventAppVersion(appVersion);
+		event->setEventId(currentId);
+		event->setEventSessionId(sessionId);
+		persistence->send(event);
+		currentId++;
+	}
 }

@@ -19,6 +19,8 @@ private:
 	double elapsedTime;
 	double timeLimit;
 
+	bool telemetrySystemCreated;
+
 	TelemetryTracker();
 	TelemetryTracker(string appName, string appVers, double timeLimit);
 
