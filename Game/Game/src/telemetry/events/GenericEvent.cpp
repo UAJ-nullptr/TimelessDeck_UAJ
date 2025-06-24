@@ -1,5 +1,8 @@
 #include "GenericEvent.h"
 
+GenericEvent::GenericEvent(EventType evtType) : eventId(-1), timeStamp(-1), eType(evtType), appName("null"),
+	appVersion("null"), sessionId(-1) {}
+
 void GenericEvent::setEventId(int id)
 {
 	eventId = id;

@@ -1,7 +1,6 @@
 #include "CanExitLevelEvent.h"
 
-CanExitLevelEvent::CanExitLevelEvent(int levelid) :
-	GenericEvent(LEVEL_EXIT_POSSIBLE), levelId(levelid) { }
+CanExitLevelEvent::CanExitLevelEvent(int levelid) : GenericEvent(LEVEL_EXIT_POSSIBLE), levelId(levelid) {}
 
 void CanExitLevelEvent::serializeToJSON(JSONObject& jsonEvent) {
 	GenericEvent::serializeToJSON(jsonEvent);

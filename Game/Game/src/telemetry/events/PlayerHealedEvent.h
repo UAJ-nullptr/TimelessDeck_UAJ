@@ -9,8 +9,7 @@ private:
 	int lifeBeforeHeal;
 
 public:
-	PlayerHealedEvent(int heal, int attempt,
-		int life);
+	PlayerHealedEvent(int heal, int attempt, int life);
 
 	virtual void serializeToJSON(JSONObject& jsonEvent);
 	virtual void serializeToYAML(std::string& endResult);

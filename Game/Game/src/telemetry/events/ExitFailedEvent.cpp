@@ -1,7 +1,6 @@
 #include "ExitFailedEvent.h"
 
-ExitFailedEvent::ExitFailedEvent(int levelid) :
-	GenericEvent(LEAVE_FAILED), levelId(levelid) { }
+ExitFailedEvent::ExitFailedEvent(int levelid) : GenericEvent(LEAVE_FAILED), levelId(levelid) {}
 
 void ExitFailedEvent::serializeToJSON(JSONObject& jsonEvent) {
 	GenericEvent::serializeToJSON(jsonEvent);

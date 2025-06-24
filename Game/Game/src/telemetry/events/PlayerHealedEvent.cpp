@@ -1,6 +1,7 @@
 #include "PlayerHealedEvent.h"
 
-PlayerHealedEvent::PlayerHealedEvent(int heal, int attempt, int life) : GenericEvent(PLAYER_HEALED), lifeAfterHeal(heal), attemptedHeal(attempt), lifeBeforeHeal(life) {
+PlayerHealedEvent::PlayerHealedEvent(int heal, int attempt, int life) : GenericEvent(PLAYER_HEALED),
+	lifeAfterHeal(heal), attemptedHeal(attempt), lifeBeforeHeal(life) {
 }
 
 void PlayerHealedEvent::serializeToJSON(JSONObject& jsonEvent) {

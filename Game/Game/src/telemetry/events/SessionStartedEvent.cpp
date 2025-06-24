@@ -1,6 +1,6 @@
 #include "SessionStartedEvent.h"
 
-SessionStartedEvent::SessionStartedEvent() : GenericEvent(START_SESSION) { }
+SessionStartedEvent::SessionStartedEvent() : GenericEvent(START_SESSION) {}
 
 
 void SessionStartedEvent::serializeToYAML(std::string& endResult) {

@@ -1,7 +1,6 @@
 #include "LevelStartedEvent.h"
 
-LevelStartedEvent::LevelStartedEvent(int levelid) :
-	GenericEvent(START_LEVEL), levelId(levelid) {}
+LevelStartedEvent::LevelStartedEvent(int levelid) : GenericEvent(START_LEVEL), levelId(levelid) {}
 
 void LevelStartedEvent::serializeToJSON(JSONObject& jsonEvent) {
 	GenericEvent::serializeToJSON(jsonEvent);

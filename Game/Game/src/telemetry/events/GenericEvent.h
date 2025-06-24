@@ -32,10 +32,10 @@ protected:
 	string appName;
 	string appVersion;
 	long sessionId;
+
 public:
-	GenericEvent(EventType evtType) :
-		eType(evtType)
-	{};
+	GenericEvent(EventType evtType);
+
 	virtual void setEventId(int id);
 	virtual void setEventTimeStamp(long long tmstmp);
 	virtual void setEventAppName(string name);

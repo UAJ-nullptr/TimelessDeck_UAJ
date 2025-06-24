@@ -1,7 +1,6 @@
 #include "AbilityUsedEvent.h"
 
-AbilityUsedEvent::AbilityUsedEvent(int levelid) :
-	GenericEvent(ABILITY_USED), levelId(levelid) { }
+AbilityUsedEvent::AbilityUsedEvent(int levelid) : GenericEvent(ABILITY_USED), levelId(levelid) {}
 
 void AbilityUsedEvent::serializeToJSON(JSONObject& jsonEvent) {
 	GenericEvent::serializeToJSON(jsonEvent);

@@ -1,7 +1,6 @@
 #include "ChangedCardPlayingEvent.h"
 
-ChangedCardPlayingEvent::ChangedCardPlayingEvent(int levelid) :
-	GenericEvent(CARD_CHANGED), levelId(levelid) { }
+ChangedCardPlayingEvent::ChangedCardPlayingEvent(int levelid) : GenericEvent(CARD_CHANGED), levelId(levelid) {}
 
 void ChangedCardPlayingEvent::serializeToJSON(JSONObject& jsonEvent) {
 	GenericEvent::serializeToJSON(jsonEvent);

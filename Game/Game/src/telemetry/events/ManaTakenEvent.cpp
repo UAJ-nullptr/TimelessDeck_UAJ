@@ -1,8 +1,7 @@
 #include "ManaTakenEvent.h"
 
-ManaTakenEvent::ManaTakenEvent(int currentMana, int takenMana) :
-	GenericEvent(MANA_TAKEN), manaBefore(currentMana),
-	manaAfter(takenMana) { }
+ManaTakenEvent::ManaTakenEvent(int currentMana, int takenMana) : GenericEvent(MANA_TAKEN),
+	manaBefore(currentMana), manaAfter(takenMana) {}
 
 void ManaTakenEvent::serializeToJSON(JSONObject& jsonEvent) {
 	GenericEvent::serializeToJSON(jsonEvent);

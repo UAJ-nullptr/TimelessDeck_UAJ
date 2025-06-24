@@ -1,7 +1,7 @@
 #include "InventoryExitedEvent.h"
 
-InventoryExitedEvent::InventoryExitedEvent(vector<CardId> card) :
-	GenericEvent(INVENTORY_LEFT), currentDeck(card) { }
+InventoryExitedEvent::InventoryExitedEvent(vector<CardId> card) : GenericEvent(INVENTORY_LEFT),
+	currentDeck(card) {}
 
 InventoryExitedEvent::~InventoryExitedEvent()
 {

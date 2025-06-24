@@ -1,7 +1,7 @@
 #include "LevelEndedEvent.h"
 
-LevelEndedEvent::LevelEndedEvent(int levelid,bool victory) :
-	GenericEvent(END_LEVEL), levelId(levelid), win(victory) { }
+LevelEndedEvent::LevelEndedEvent(int levelid,bool victory) : GenericEvent(END_LEVEL), levelId(levelid),
+	win(victory) {}
 
 void LevelEndedEvent::serializeToJSON(JSONObject& jsonEvent) {
 	GenericEvent::serializeToJSON(jsonEvent);
