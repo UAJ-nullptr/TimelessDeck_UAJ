@@ -9,7 +9,7 @@ private:
 
 public:
 	InventoryExitedEvent(vector<CardId> card);
-	~InventoryExitedEvent();
+	virtual ~InventoryExitedEvent();
 
 	virtual void serializeToJSON(JSONObject& jsonEvent);
 	virtual void serializeToYAML(std::string& endResult);

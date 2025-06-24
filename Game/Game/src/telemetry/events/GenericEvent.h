@@ -35,6 +35,7 @@ protected:
 
 public:
 	GenericEvent(EventType evtType);
+	virtual ~GenericEvent();
 
 	virtual void setEventId(int id);
 	virtual void setEventTimeStamp(long long tmstmp);

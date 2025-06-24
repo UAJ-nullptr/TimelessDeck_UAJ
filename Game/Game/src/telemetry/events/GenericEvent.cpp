@@ -3,6 +3,8 @@
 GenericEvent::GenericEvent(EventType evtType) : eventId(-1), timeStamp(-1), eType(evtType), appName("null"),
 	appVersion("null"), sessionId(-1) {}
 
+GenericEvent::~GenericEvent() {}
+
 void GenericEvent::setEventId(int id)
 {
 	eventId = id;
