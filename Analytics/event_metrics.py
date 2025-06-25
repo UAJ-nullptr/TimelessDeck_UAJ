@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 import json
 import os
+from EventLibrary import EventLibrary
+from utils import getLevelEventIndexes
 
 # Para calcular el numero de veces que ha cambiado el mazo del jugador vemos las diferencias entre envento. Si no hay eventos de dejar 
 # el inventario marcamos como a no tener en cuenta esta sesion, pero si hay contamos uno cada vez que haya una diferencia entre mazos
@@ -98,8 +100,57 @@ def calculateMana(mana_events, t_min, t_max):
     media = sum(stored_values) / len(stored_values)
     return {True, media}
 
-def meanSession(event_library, start_time, end_time):
+def calculateNumberOfEvent(events, t_min, t_max):
+    filtered_events = [e for e in events if t_min < e.get('timeStamp', 0) < t_max]
+
+    if len(filtered_events) == 0:
+        return {False, 0}
+    else: 
+        return {True, len(filtered_events)}
+
+def meanSession(event_library, session_start_time, session_end_time):
     # Usamos los limites de timeStamp para aislar los eventos de la lista referentes a este nivel
     # Con esos eventos calculamos las medias que queremos (nuevo metodo en utils)
     # Se deben realizar calculos especificos (como la curacion, el mana y el overtime)
-    return True
+    start_level_filtered_events = [e for e in event_library.getEventList(2) if session_start_time < e.get('timeStamp', 0) < session_end_time]
+    end_level_filtered_events = [e for e in event_library.getEventList(3) if session_start_time < e.get('timeStamp', 0) < session_end_time]
+    event_map = getLevelEventIndexes()
+    levels = []
+    inventory_means = []
+    for i in range(len(start_level_filtered_events)):
+        means = []
+        for index in event_map:
+            match index:
+                case 6:
+                    means.append(calculateEffectiveHeal(event_library.getEventList(index), start_level_filtered_events[i].get('timeStamp'), end_level_filtered_events[i].get('timeStamp')))
+                case 7:
+                    means.append(calculateMana(event_library.getEventList(index), start_level_filtered_events[i].get('timeStamp'), end_level_filtered_events[i].get('timeStamp')))
+                case 9:
+                    means.append(calculateOvertime(event_library.getEventList(index), start_level_filtered_events[i].get('timeStamp'), end_level_filtered_events[i].get('timeStamp')))
+                case _:
+                    means.append(calculateNumberOfEvent(event_library.getEventList(index), start_level_filtered_events[i].get('timeStamp'), end_level_filtered_events[i].get('timeStamp')))
+        levels.append(means)
+
+    # Los eventos de inventario se cuentan por sesion no por nivel
+    inventory_means.append(calculateNumberOfEvent(event_library.getEventList(11), session_start_time, session_end_time))
+    inventory_means.append(calculateNumberOfEvent(event_library.getEventList(12), session_start_time, session_end_time))
+    inventory_means.append(calculateDeckDiffs(event_library.getEventList(13), session_start_time, session_end_time))
+    return levels, inventory_means
+
+def calculateMetrics(event_library):
+    start_session_events = event_library.getEventList(0)
+    end_session_events = event_library.getEventList(1)
+
+    if len(start_session_events) != len(end_session_events):
+        print('Error: los eventos de inicio de sesión no concuerdan con los de fin de sesión')
+        return {}
+
+    sessions = []
+
+    for i in range(len(start_session_events)):
+        sessions.append(meanSession(event_library, start_session_events[i].get('timeStamp'), end_session_events[i].get('timeStamp')))
+    
+    return sessions
+
+# FALTA EL TRATAMIENTO DE LA INFORMACION DE LAS SESSIONES (sacar una media de cada tipo de metrica teniendo en cuenta 
+# los objetos que puede estar marcados para que no se cuenten {FALSE, ...})

@@ -47,6 +47,12 @@ def getEventTypeMap():
                   10:'LEAVE_FAILED'}
     return event_type_map
 
+def getLevelEventIndexes():
+    return {4, 5, 6, 7, 8, 9, 10}
+
 def getInventoryTypeMap():
     inventory_type_map = { 11:'MOVED_FROM_HAND', 12:'MOVED_TO_HAND'}
     return inventory_type_map
+
+def getInventoryIndexes():
+    return {11, 12}
