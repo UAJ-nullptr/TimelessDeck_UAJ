@@ -13,5 +13,6 @@ public:
 	virtual std::string startSerializing();
 	virtual std::string serialize(EventQueue* events);
 	virtual std::string finishSerializing();
+	virtual std::string getExtension();
 };
 

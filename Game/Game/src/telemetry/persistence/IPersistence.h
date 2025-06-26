@@ -22,6 +22,7 @@ public:
 	IPersistence(SerializerType serType = SerializerType::JSON_SER);
 	virtual ~IPersistence();
 
+	virtual bool init();
 	virtual void send(GenericEvent* event);
 
 	virtual void flush();

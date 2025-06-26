@@ -24,3 +24,8 @@ std::string ISerializer::finishSerializing()
 {
 	return "";
 }
+
+std::string ISerializer::getExtension()
+{
+	return "";
+}

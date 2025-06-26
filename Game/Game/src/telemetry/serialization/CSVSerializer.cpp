@@ -19,3 +19,8 @@ std::string CSVSerializer::serialize(GenericEvent* event)
 
 	return serialized;
 }
+
+std::string CSVSerializer::getExtension()
+{
+	return ".csv";
+}

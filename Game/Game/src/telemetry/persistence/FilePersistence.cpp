@@ -9,43 +9,10 @@
 FilePersistence::FilePersistence(std::string appName, SerializerType sType, int sessionId, long long epoc) :
 	IPersistence(sType), first(true)
 {
-	std::string extension = "";
-
-	switch (serType) 
-	{
-	case JSON_SER:
-		extension = ".json";
-		break;
-	case CSV_SER:
-		extension = ".csv";
-		break;
-	case YAML_SER:
-		extension = ".yaml";
-		break;
-	default:
-		extension = ".json";
-		break;
-	}
-
-	// Crear directorio
-	string dir = "telemetry";
-	struct stat info;
-	// Comprobar si existe
-	if (stat(dir.c_str(), &info) != 0) {
-		// Si se ha entrado aquí, no existe, así que lo creamos
-		if (_mkdir(dir.c_str()) != 0) {
-			throw std::runtime_error("Couldn't create 'telemetry' directory");
-		}
-	}
-
-	filename = "telemetry/" + appName + "-" + std::to_string(sessionId) + "-" + std::to_string(epoc) + extension;
-	file = new std::ofstream(filename);
-	
-	if (!file->is_open()) {
-		delete file;
-		file = nullptr;
-		throw ofstream::failure("Telemetry file creation error.\n");
-	}
+	this->appName = appName;
+	this->sessionId = sessionId;
+	this->epoc = epoc;
+	file = nullptr;
 }
 
 FilePersistence::~FilePersistence()
@@ -56,6 +23,33 @@ FilePersistence::~FilePersistence()
 		file->close();
 		delete file;
 	}	
+}
+
+bool FilePersistence::init()
+{
+	std::string extension = serializer->getExtension();
+
+
+	// Crear directorio
+	string dir = "telemetry";
+	struct stat info;
+	// Comprobar si existe
+	if (stat(dir.c_str(), &info) != 0) {
+		// Si se ha entrado aquí, no existe, así que lo creamos
+		if (_mkdir(dir.c_str()) != 0) {
+			return false;
+		}
+	}
+
+	filename = "telemetry/" + appName + "-" + std::to_string(sessionId) + "-" + std::to_string(epoc) + extension;
+	file = new std::ofstream(filename);
+
+	if (!file->is_open()) {
+		delete file;
+		file = nullptr;
+		return false;
+	}
+	return true;
 }
 
 void FilePersistence::flush()

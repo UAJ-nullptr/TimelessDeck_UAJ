@@ -10,5 +10,6 @@ public:
 	~CSVSerializer();
 
 	virtual std::string serialize(GenericEvent* event);
+	virtual std::string getExtension();
 };
 

@@ -46,3 +46,8 @@ std::string JSONSerializer::finishSerializing()
 {
 	return "]\n";
 }
+
+std::string JSONSerializer::getExtension()
+{
+	return ".json";
+}

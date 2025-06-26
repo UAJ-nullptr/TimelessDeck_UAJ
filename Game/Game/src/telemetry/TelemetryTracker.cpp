@@ -12,16 +12,14 @@ TelemetryTracker::TelemetryTracker(string appName, string appVers, double timeLi
     sessionId = epoc / pow(10, 12);
     sessionId /= rand() % 100 + 100;
 
-	try {
-		persistence = new FilePersistence(appName, SerializerType::JSON_SER, sessionId, epoc);
-		//persistence = new FilePersistence(appName, SerializerType::YALM_SER, sessionId, epoc);
-		telemetrySystemCreated = true;
-	}
-	catch (exception e) {
+	persistence = new FilePersistence(appName, SerializerType::JSON_SER, sessionId, epoc);
+	telemetrySystemCreated = persistence->init();
+	if (!telemetrySystemCreated)
+	{
+		delete persistence;
 		persistence = nullptr;
-		telemetrySystemCreated = false;
-		cout << e.what() << endl;
 	}
+
 }
 
 TelemetryTracker::~TelemetryTracker()

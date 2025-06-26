@@ -23,3 +23,8 @@ std::string YAMLSerializer::serialize(EventQueue* event)
 
 	return serialized;
 }
+
+std::string YAMLSerializer::getExtension()
+{
+	return ".yaml";
+}

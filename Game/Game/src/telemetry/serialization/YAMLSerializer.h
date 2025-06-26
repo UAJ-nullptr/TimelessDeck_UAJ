@@ -10,5 +10,6 @@ public:
 	~YAMLSerializer();
 
 	virtual std::string serialize(EventQueue* event);
+	virtual std::string getExtension();
 };
 

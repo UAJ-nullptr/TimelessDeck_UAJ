@@ -24,6 +24,10 @@ IPersistence::IPersistence(SerializerType serType) : serType(serType)
 		break;
 	}
 }
+bool IPersistence::init()
+{
+	return true;
+}
 
 IPersistence::~IPersistence()
 {
