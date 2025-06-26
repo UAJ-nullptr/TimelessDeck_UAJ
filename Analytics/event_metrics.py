@@ -19,7 +19,7 @@ def calculateDeckDiffs(inventory_events, t_min, t_max):
         if filtered_events[i].get('currentDeck') != filtered_events[i+1].get('currentDeck') :
             count += 1
 
-    return (True, count / (len(filtered_events) - 1) * 100)
+    return (True, count / (len(filtered_events) - 1))
 
 # Para calcular la curacion efectiva realizada por el jugador vemos los atributos lifeBeforeHeal, lifeAfterHeal y attemptedHeal de cada evento para realizar calculos con ellos. Si no 
 # hay eventos de cura marcamos este nivel para no tenerlo en cuenta. Si los eventos contienen informacion no valida o les falta un atributo, no los contamos. Luego hacemos la media
@@ -41,7 +41,7 @@ def calculateEffectiveHeal(heal_events, t_min, t_max):
             if None in (before, after, attemp) or attemp == 0:
                 continue
 
-            effective_heal = (after - before) / attemp
+            effective_heal = (before - after) / attemp
             stored_values.append(effective_heal)
 
         except Exception as ex:
@@ -68,7 +68,7 @@ def calculateOvertime(exit_level_events, t_min, t_max, level_end_event):
     if not endTS or not endPossibleTS:
         return (False, 0)
     overtime = endTS - endPossibleTS
-    return (True, overtime / 1000)
+    return (True, overtime / 1000000000)
 
 # Para calcular las particulas efectivas de mana recogidas por el jugador en un nivel vemos la diferencia de mana antes y despues y dividimos entre 5 (lo que aporta cada particula)
 # mana_events = eventos con eType==7 (MANA_TAKEN)

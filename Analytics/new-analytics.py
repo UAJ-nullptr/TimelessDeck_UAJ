@@ -12,7 +12,6 @@ event_map = {0: 'START_SESSION', 1:'END_SESSION', 2:'START_LEVEL', 3:'END_LEVEL'
                                                  10:'LEAVE_FAILED', 11:'MOVED_FROM_HAND', 12:'MOVED_TO_HAND', 13:'INVENTORY_LEFT'}
 library = EventLibrary('telemetry_data', event_map.__len__())
 
-print("\n")
 folder = createFolder()
 
 means = []
@@ -29,7 +28,7 @@ categories = ['Successful ability uses', 'Failed ability attemps']
 createGraphic(categories, [means[1], means[4]], '¿El jugador entiende las tres barras superiores? - Habilidades', 'UI_Understanding_Abilities', folder)
 
 categories = ['Overtime per level', 'Failed level exits']
-createGraphic(categories, means[5:7], '¿El jugador entiende qué tiene que hacer para salir del nivel, y cuándo lo puede hacer?', 'Exit_Level', folder)
+createGraphic(categories, means[5:7], '¿El jugador entiende cómo y cuando salir del nivel?', 'Exit_Level', folder)
 
 categories = ['Deck reductions', 'Deck additions', 'Effective changes in deck']
 createGraphic(categories, means[7:], '¿Entiende el jugador como gestionar sus cartas?', 'Card_Management', folder)
