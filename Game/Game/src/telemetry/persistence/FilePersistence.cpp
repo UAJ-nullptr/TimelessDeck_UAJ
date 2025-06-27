@@ -30,7 +30,7 @@ bool FilePersistence::init()
 	std::string extension = serializer->getExtension();
 
 	// Crear directorio
-	string dir = "../../Analytics/telemetry_data/";
+	string dir = "../Analytics/telemetry_data/";
 	struct stat info;
 	// Comprobar si existe
 	if (stat(dir.c_str(), &info) != 0) {
