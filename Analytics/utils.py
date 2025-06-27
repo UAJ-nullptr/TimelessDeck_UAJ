@@ -17,7 +17,7 @@ def createGraphic(categories, values, graphic_title, image_title, folder):
     plt.bar(categories, values, color=colors)
 
     plt.title(graphic_title)
-    plt.xlabel('Event')
+    plt.xlabel('Metric')
     plt.ylabel('Mean value')
 
     name = image_title + f"_{getCurrentTime()}.png"

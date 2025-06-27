@@ -43,7 +43,7 @@ class EventLibrary :
                 with open(path, 'r', encoding='utf-8') as archivo:
                     try:
                         data = json.load(archivo)
-                        data = self.getValidEvents(data, file)      # manejo de errores en eventos de inicio/final de sesión/nivel
+                        data = self.checkValidEvents(data, file)      # manejo de errores en eventos de inicio/final de sesión/nivel
                         for obj in data:
                             event_type = obj.get('eType')
                             if isinstance(event_type, int):             # solo si eventType es un entero válido
@@ -69,7 +69,7 @@ class EventLibrary :
             return {}
         
         # Si un problema en la relacion de timeStamp entre eventos de inicio y final de sesion
-        for i in range(len()):
+        for i in range(len(start_session_events)):
             if start_session_events[i].get('timeStamp') >= end_session_events[i].get('timeStamp'):
                 print(f"Valores erroneos en eventos de inicio o final de sesión [{file_name}]. Archivo ignorado.")
                 return {}
