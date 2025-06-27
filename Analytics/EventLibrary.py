@@ -26,6 +26,8 @@ class EventLibrary :
     def __init__(self, folder, numEvents):
         self.createList(numEvents)
         self.loadEvents(folder)
+        if len(self.events[0]) == 0:
+          print('No se encontraron archivos de telemetría\n')  
         self.sortEvents()
 
     # Función para asegurar que la lista tiene suficientes sublistas
@@ -33,23 +35,24 @@ class EventLibrary :
         for i in range(numEvents):
             self.events.append([])
 
+    # Leer todos los archivos .json en la carpeta especificada
     def loadEvents(self, folder):
-        # Leer todos los archivos .json en la carpeta
         for file in os.listdir(folder):
             if file.endswith('.json'):
                 path = os.path.join(folder, file)
                 with open(path, 'r', encoding='utf-8') as archivo:
                     try:
                         data = json.load(archivo)
-                        data = self.isValidSessionFile(data, file)
+                        data = self.getValidEvents(data, file)      # manejo de errores en eventos de inicio/final de sesión/nivel
                         for obj in data:
                             event_type = obj.get('eType')
-                            if isinstance(event_type, int):  # solo si eventType es un entero válido
+                            if isinstance(event_type, int):             # solo si eventType es un entero válido
                                 self.events[event_type].append(obj)
                     except json.JSONDecodeError:
                         print(f"Error al leer {file}, JSON inválido.")
 
-    def isValidSessionFile(self, data, file_name=""):
+    # Metodo que comprueba la validez de los datos, revisando que los eventos de inicio/final de sesíon sean válidos
+    def checkValidEvents(self, data, file_name=""):
         sorted_data = sorted(data, key=lambda x: x.get('timeStamp'))
         start_session_events = []
         end_session_events = []
@@ -65,9 +68,16 @@ class EventLibrary :
             print(f"Desajuste de sesiones encontrado en el archivo [{file_name}]. Archivo ignorado.")
             return {}
         
-        return self.checkLevelErrors(data)
+        # Si un problema en la relacion de timeStamp entre eventos de inicio y final de sesion
+        for i in range(len()):
+            if start_session_events[i].get('timeStamp') >= end_session_events[i].get('timeStamp'):
+                print(f"Valores erroneos en eventos de inicio o final de sesión [{file_name}]. Archivo ignorado.")
+                return {}
+        
+        return self.getValidEvents(data)
 
-    def checkLevelErrors(self, data):
+    # Metodo que busca errores en los eventos de inicio/final de nivel para no tenerlo en cuenta
+    def getValidEvents(self, data):
         limit_events = [(i, e) for i, e in enumerate(data) if e.get('eType') in (2, 3)]
         if len(limit_events) == 0:
             return {}
@@ -81,9 +91,9 @@ class EventLibrary :
             elif eType == 3:
                 if (start_events_stack):
                     start_index, start_event = start_events_stack.pop()
-                    # Verificar que ambos tengan levelId y sean iguales
-                    # if start_event.get('levelId') != event.get('levelId'):
-                    #     ranges_to_erase.append((start_index, index))
+                    # Si tienen levelId distinto o el timeStamp incorrecto se añaden como eventos a borrar
+                    if start_event.get('levelId') != event.get('levelId'):
+                        ranges_to_erase.append((start_index, index))
                     if start_event['timeStamp'] >= event['timeStamp']:
                         ranges_to_erase.append((start_index, index))
                 else:
