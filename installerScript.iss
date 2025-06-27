@@ -6,6 +6,7 @@
 #define MyAppPublisher "nullptr"
 #define MyAppURL "https://www.example.com/"
 #define MyAppExeName "Game.exe"
+; NOTE:Change this routes to the ones in your machine
 #define MyRepoRoute "C:\Users\49leg\Documents\GitHub\TimelessDeck_UAJ"
 #define MyOutputDir "C:\Users\49leg\Desktop"
 
@@ -50,6 +51,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 ;Source: "{#MyRepoRoute}\Game\Game\{#MyAppExeName}"; DestDir: "{app}\Game"; Flags: ignoreversion
 Source: "{#MyRepoRoute}\Game\Game\*"; DestDir: "{app}\Game"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "{#MyRepoRoute}\Analytics\*"; DestDir: "{app}\Analytics"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 
