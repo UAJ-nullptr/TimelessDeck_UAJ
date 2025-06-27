@@ -29,9 +29,8 @@ bool FilePersistence::init()
 {
 	std::string extension = serializer->getExtension();
 
-
 	// Crear directorio
-	string dir = "telemetry";
+	string dir = "../../Analytics/telemetry_data/";
 	struct stat info;
 	// Comprobar si existe
 	if (stat(dir.c_str(), &info) != 0) {
@@ -40,8 +39,7 @@ bool FilePersistence::init()
 			return false;
 		}
 	}
-
-	filename = "telemetry/" + appName + "-" + std::to_string(sessionId) + "-" + std::to_string(epoc) + extension;
+	filename = dir + appName + "-" + std::to_string(sessionId) + "-" + std::to_string(epoc) + extension;
 	file = new std::ofstream(filename);
 
 	if (!file->is_open()) {
