@@ -19,16 +19,16 @@ for event_type in getEventIndexes():
     means.append(getMean(library, event_type))
 
 categories = ['Card Changes', 'Abilities used']
-createGraphic(categories, means[:2], '¿El jugador entiende el funcionamiento de las cartas?', 'Card_Mechanics',  folder)
+createGraphic(categories, means[:2], 'Card-related metrics', 'Card_Mechanics',  folder)
 
 categories = ['Effective healing (percentage)', 'Effective mana (percentage)']
-createGraphic(categories, means[2:4], '¿El jugador entiende las tres barras superiores? - Cambios efectivos', 'UI_Understanding_Effective_Changes', folder)
+createGraphic(categories, means[2:4], 'UI - Effective Changes', 'UI_Understanding_Effective_Changes', folder)
 
 categories = ['Successful ability uses', 'Failed ability attemps']
-createGraphic(categories, [means[1], means[4]], '¿El jugador entiende las tres barras superiores? - Habilidades', 'UI_Understanding_Abilities', folder)
+createGraphic(categories, [means[1], means[4]], 'UI - Abilities', 'UI_Understanding_Abilities', folder)
 
 categories = ['Overtime per level - in seconds', 'Failed level exits']
-createGraphic(categories, means[5:7], '¿El jugador entiende cómo y cuando salir del nivel?', 'Exit_Level', folder)
+createGraphic(categories, means[5:7], 'LevelExit-related metrics', 'Exit_Level', folder)
 
 categories = ['Deck reductions', 'Deck additions', 'Effective changes in deck']
-createGraphic(categories, means[7:], '¿Entiende el jugador como gestionar sus cartas?', 'Card_Management', folder)
+createGraphic(categories, means[7:], 'CardManagement-related metrics', 'Card_Management', folder)
