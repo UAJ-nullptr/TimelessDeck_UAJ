@@ -1,4 +1,5 @@
 import json
+import yaml
 import os
 
 # Map of values of eType attribute
@@ -27,7 +28,7 @@ class EventLibrary :
         self.createList(numEvents)
         self.loadEvents(folder)
         if len(self.events[0]) == 0:
-          print('No se encontraron archivos de telemetría\n')  
+          print('No se encontraron archivos de telemetria\n')  
         self.sortEvents()
 
     # Función para asegurar que la lista tiene suficientes sublistas
@@ -38,18 +39,26 @@ class EventLibrary :
     # Leer todos los archivos .json en la carpeta especificada
     def loadEvents(self, folder):
         for file in os.listdir(folder):
-            if file.endswith('.json'):
+            if file.endswith(('.json', '.yaml', '.yml', '.yalm')):
                 path = os.path.join(folder, file)
                 with open(path, 'r', encoding='utf-8') as archivo:
                     try:
-                        data = json.load(archivo)
+                        if file.endswith('.json'):          # Carga de archivos json
+                            data = json.load(archivo)
+                        else:                               # Carga de archivos yml/yaml
+                            data = yaml.safe_load(archivo)
+                            if isinstance(data, dict):
+                                data = list(data.values())
+
                         data = self.checkValidEvents(data, file)      # manejo de errores en eventos de inicio/final de sesión/nivel
                         for obj in data:
                             event_type = obj.get('eType')
                             if isinstance(event_type, int):             # solo si eventType es un entero válido
                                 self.events[event_type].append(obj)
-                    except json.JSONDecodeError:
-                        print(f"Error al leer {file}, JSON inválido.")
+                    except (json.JSONDecodeError, yaml.YAMLError) as e:
+                        print(f"[{file}] Error al leer archivo: {e}")
+                    except Exception as ex:
+                        print(f"[{file}] Error inesperado: {ex}")
 
     # Metodo que comprueba la validez de los datos, revisando que los eventos de inicio/final de sesíon sean válidos
     def checkValidEvents(self, data, file_name=""):

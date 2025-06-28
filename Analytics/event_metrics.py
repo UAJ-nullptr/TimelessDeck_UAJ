@@ -19,7 +19,7 @@ def calculateDeckDiffs(inventory_events, t_min, t_max):
         if filtered_events[i].get('currentDeck') != filtered_events[i+1].get('currentDeck') :
             count += 1
 
-    return (True, count / (len(filtered_events) - 1))
+    return (True, count / (max(1, len(filtered_events) - 1)))
 
 # Para calcular la curacion efectiva realizada por el jugador vemos los atributos lifeBeforeHeal, lifeAfterHeal y attemptedHeal de cada evento para realizar calculos con ellos. Si no 
 # hay eventos de cura marcamos este nivel para no tenerlo en cuenta. Si los eventos contienen informacion no valida o les falta un atributo, no los contamos. Luego hacemos la media
@@ -41,14 +41,14 @@ def calculateEffectiveHeal(heal_events, t_min, t_max):
             if None in (before, after, attemp) or attemp == 0:
                 continue
 
-            effective_heal = (before - after) / attemp
+            effective_heal = (after - before) / attemp
             stored_values.append(effective_heal)
 
         except Exception as ex:
             continue
 
     if not stored_values:
-        return {False, 0}
+        return (False, 0)
     media = sum(stored_values) / len(stored_values)
     return (True, media)
 
@@ -59,7 +59,7 @@ def calculateEffectiveHeal(heal_events, t_min, t_max):
 # level_end_event = evento de salida de nivel
 def calculateOvertime(exit_level_events, t_min, t_max, level_end_event):
     filtered_events = [e for e in exit_level_events if t_min < e.get('timeStamp', 0) < t_max]
-    if (level_end_event.get('win') == "false") or len(filtered_events) == 0:
+    if (level_end_event.get('win') == "false") or level_end_event.get('win') == 0 or len(filtered_events) == 0:
         return (False, 0)
     
     endTS = level_end_event.get('timeStamp')

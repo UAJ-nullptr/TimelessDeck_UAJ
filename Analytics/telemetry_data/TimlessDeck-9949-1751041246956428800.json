@@ -1,7 +1,0 @@
-[
-	{"appName":"TimlessDeck","appVersion":"1.0.0","eType":0,"eventId":0,"sessionId":9949,"timeStamp":1751041252390233100},
-	{"appName":"TimlessDeck","appVersion":"1.0.0","eType":2,"eventId":1,"levelId":1,"sessionId":9949,"timeStamp":1751041254801221700},
-	{"appName":"TimlessDeck","appVersion":"1.0.0","eType":3,"eventId":2,"levelId":1,"sessionId":9949,"timeStamp":1751041257984390000,"win":true},
-	{"appName":"TimlessDeck","appVersion":"1.0.0","eType":12,"eventId":3,"sessionId":9949,"timeStamp":1751041269267425500},
-	{"appName":"TimlessDeck","appVersion":"1.0.0","currentDeck":[0,0,0,2,2,11,1,1,1],"eType":13,"eventId":4,"sessionId":9949,"timeStamp":1751041269937813300},
-	{"appName":"TimlessDeck","appVersion":"1.0.0","eType":1,"eventId":5,"sessionId":9949,"timeStamp":1751041271554139200}]
