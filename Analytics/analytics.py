@@ -22,25 +22,25 @@ for event_type in getEventIndexes():
     means.append(getMean(library, event_type))
 
 print("---------EVENT METRICS----------")
-print("Average card changes per level:", means[0])
-print("Average skill uses per level:", means[1])
-print("Average attempts at skill without mana (per level):", means[4])
-print("Average attempts at leaving without full charge (per level):", means[6])
+print(f"Average card changes per level: {means[0]:.2f}")
+print(f"Average skill uses per level: {means[1]:.2f}")
+print(f"Average attempts at skill without mana (per level): {means[4]:.2f}")
+print(f"Average attempts at leaving without full charge (per level): {means[6]:.2f}")
 
 print("\n---------INVENTORY METRICS----------")
-print("Deck reductions per session:", means[7])
-print("Deck additions per session:", means[8])
-print("Average deck changes per session:", means[9])
+print(f"Deck reductions per session: {means[7]:.2f}")
+print(f"Deck additions per session: {means[8]:.2f}")
+print(f"Average deck changes per session: {means[9]:.2f}")
 
 successful_ability_uses = 0
 if (means[1] + means[4]) != 0:
     successful_ability_uses = means[1] / (means[1] + means[4])
 
 print("\n---------BATTLE METRICS----------")
-print("Overtime average: ", means[5], "s")
-print("Effective healing%: ", means[2] * 100)
-print("Effective mana taking%: ",means[3]* 100)
-print("Successful abilities usage%: ", successful_ability_uses)
+print(f"Overtime average: {means[5]:.2f}s")
+print(f"Effective healing: {means[2] * 100:.2f}%")
+print(f"Effective mana taking: {means[3] * 100:.2f}%")
+print(f"Successful abilities usage: {successful_ability_uses*100:.2f}%")
 print('\n')
 
 categories = ['Card Changes', 'Abilities used']

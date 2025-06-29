@@ -27,11 +27,11 @@ class EventLibrary :
     def __init__(self, folder, numEvents):
         self.createList(numEvents)
         if not os.path.isdir(folder):
-            print(f"Carpeta no encontrada: {folder}")
+            print(f"Carpeta de telemetria no encontrada: {folder}")
             return
         self.loadEvents(folder)
         if len(self.events[0]) == 0:
-          print('No se encontraron archivos de telemetria\n')  
+          print('Los datos de telemetria no eran validos\n')  
         self.sortEvents()
 
     # Función para asegurar que la lista tiene suficientes sublistas
@@ -75,6 +75,10 @@ class EventLibrary :
             elif obj.get('eType') == 1:
                 end_session_events.append(obj)
 
+        if len(start_session_events) == 0 or len(end_session_events) == 0:
+            print(f"No hay eventos de inicio o final de sesión en el archivo [{file_name}]. Archivo ignorado.")
+            return {}
+
         # Si no hay los mismos eventos de inicio de sesion que de fin de sesion el archivo no es valido
         if len(start_session_events) != len(end_session_events):
             print(f"Desajuste de sesiones encontrado en el archivo [{file_name}]. Archivo ignorado.")
@@ -110,17 +114,20 @@ class EventLibrary :
                         ranges_to_erase.append((start_index, index))
                 else:
                     # end_level sin start_level → borrar desde el inicio hasta su indice
-                    ranges_to_erase.append((0, index))
+                    ranges_to_erase.append((1, index))
 
         # Si quedan start_levels sin cerrar
         for start_index, start_event in start_events_stack:
             next_start_index = None
-            for index in range(start_index + 1, len(data)):
+            for index in range(start_index + 1, len(data) - 1):
                 if data[index].get('eType') == 2:
                     next_start_index = index
                     break
-            end_index = next_start_index if next_start_index is not None else len(data)
-            ranges_to_erase.append((start_index, end_index))
+            if next_start_index is None:
+                ranges_to_erase.append((start_index, start_index))
+            else:
+                end_index = next_start_index
+                ranges_to_erase.append((start_index, end_index - 1))
 
         # Indices a eliminar
         indices_a_eliminar = set()
@@ -130,7 +137,7 @@ class EventLibrary :
         # Eliminar todos los eventos no validos
         data = [e for i, e in enumerate(data) if i not in indices_a_eliminar]
         if indices_a_eliminar :
-            print(f"Eliminados {len(indices_a_eliminar)} eventos fuera de rangos válidos.")
+            print(f"Eliminados {len(indices_a_eliminar)} eventos no validos.")
 
         return data
  
