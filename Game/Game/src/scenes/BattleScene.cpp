@@ -5,6 +5,8 @@
 #include "../gameObjects/UI/StatisticsUI.h"
 #include "../components/General Components/CallbackDelayer.h"
 #include "../gameObjects/UI/HandUI.h"
+#include "../telemetry/events/LevelStartedEvent.h"
+#include "../telemetry/events/LevelEndedEvent.h"
 
 // Constructora
 BattleScene::BattleScene(BattleType t_, bool tuto) : GameState(), type(t_) {
@@ -35,7 +37,7 @@ BattleScene::BattleScene(BattleType t_, bool tuto) : GameState(), type(t_) {
 	battleSceneOST->play();
 	sdlutils().focusMouseOnWindow();
 
-	TelemetryTracker::instance()->addEvent(EventType::START_LEVEL, PlayerData::instance()->getLevel());
+	TelemetryTracker::instance()->addEvent(new LevelStartedEvent(PlayerData::instance()->getLevel()));
 }
 
 BattleScene::~BattleScene()
@@ -90,7 +92,7 @@ void BattleScene::OnPlayerDies() {
 	player->removeComponent<PlayerInputComponent>();
 	player->removeComponent<CardComponent>();
 	pointer->removeComponent<Image>();
-	TelemetryTracker::instance()->addEvent(EventType::END_LEVEL, false, PlayerData::instance()->getLevel());
+	TelemetryTracker::instance()->addEvent(new LevelEndedEvent(PlayerData::instance()->getLevel(), false));
 }
 
 void BattleScene::OnPlayerDamage(float value) {

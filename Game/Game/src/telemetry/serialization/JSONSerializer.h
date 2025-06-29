@@ -4,11 +4,15 @@
 class JSONSerializer : public ISerializer
 { 
 private:
+	bool first;
 
 public:
 	JSONSerializer();
 	~JSONSerializer();
 
-	virtual std::string serialize(GenericEvent* event);
+	virtual std::string startSerializing();
+	virtual std::string serialize(EventQueue* events);
+	virtual std::string finishSerializing();
+	virtual std::string getExtension();
 };
 

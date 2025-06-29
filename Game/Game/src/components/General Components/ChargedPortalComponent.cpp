@@ -1,5 +1,7 @@
 #include "ChargedPortalComponent.h"
 #include "../../core/SDLApplication.h"
+#include "../../telemetry/events/CanExitLevelEvent.h"
+#include "../../telemetry/events/ExitFailedEvent.h"
 
 
 ChargedPortalComponent::ChargedPortalComponent(vector<GameObject*>& nums, GameState* scen) : Component(), 
@@ -26,7 +28,7 @@ void ChargedPortalComponent::update() {
 
 // Activar la salida para que el update empiece a recoger input
 void ChargedPortalComponent::activateExit() {
-	if (!exit) TelemetryTracker::instance()->addEvent(EventType::LEVEL_EXIT_POSSIBLE, PlayerData::instance()->getLevel());
+	if (!exit) TelemetryTracker::instance()->addEvent(new CanExitLevelEvent(PlayerData::instance()->getLevel()));
 	
 	exit = true;
 }
@@ -51,6 +53,6 @@ void ChargedPortalComponent::countDownSetup() {
 	}
 	else 
 	{
-		TelemetryTracker::instance()->addEvent(EventType::LEAVE_FAILED, PlayerData::instance()->getLevel());
+		TelemetryTracker::instance()->addEvent(new ExitFailedEvent(PlayerData::instance()->getLevel()));
 	}
 }

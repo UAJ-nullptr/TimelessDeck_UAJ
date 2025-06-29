@@ -1,4 +1,6 @@
 #include "SDLApplication.h"
+#include "../telemetry/events/SessionStartedEvent.h"
+#include "../telemetry/events/SessionEndedEvent.h"
 
 // Constructora
 SDLApplication::SDLApplication() {
@@ -20,7 +22,7 @@ SDLApplication::SDLApplication() {
 
 	mainMusic = &sdlutils().musics().at(MAIN_MUSIC);
 
-	TelemetryTracker::init("TimlessDeck", "1.0.0", 1);
+	TelemetryTracker::init("TimelessDeck", "1.0.0", 1);
 	telemetryTracker = TelemetryTracker::instance();
 }
 
@@ -45,7 +47,7 @@ void SDLApplication::run() {
 	Uint64 LAST = 0;
 	
 
-	telemetryTracker->addEvent(EventType::START_SESSION);
+	telemetryTracker->addEvent(new SessionStartedEvent());
 
 	while (!exit) {
 		InputHandler::instance()->refresh();
@@ -79,7 +81,7 @@ void SDLApplication::run() {
 			gmCtrl().changeToKeyboard();
 		}
 	}
-	telemetryTracker->addEvent(EventType::END_SESSION);
+	telemetryTracker->addEvent(new SessionEndedEvent());
 	telemetryTracker->flush();
 
 	gameStateMachine->clearStates();

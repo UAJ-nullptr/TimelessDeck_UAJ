@@ -2,6 +2,7 @@
 #include "../core/SDLApplication.h"
 #include <iomanip>
 #include <sstream>
+#include "../telemetry/events/LevelEndedEvent.h"
 
 
 PostGameScene::PostGameScene(int dmg, int mlee, int rngd, int tnk, int mny, float tm) : damage(dmg), melee(mlee), ranged(rngd), tank(tnk), money(mny), time(tm), nextEvent(0), coolDown(0) {
@@ -14,7 +15,7 @@ PostGameScene::PostGameScene(int dmg, int mlee, int rngd, int tnk, int mny, floa
 	newCard = PlayerData::instance()->getNewCard();
 	PlayerData::instance()->addMoney(money);
 
-	TelemetryTracker::instance()->addEvent(EventType::END_LEVEL, true, PlayerData::instance()->getLevel());
+	TelemetryTracker::instance()->addEvent(new LevelEndedEvent(PlayerData::instance()->getLevel(), true));
 
 	PlayerData::instance()->nextLevel();
 

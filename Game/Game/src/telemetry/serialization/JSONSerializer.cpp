@@ -1,7 +1,8 @@
 #include "JSONSerializer.h"
 #include <memory>
+#include <vector>
 
-JSONSerializer::JSONSerializer()
+JSONSerializer::JSONSerializer() : first(true)
 {
 
 }
@@ -11,13 +12,42 @@ JSONSerializer::~JSONSerializer()
 
 }
 
-std::string JSONSerializer::serialize(GenericEvent* event)
+std::string JSONSerializer::startSerializing()
 {
-	JSONObject jEvent;
+	return "[\n";
+}
 
-	event->serializeToJSON(jEvent);
+std::string JSONSerializer::serialize(EventQueue* event)
+{
+	string myFileText = "";
 
-	std::unique_ptr<JSONValue> fileJSON(new JSONValue(jEvent));
+	while (event->size() > 0)
+	{
+		if (!first) myFileText += ",\n";
+		else first = false;
 
-	return JSON::Stringify(&*fileJSON);
+		myFileText += "\t";
+
+		JSONObject jEvent;
+		event->front()->serializeToJSON(jEvent);
+
+		std::unique_ptr<JSONValue> fileJSON(new JSONValue(jEvent));
+
+		myFileText += JSON::Stringify(&*fileJSON);
+
+		delete event->front();
+		event->deQueue();
+	}
+
+	return myFileText;
+}
+
+std::string JSONSerializer::finishSerializing()
+{
+	return "]\n";
+}
+
+std::string JSONSerializer::getExtension()
+{
+	return ".json";
 }

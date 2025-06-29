@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../utils/Singleton.h"
-#include "events/Events.h"
+#include "events/GenericEvent.h"
 #include "persistence/IPersistence.h"
 #include <chrono>
 
@@ -19,6 +19,8 @@ private:
 	double elapsedTime;
 	double timeLimit;
 
+	bool telemetrySystemCreated;
+
 	TelemetryTracker();
 	TelemetryTracker(string appName, string appVers, double timeLimit);
 
@@ -30,6 +32,6 @@ public:
 	void update(double deltaTime);
 	void flush();
 
-	void addEvent(EventType type,...);
+	void addEvent(GenericEvent* event);
 };
 

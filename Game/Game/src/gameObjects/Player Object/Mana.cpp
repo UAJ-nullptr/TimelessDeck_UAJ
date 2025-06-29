@@ -1,6 +1,7 @@
 ﻿#include "Mana.h"
 #include "../../core/SDLApplication.h"
 #include "../../components/ecs.h"
+#include "../../telemetry/events/ManaTakenEvent.h"
 
 void Mana::initGameObject(Vector2D pos){
 	manaPickSound = &sdlutils().soundEffects().at(MANA_PICK);
@@ -26,7 +27,7 @@ CallBackCol Mana::pickMana(){
 		else {
 			pD->setCurrMana(pD->getMaxMana());
 		}
-		TelemetryTracker::instance()->addEvent(EventType::MANA_TAKEN, pD->getCurrMana(), currentMana);
+		TelemetryTracker::instance()->addEvent(new ManaTakenEvent(pD->getCurrMana(), currentMana));
 		setAlive(false);
 	};
 }

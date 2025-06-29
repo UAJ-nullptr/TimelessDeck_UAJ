@@ -1,7 +1,10 @@
 #pragma once
 
 #include <string>
-#include "../events/Events.h"
+#include "../events/GenericEvent.h"
+#include "../DQueue.h"
+
+using EventQueue = DQueue<GenericEvent*,500>;
 
 class ISerializer
 {
@@ -11,6 +14,9 @@ public:
 	ISerializer();
 	~ISerializer();
 
-	virtual std::string serialize(GenericEvent* event);
+	virtual std::string startSerializing();
+	virtual std::string serialize(EventQueue* event);
+	virtual std::string finishSerializing();
+	virtual std::string getExtension();
 };
 

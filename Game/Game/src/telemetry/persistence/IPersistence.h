@@ -1,18 +1,18 @@
 #pragma once
-#include "queue"
+#include "../DQueue.h"
 #include "../serialization/ISerializer.h"
-#include "../events/Events.h"
 
 enum SerializerType {
 	JSON_SER,
 	CSV_SER,
-	YALM_SER
+	YAML_SER
 };
 
 class IPersistence
 {
 protected:
-	std::queue<GenericEvent*> events;
+	DQueue<GenericEvent*,500> events = DQueue<GenericEvent*, 500>();
+	//EventQueue events;
 
 	SerializerType serType;
 
@@ -22,6 +22,7 @@ public:
 	IPersistence(SerializerType serType = SerializerType::JSON_SER);
 	virtual ~IPersistence();
 
+	virtual bool init();
 	virtual void send(GenericEvent* event);
 
 	virtual void flush();

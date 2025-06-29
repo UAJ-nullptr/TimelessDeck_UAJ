@@ -8,6 +8,7 @@
 #include "../../gameObjects/Enemy Objects/BossEnemy.h"
 #include "../Enemy components/OnDeath.h"
 #include "../../gameObjects/Card Objects/Cards.h"
+#include "../../telemetry/events/PlayerHealedEvent.h"
 
 // Al construirse, adopta el gameObject y su manager como propios
 // Tambi�n define la vida m�xima del objeto
@@ -134,7 +135,7 @@ void HealthComponent::heal(int heal)
 	else lifePoints = modifiedMaxLife;
 	dynamic_cast<BattleScene*>(gStt)->OnPlayerDamage(lifePoints);
 
-	TelemetryTracker::instance()->addEvent(EventType::PLAYER_HEALED, lifePoints, heal, currentLife);
+	TelemetryTracker::instance()->addEvent(new PlayerHealedEvent(lifePoints, heal, currentLife));
 }
 
 // Al llegar la vida a 0, el objeto se dispone a morir
