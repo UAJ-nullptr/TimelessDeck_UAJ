@@ -1,0 +1,2368 @@
+0:
+  timeStamp: 1751228357356110300
+  eType: 0
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+
+1:
+  timeStamp: 1751228393184582000
+  eType: 2
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 1
+
+2:
+  timeStamp: 1751228395373114600
+  eType: 3
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 1
+  win: 1
+
+3:
+  timeStamp: 1751228405816514100
+  eType: 12
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+
+4:
+  timeStamp: 1751228406740777500
+  eType: 13
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  currentDeck:
+  - 0
+  - 0
+  - 0
+  - 2
+  - 2
+  - 12
+  - 1
+  - 1
+  - 1
+
+5:
+  timeStamp: 1751228407974073600
+  eType: 2
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+6:
+  timeStamp: 1751228410983817300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+7:
+  timeStamp: 1751228411050379900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+8:
+  timeStamp: 1751228411061823100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+9:
+  timeStamp: 1751228411061985200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+10:
+  timeStamp: 1751228411068229900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+11:
+  timeStamp: 1751228411070450600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+12:
+  timeStamp: 1751228411435539000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+13:
+  timeStamp: 1751228411486342200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+14:
+  timeStamp: 1751228411505389900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+15:
+  timeStamp: 1751228412978350800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+16:
+  timeStamp: 1751228414796746500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+17:
+  timeStamp: 1751228414884137300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+18:
+  timeStamp: 1751228414900054200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+19:
+  timeStamp: 1751228414900057300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+20:
+  timeStamp: 1751228414900720400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+21:
+  timeStamp: 1751228414918449500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+22:
+  timeStamp: 1751228415006311500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+23:
+  timeStamp: 1751228415685592900
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+24:
+  timeStamp: 1751228415858269500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+25:
+  timeStamp: 1751228420018590400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+26:
+  timeStamp: 1751228420026494500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+27:
+  timeStamp: 1751228420067500200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+28:
+  timeStamp: 1751228420484506600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+29:
+  timeStamp: 1751228420561314500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+30:
+  timeStamp: 1751228420565324100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+31:
+  timeStamp: 1751228422086166900
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+32:
+  timeStamp: 1751228422416181500
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+33:
+  timeStamp: 1751228422637217500
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+34:
+  timeStamp: 1751228422822177800
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+35:
+  timeStamp: 1751228422945173600
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+36:
+  timeStamp: 1751228423093648100
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+37:
+  timeStamp: 1751228423226205200
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+38:
+  timeStamp: 1751228426702565900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+39:
+  timeStamp: 1751228426707467100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+40:
+  timeStamp: 1751228426792536800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+41:
+  timeStamp: 1751228427725709300
+  eType: 5
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+42:
+  timeStamp: 1751228429617914900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 80
+  manaAfter: 85
+
+43:
+  timeStamp: 1751228429631252000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 85
+  manaAfter: 90
+
+44:
+  timeStamp: 1751228429632773700
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 90
+  manaAfter: 95
+
+45:
+  timeStamp: 1751228430480947300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 95
+  manaAfter: 100
+
+46:
+  timeStamp: 1751228430481457900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 100
+  manaAfter: 105
+
+47:
+  timeStamp: 1751228430558001300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 105
+  manaAfter: 110
+
+48:
+  timeStamp: 1751228430559912000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 110
+  manaAfter: 115
+
+49:
+  timeStamp: 1751228430581569500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+50:
+  timeStamp: 1751228430595713400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+51:
+  timeStamp: 1751228431417789600
+  eType: 5
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+52:
+  timeStamp: 1751228433072654700
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 35
+  manaAfter: 40
+
+53:
+  timeStamp: 1751228433075229600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 40
+  manaAfter: 45
+
+54:
+  timeStamp: 1751228433127135100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 45
+  manaAfter: 50
+
+55:
+  timeStamp: 1751228433249430800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 50
+  manaAfter: 55
+
+56:
+  timeStamp: 1751228433298476300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 55
+  manaAfter: 60
+
+57:
+  timeStamp: 1751228433313354200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 60
+  manaAfter: 65
+
+58:
+  timeStamp: 1751228433328237100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 65
+  manaAfter: 70
+
+59:
+  timeStamp: 1751228433351891200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 70
+  manaAfter: 75
+
+60:
+  timeStamp: 1751228433359058400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 75
+  manaAfter: 80
+
+61:
+  timeStamp: 1751228433372940500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 80
+  manaAfter: 85
+
+62:
+  timeStamp: 1751228433378856900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 85
+  manaAfter: 90
+
+63:
+  timeStamp: 1751228433404668000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 90
+  manaAfter: 95
+
+64:
+  timeStamp: 1751228434533143400
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+65:
+  timeStamp: 1751228435819039100
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+66:
+  timeStamp: 1751228440068265900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 95
+  manaAfter: 100
+
+67:
+  timeStamp: 1751228440144636400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 100
+  manaAfter: 105
+
+68:
+  timeStamp: 1751228440159100900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 105
+  manaAfter: 110
+
+69:
+  timeStamp: 1751228440894333900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 110
+  manaAfter: 115
+
+70:
+  timeStamp: 1751228440894334700
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+71:
+  timeStamp: 1751228440894335000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+72:
+  timeStamp: 1751228441842820400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+73:
+  timeStamp: 1751228443380292100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+74:
+  timeStamp: 1751228443408708200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+75:
+  timeStamp: 1751228443436235000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+76:
+  timeStamp: 1751228444822591700
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+77:
+  timeStamp: 1751228444837327000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+78:
+  timeStamp: 1751228448391187000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+79:
+  timeStamp: 1751228448391262500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+80:
+  timeStamp: 1751228448501428000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+81:
+  timeStamp: 1751228448511139200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+82:
+  timeStamp: 1751228448543296000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+83:
+  timeStamp: 1751228448548399200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+84:
+  timeStamp: 1751228448957327100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+85:
+  timeStamp: 1751228448961258500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+86:
+  timeStamp: 1751228449004958800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+87:
+  timeStamp: 1751228449499912000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+88:
+  timeStamp: 1751228449561471300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+89:
+  timeStamp: 1751228449600052100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+90:
+  timeStamp: 1751228456056678300
+  eType: 5
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+91:
+  timeStamp: 1751228465235977400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 35
+  manaAfter: 40
+
+92:
+  timeStamp: 1751228465241730900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 40
+  manaAfter: 45
+
+93:
+  timeStamp: 1751228465302075500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 45
+  manaAfter: 50
+
+94:
+  timeStamp: 1751228465991708800
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+95:
+  timeStamp: 1751228467448267100
+  eType: 8
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaStatus: 80
+  manaCost: 50
+
+96:
+  timeStamp: 1751228469128714600
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+97:
+  timeStamp: 1751228472822123400
+  eType: 9
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+98:
+  timeStamp: 1751228477282188000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 50
+  manaAfter: 55
+
+99:
+  timeStamp: 1751228477286671400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 55
+  manaAfter: 60
+
+100:
+  timeStamp: 1751228477302198900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 60
+  manaAfter: 65
+
+101:
+  timeStamp: 1751228477312881100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 65
+  manaAfter: 70
+
+102:
+  timeStamp: 1751228477316242400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 70
+  manaAfter: 75
+
+103:
+  timeStamp: 1751228477348361000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 75
+  manaAfter: 80
+
+104:
+  timeStamp: 1751228477381052600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 80
+  manaAfter: 85
+
+105:
+  timeStamp: 1751228477399845800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 85
+  manaAfter: 90
+
+106:
+  timeStamp: 1751228477405483000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 90
+  manaAfter: 95
+
+107:
+  timeStamp: 1751228477414010500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 95
+  manaAfter: 100
+
+108:
+  timeStamp: 1751228477460168200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 100
+  manaAfter: 105
+
+109:
+  timeStamp: 1751228477461922000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 105
+  manaAfter: 110
+
+110:
+  timeStamp: 1751228477543720200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 110
+  manaAfter: 115
+
+111:
+  timeStamp: 1751228477596577600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+112:
+  timeStamp: 1751228477600633500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+113:
+  timeStamp: 1751228477611036300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+114:
+  timeStamp: 1751228477615798100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+115:
+  timeStamp: 1751228477647826100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+116:
+  timeStamp: 1751228477668928200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+117:
+  timeStamp: 1751228477760571400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+118:
+  timeStamp: 1751228477871211700
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+119:
+  timeStamp: 1751228477895020400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+120:
+  timeStamp: 1751228477942445700
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+121:
+  timeStamp: 1751228478400606200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+122:
+  timeStamp: 1751228478403726200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+123:
+  timeStamp: 1751228478409155600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+124:
+  timeStamp: 1751228479178186000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+125:
+  timeStamp: 1751228485083737800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+126:
+  timeStamp: 1751228485098383200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+127:
+  timeStamp: 1751228485182306500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+128:
+  timeStamp: 1751228488248177500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+129:
+  timeStamp: 1751228488279343000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+130:
+  timeStamp: 1751228489258088800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+131:
+  timeStamp: 1751228489272797600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+132:
+  timeStamp: 1751228489295034300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+133:
+  timeStamp: 1751228489495740900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+134:
+  timeStamp: 1751228489553416600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+135:
+  timeStamp: 1751228489565918700
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+136:
+  timeStamp: 1751228490079670800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+137:
+  timeStamp: 1751228490155796600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+138:
+  timeStamp: 1751228490167342100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+139:
+  timeStamp: 1751228490271614700
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+
+140:
+  timeStamp: 1751228492905690100
+  eType: 3
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 2
+  win: 1
+
+141:
+  timeStamp: 1751228500012037700
+  eType: 12
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+
+142:
+  timeStamp: 1751228500137143900
+  eType: 12
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+
+143:
+  timeStamp: 1751228500736954600
+  eType: 13
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  currentDeck:
+  - 0
+  - 0
+  - 0
+  - 2
+  - 2
+  - 12
+  - 12
+  - 12
+  - 1
+  - 1
+  - 1
+
+144:
+  timeStamp: 1751228508159398600
+  eType: 12
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+
+145:
+  timeStamp: 1751228508693813500
+  eType: 13
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  currentDeck:
+  - 0
+  - 0
+  - 0
+  - 2
+  - 2
+  - 12
+  - 12
+  - 12
+  - 10
+  - 1
+  - 1
+  - 1
+
+146:
+  timeStamp: 1751228509334093600
+  eType: 2
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+147:
+  timeStamp: 1751228510992288200
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+148:
+  timeStamp: 1751228511828434600
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+149:
+  timeStamp: 1751228514347253800
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+150:
+  timeStamp: 1751228514584481000
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+151:
+  timeStamp: 1751228519489622500
+  eType: 6
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  lifeBeforeHeal: 80
+  attemptedHeal: 2
+  lifeAfterHeal: 82
+
+152:
+  timeStamp: 1751228519489638100
+  eType: 5
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+153:
+  timeStamp: 1751228524235941600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 80
+  manaAfter: 85
+
+154:
+  timeStamp: 1751228524246673900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 85
+  manaAfter: 90
+
+155:
+  timeStamp: 1751228527664920500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 90
+  manaAfter: 95
+
+156:
+  timeStamp: 1751228527670272300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 95
+  manaAfter: 100
+
+157:
+  timeStamp: 1751228527745339300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 100
+  manaAfter: 105
+
+158:
+  timeStamp: 1751228528481826100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 105
+  manaAfter: 110
+
+159:
+  timeStamp: 1751228528548030300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 110
+  manaAfter: 115
+
+160:
+  timeStamp: 1751228529264096400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+161:
+  timeStamp: 1751228529318063300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+162:
+  timeStamp: 1751228529328766200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+163:
+  timeStamp: 1751228529760967100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+164:
+  timeStamp: 1751228529796417100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+165:
+  timeStamp: 1751228529810282000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+166:
+  timeStamp: 1751228529844655700
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+167:
+  timeStamp: 1751228531439148400
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+168:
+  timeStamp: 1751228531842031000
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+169:
+  timeStamp: 1751228532594203200
+  eType: 6
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  lifeBeforeHeal: 62
+  attemptedHeal: 0
+  lifeAfterHeal: 62
+
+170:
+  timeStamp: 1751228532594216300
+  eType: 5
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+171:
+  timeStamp: 1751228533146575000
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+172:
+  timeStamp: 1751228536833098800
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+173:
+  timeStamp: 1751228538962277400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 80
+  manaAfter: 85
+
+174:
+  timeStamp: 1751228538971725400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 85
+  manaAfter: 90
+
+175:
+  timeStamp: 1751228539062366400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 90
+  manaAfter: 95
+
+176:
+  timeStamp: 1751228539063141400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 95
+  manaAfter: 100
+
+177:
+  timeStamp: 1751228539064035200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 100
+  manaAfter: 105
+
+178:
+  timeStamp: 1751228539070434800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 105
+  manaAfter: 110
+
+179:
+  timeStamp: 1751228539078259800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 110
+  manaAfter: 115
+
+180:
+  timeStamp: 1751228539134875500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+181:
+  timeStamp: 1751228539157087200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+182:
+  timeStamp: 1751228539638019400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+183:
+  timeStamp: 1751228539653655600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+184:
+  timeStamp: 1751228539662615500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+185:
+  timeStamp: 1751228540012795100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+186:
+  timeStamp: 1751228540046294200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+187:
+  timeStamp: 1751228540124395600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+188:
+  timeStamp: 1751228543908414600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+189:
+  timeStamp: 1751228543910736000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+190:
+  timeStamp: 1751228543959698600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+191:
+  timeStamp: 1751228544539492400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+192:
+  timeStamp: 1751228544579923000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+193:
+  timeStamp: 1751228544591852800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+194:
+  timeStamp: 1751228545384979700
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+195:
+  timeStamp: 1751228545409982200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+196:
+  timeStamp: 1751228545438018000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+197:
+  timeStamp: 1751228546678180100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+198:
+  timeStamp: 1751228546716463800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+199:
+  timeStamp: 1751228546750005600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+200:
+  timeStamp: 1751228547026633900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+201:
+  timeStamp: 1751228547026635000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+202:
+  timeStamp: 1751228547026635300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+203:
+  timeStamp: 1751228549179156400
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+204:
+  timeStamp: 1751228551268827300
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+205:
+  timeStamp: 1751228553344276800
+  eType: 6
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  lifeBeforeHeal: 42
+  attemptedHeal: 30
+  lifeAfterHeal: 72
+
+206:
+  timeStamp: 1751228553344287000
+  eType: 5
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+207:
+  timeStamp: 1751228555211787800
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+208:
+  timeStamp: 1751228557110790100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 55
+  manaAfter: 60
+
+209:
+  timeStamp: 1751228557116242400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 60
+  manaAfter: 65
+
+210:
+  timeStamp: 1751228557130550400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 65
+  manaAfter: 70
+
+211:
+  timeStamp: 1751228557183619500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 70
+  manaAfter: 75
+
+212:
+  timeStamp: 1751228557202878500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 75
+  manaAfter: 80
+
+213:
+  timeStamp: 1751228557913307700
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 80
+  manaAfter: 85
+
+214:
+  timeStamp: 1751228558074392000
+  eType: 6
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  lifeBeforeHeal: 72
+  attemptedHeal: 2
+  lifeAfterHeal: 74
+
+215:
+  timeStamp: 1751228558074403500
+  eType: 5
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+216:
+  timeStamp: 1751228560394713900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 50
+  manaAfter: 55
+
+217:
+  timeStamp: 1751228560415052200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 55
+  manaAfter: 60
+
+218:
+  timeStamp: 1751228560451427000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 60
+  manaAfter: 65
+
+219:
+  timeStamp: 1751228560561982500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 65
+  manaAfter: 70
+
+220:
+  timeStamp: 1751228560584272100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 70
+  manaAfter: 75
+
+221:
+  timeStamp: 1751228560646345800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 75
+  manaAfter: 80
+
+222:
+  timeStamp: 1751228560954524300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 80
+  manaAfter: 85
+
+223:
+  timeStamp: 1751228561153683600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 85
+  manaAfter: 90
+
+224:
+  timeStamp: 1751228561169417200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 90
+  manaAfter: 95
+
+225:
+  timeStamp: 1751228562740055500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 95
+  manaAfter: 100
+
+226:
+  timeStamp: 1751228562745537500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 100
+  manaAfter: 105
+
+227:
+  timeStamp: 1751228562826184300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 105
+  manaAfter: 110
+
+228:
+  timeStamp: 1751228562866049800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 110
+  manaAfter: 115
+
+229:
+  timeStamp: 1751228562866775700
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+230:
+  timeStamp: 1751228563122859300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+231:
+  timeStamp: 1751228563241940400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+232:
+  timeStamp: 1751228563244510000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+233:
+  timeStamp: 1751228563314960000
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+234:
+  timeStamp: 1751228563806219700
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+235:
+  timeStamp: 1751228563855481200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+236:
+  timeStamp: 1751228563858137600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+237:
+  timeStamp: 1751228564084955000
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+238:
+  timeStamp: 1751228568667807700
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+239:
+  timeStamp: 1751228568667809200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+240:
+  timeStamp: 1751228568748606800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 115
+  manaAfter: 115
+
+241:
+  timeStamp: 1751228570312640800
+  eType: 4
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+242:
+  timeStamp: 1751228574177208600
+  eType: 6
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  lifeBeforeHeal: 34
+  attemptedHeal: 2
+  lifeAfterHeal: 36
+
+243:
+  timeStamp: 1751228574177218900
+  eType: 5
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+244:
+  timeStamp: 1751228575173143100
+  eType: 6
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  lifeBeforeHeal: 36
+  attemptedHeal: 2
+  lifeAfterHeal: 38
+
+245:
+  timeStamp: 1751228575173152700
+  eType: 5
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+246:
+  timeStamp: 1751228582952313500
+  eType: 9
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+247:
+  timeStamp: 1751228586950651600
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 45
+  manaAfter: 50
+
+248:
+  timeStamp: 1751228586955373800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 50
+  manaAfter: 55
+
+249:
+  timeStamp: 1751228587041577900
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 55
+  manaAfter: 60
+
+250:
+  timeStamp: 1751228587291579800
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 60
+  manaAfter: 65
+
+251:
+  timeStamp: 1751228587305735200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 65
+  manaAfter: 70
+
+252:
+  timeStamp: 1751228587331063100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 70
+  manaAfter: 75
+
+253:
+  timeStamp: 1751228587369091100
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 75
+  manaAfter: 80
+
+254:
+  timeStamp: 1751228587400351500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 80
+  manaAfter: 85
+
+255:
+  timeStamp: 1751228587410667400
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 85
+  manaAfter: 90
+
+256:
+  timeStamp: 1751228587541320300
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 90
+  manaAfter: 95
+
+257:
+  timeStamp: 1751228587713852200
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 95
+  manaAfter: 100
+
+258:
+  timeStamp: 1751228587735147500
+  eType: 7
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  manaBefore: 100
+  manaAfter: 105
+
+259:
+  timeStamp: 1751228593830173500
+  eType: 5
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+
+260:
+  timeStamp: 1751228600123636700
+  eType: 3
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  levelId: 3
+  win: 1
+
+261:
+  timeStamp: 1751228608953392000
+  eType: 12
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+
+262:
+  timeStamp: 1751228609542601200
+  eType: 13
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+  currentDeck:
+  - 4
+  - 0
+  - 0
+  - 0
+  - 2
+  - 2
+  - 12
+  - 12
+  - 12
+  - 10
+  - 1
+  - 1
+  - 1
+
+263:
+  timeStamp: 1751228610582987600
+  eType: 1
+  appName: TimelessDeck
+  appVersion: 1.0.0
+  sessionId: 16066
+
