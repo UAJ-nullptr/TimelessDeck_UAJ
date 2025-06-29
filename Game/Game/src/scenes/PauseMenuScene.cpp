@@ -1,5 +1,7 @@
 #include "PauseMenuScene.h"
 #include "../core/SDLApplication.h"
+#include "../telemetry/TelemetryTracker.h"
+#include "../telemetry/events/LevelEndedEvent.h"
 
 PauseMenuScene::PauseMenuScene() : GameState() {
 	// Imagen de fondo
@@ -19,7 +21,7 @@ PauseMenuScene::PauseMenuScene() : GameState() {
 	createButton(PM_OPTIONS_BUTTON_POS, PM_OPTIONSFRAME_BUTTON_POS, []() { SDLApplication::pushNewScene<OptionsMenuScene>(); }, OPTIONS);
 
 	// Botón salir
-	createButton(PM_EXIT_BUTTON_POS, PM_EXITFRAME_BUTTON_POS, []() { pD().loseSavedData(); SDLApplication::newScene<MainMenuScene>();}, EXIT);
+	createButton(PM_EXIT_BUTTON_POS, PM_EXITFRAME_BUTTON_POS, []() { TelemetryTracker::instance()->addEvent(new LevelEndedEvent(PlayerData::instance()->getLevel(), false)); pD().loseSavedData(); SDLApplication::newScene<MainMenuScene>();}, EXIT);
 	sdlutils().unfocusMouseOnWindow();
 }
 
