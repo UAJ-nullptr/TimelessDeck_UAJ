@@ -26,6 +26,9 @@ class EventLibrary :
 
     def __init__(self, folder, numEvents):
         self.createList(numEvents)
+        if not os.path.isdir(folder):
+            print(f"Carpeta no encontrada: {folder}")
+            return
         self.loadEvents(folder)
         if len(self.events[0]) == 0:
           print('No se encontraron archivos de telemetria\n')  

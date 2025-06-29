@@ -7,6 +7,7 @@ def getCurrentTime():
     return datetime.now().strftime("%H-%M-%S_%d-%m-%Y")
 
 def createFolder():
+    os.makedirs('results', exist_ok=True)
     folder = f"Graphics_{getCurrentTime()}"
     folder_path = os.path.join("results", folder)
     os.makedirs(folder_path, exist_ok=True)
