@@ -22,7 +22,7 @@ SDLApplication::SDLApplication() {
 
 	mainMusic = &sdlutils().musics().at(MAIN_MUSIC);
 
-	TelemetryTracker::init("TimlessDeck", "1.0.0", 1);
+	TelemetryTracker::init("TimelessDeck", "1.0.0", 1);
 	telemetryTracker = TelemetryTracker::instance();
 }
 
